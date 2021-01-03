@@ -22,8 +22,13 @@ import RulesView from './Views/RulesView';
 import PaymentErrorView from './Views/PaymentErrorView';
 import PaymentSuccessView from './Views/PaymentSuccessView';
 
+import { Provider } from 'react-redux';
+
+import store from './Store';
+
 function App() {
   return (
+    <Provider store={store}>
    <Router>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container">
@@ -118,6 +123,7 @@ function App() {
           </p>
         </footer>
       </Router>
+      </Provider>
   );
 }
 
