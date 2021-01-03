@@ -1,0 +1,29 @@
+{
+    "gold": [
+        [6, 3, "7643", "6.00 PLN netto (7.38 PLN brutto)"],
+        [9, 7, "79550", "9.00 PLN netto (11.07 PLN brutto)"],
+        [19, 16, "91909", "19.00 PLN netto (23.37 PLN brutto)"],
+        [25, 30, "92505", "25.00 PLN netto (30.75 PLN brutto)"]
+    ],
+
+    "diamond": [
+        [15, 10, "??", "block"],
+        [40, 30, "??", "block"]
+    ],
+
+    "card1": [
+        [3, 0, "73550", "3.00 PLN netto (3.69 PLN brutto)"]
+    ],
+
+    "card10": [
+        [19, 0, "91909", "19.00 PLN netto (23.37 PLN brutto)"]
+    ],
+
+    "vehicle": [
+        [6, 1, "7643", "6.00 PLN netto (7.38 PLN brutto)"]
+    ],
+
+    "house": [
+        [6, 1, "7643", "6.00 PLN netto (7.38 PLN brutto)"]
+    ]
+}

@@ -1,0 +1,54 @@
+.vehicle {
+    width: 100%;
+    height: 100%;
+    background-color: #1f1f1f;
+    border: 1px solid #242424;
+    display: flex;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+.vehicle__details {
+    width: 100%;
+}
+
+.vehicle__details i{
+    font-size: 1rem;
+    margin-left: 4px;
+    display: inline-block;
+    position: relative;
+}
+
+.detail__name {
+    font-weight: 600;
+    color: #aaa;
+    margin-right: 2px;
+}
+
+.vehicle__img {
+    width: 100%;
+}
+
+.vehicle__img img {
+    display: block;
+    margin: 0 auto;
+}
+
+.vehicle h3 {
+    font-size: 1.6rem;
+    text-align: center;
+    color: #fff;
+}
+
+.vehicle h4 {
+    display: block;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #b89935;
+    font-weight: 600;
+}
+
+.seller {
+    font-size: 0.9rem;
+}
