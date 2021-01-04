@@ -1,5 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -15,13 +16,14 @@ html{
 body{
     color: #ffffff;
     /* font-family: 'Lato', sans-serif; */
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-image: url('../../Assets/Images/Background/xmas.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     overflow: auto;
+    position: relative;
 }
 
 body:after{
@@ -282,9 +284,13 @@ svg{
 }
 
 .btn__dark:hover{
-  box-shadow: 0 0px 20px 5px rgba(40, 40, 40,.3);
+  box-shadow: 0 0 0 0.25rem;
   transition: all .5s;
   color: #ddd;
+}
+
+.btn__dark:focus{
+  box-shadow: 0 0 0 0.25rem;
 }
 
 
@@ -302,7 +308,8 @@ svg{
     background-color: #fff;
     border-color: #17191f;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(23, 25, 31,.25);
+    /* box-shadow: 0 0 0 0.2rem rgba(23, 25, 31,.25); */
+    box-shadow: 0 0 0 0.25rem;
 }
 
 .form-control::placeholder {

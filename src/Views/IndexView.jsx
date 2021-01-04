@@ -16,7 +16,7 @@ class IndexView extends React.Component {
             {/* LASTES CHARACTER */}
             <div className="panel mt-5">
               <div className="panel__header">
-                <h1 className="mb-0">Najnowsi użytkownicy</h1>
+                <h1 className="mb-0">Najnowsi gracze</h1>
               </div>
               <div className="panel__body">
                 <div className="row">

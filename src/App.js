@@ -5,13 +5,16 @@ import {
   NavLink
 } from "react-router-dom";
 
-import "./Assets/Css/bootstrap/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 import './Assets/Css/style.css';
 import './Assets/Css/shopStyle.css';
 import './Assets/Css/exchangeStyle.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-import Logo from "./Assets/Images/Logo/logo_xmas.png";
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
 
 import IndexView from './Views/IndexView';
 import ShopView from "./Views/ShopView";
@@ -22,74 +25,10 @@ import RulesView from './Views/RulesView';
 import PaymentErrorView from './Views/PaymentErrorView';
 import PaymentSuccessView from './Views/PaymentSuccessView';
 
-import { Provider } from 'react-redux';
-
-import store from './Store';
-
 function App() {
   return (
-    <Provider store={store}>
    <Router>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div className="container">
-            <NavLink className="navbar-brand" to="/">
-              <img src={Logo} alt="InsideMTA" />
-            </NavLink>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <NavLink exact className="nav-link" activeClassName="selected" to="/">
-                    Strona główna
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="https://forum.insidemta.pl/">
-                    Forum
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <NavLink exact className="nav-link" activeClassName="selected" to="/exchange">
-                    Giełda
-                  </NavLink>
-                </li>
-                {/* <li className="nav-item">
-                  <a className="nav-link" href="https://forum.insidemta.pl/index.php?/staff/">
-                    Administracja
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="https://forum.insidemta.pl/">
-                    Pomoc
-                  </a>
-                </li> */}
-                <li className="nav-item">
-                  <NavLink exact className="nav-link" activeClassName="selected" to="/shop">
-                    Sklep
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="btn__navbar btn__dark btn-block" to="/login">
-                    Zaloguj się
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
-        <div>
+          <Navbar />
           <Switch>
             <Route exact path="/">
               <IndexView />
@@ -113,17 +52,8 @@ function App() {
               <LoginView />
             </Route>
           </Switch>
-        </div>
-        <footer className="mt-5">
-          <p className="text-muted text-small text-center m-0 p-0">
-            Copyright &copy; 2021 InsideMTA
-          </p>
-          <p className="text-muted text-small text-center">
-            <a href="/regulamin">Regulamin serwisu</a>
-          </p>
-        </footer>
+          <Footer />
       </Router>
-      </Provider>
   );
 }
 
