@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url("https://fonts.googleapis.com/css?family=Abel");
 
 .center {
   position: absolute;
@@ -12,7 +12,7 @@
   max-width: 450px;
   height: 280px;
   background-color: #1f1f1f;
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
   border-radius: 6px;
   overflow: hidden;
   position: relative;
@@ -89,7 +89,7 @@
   top: 10%;
   right: -2px;
   height: 80%;
-  border-left: 2px solid rgba(0,0,0,0.065);
+  border-left: 2px solid rgba(0, 0, 0, 0.065);
 }
 
 .card .additional .shop-card .level,
@@ -99,7 +99,7 @@
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: bold;
-  background: rgba(0,0,0,0.15);
+  background: rgba(0, 0, 0, 0.15);
   padding: 0.125rem 0.75rem;
   border-radius: 100px;
   white-space: nowrap;
@@ -186,47 +186,44 @@ hr.shop {
   height: 1px;
 }
 
-
 @media only screen and (max-width: 1199px) {
-    .card .additional {
-        width: 120px;
-    }
-    .card .additional .shop-card {
-        width: 120px;
-    }
-    .card .additional .more-info {
-        width: 350px;
-        left: 100px;
-    }
+  .card .additional {
+    width: 120px;
+  }
+  .card .additional .shop-card {
+    width: 120px;
+  }
+  .card .additional .more-info {
+    width: 350px;
+    left: 100px;
+  }
 }
 
 @media only screen and (max-width: 539px) {
-    .card {
-      height: 340px
-    }
-    .card .additional {
-        width: 20px;
-    }
-    .card .additional .shop-card {
-        display: none;
-    }
-    .card .additional .more-info {
-        width: 100%;
-        left: 0px;
-        display: none;
-    }
-    .card:hover .additional .more-info {
-      display: block;
-    }
-    .card .general {
-      width: calc(100% - 30px);
-    }
-    .card .general h2 {
-      text-align: left;
-    }
+  .card {
+    height: 340px;
+  }
+  .card .additional {
+    width: 20px;
+  }
+  .card .additional .shop-card {
+    display: none;
+  }
+  .card .additional .more-info {
+    width: 100%;
+    left: 0px;
+    display: none;
+  }
+  .card:hover .additional .more-info {
+    display: block;
+  }
+  .card .general {
+    width: calc(100% - 30px);
+  }
+  .card .general h2 {
+    text-align: left;
+  }
 }
-
-
 
 .dropdown {
   display: inline-block;
@@ -238,16 +235,22 @@ hr.shop {
   border-radius: 3px;
   background: #17191f;
   border-color: #17191f #17191f #17191f;
-  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+  background-image: -webkit-linear-gradient(
+    top,
+    transparent,
+    rgba(0, 0, 0, 0.4)
+  );
   background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
   background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
   background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
-  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1),
+    0 1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-.dropdown:before, .dropdown:after {
-  content: '';
+.dropdown:before,
+.dropdown:after {
+  content: "";
   position: absolute;
   z-index: 4;
   top: 14px;
@@ -296,11 +299,10 @@ hr.shop {
   outline: 0px;
   outline-offset: -2px;
   color: #bbb;
-
 }
 
 .dropdown-select:focus > select {
-  box-shadow: 0 0 0 0.2rem rgba(23, 25, 31,.25);
+  box-shadow: 0 0 0 0.2rem rgba(23, 25, 31, 0.25);
 }
 
 .dropdown-select > option {
@@ -315,21 +317,21 @@ hr.shop {
   z-index: 5;
 }
 
- /* Fix for IE 8 putting the arrows behind the select element. */
+/* Fix for IE 8 putting the arrows behind the select element. */
 
- .lt-ie9 .dropdown {
-   z-index: 1;
- }
+.lt-ie9 .dropdown {
+  z-index: 1;
+}
 
- .lt-ie9 .dropdown-select {
-   z-index: -1;
- }
+.lt-ie9 .dropdown-select {
+  z-index: -1;
+}
 
- .lt-ie9 .dropdown-select:focus {
-   z-index: 3;
- }
+.lt-ie9 .dropdown-select:focus {
+  z-index: 3;
+}
 
- /* Dirty fix for Firefox adding padding where it shouldn't. */
+/* Dirty fix for Firefox adding padding where it shouldn't. */
 
 @-moz-document url-prefix() {
   .dropdown-select {

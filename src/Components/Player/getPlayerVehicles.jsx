@@ -28,7 +28,9 @@ class getPlayerVehicles extends React.Component {
                       />
                       <span className="player__cricle__online"></span>
                     </div>
-                    <h6 className="mt-2 text-muted text-break">{object.model}</h6>
+                    <h6 className="mt-2 text-muted text-break">
+                      {object.model}
+                    </h6>
                   </div>
                 </div>
               </div>
@@ -45,13 +47,12 @@ class getPlayerVehicles extends React.Component {
               height={80}
               width={80}
             />
-          <p className="text-small text-center text-muted mb-0">
-            Nie posiadasz żadnych pojazdów
-          </p>
-        </div>
+            <p className="text-small text-center text-muted mb-0">
+              Nie posiadasz żadnych pojazdów
+            </p>
+          </div>
         );
       }
-
     } else {
       return (
         <div className="block__center w-100 h-100 mt-5 mb-5">

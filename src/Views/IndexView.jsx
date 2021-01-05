@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 import LatestCharacter from "../Components/Player/getLatestPlayer";
 import GetOnlinePlayers from "../Components/Player/getOnlinePlayers";
 import Weather from "../Components/Weather/weather";
 
 import Discord from "../Assets/Images/Social/discord.png";
 import Server from "../Assets/Images/Social/server.png";
-
 
 class IndexView extends React.Component {
   render() {

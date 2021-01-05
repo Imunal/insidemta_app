@@ -21,7 +21,10 @@ class getOnlinePlayers extends React.Component {
       await this.sleep(2000);
       const url = "https://admin.insidemta.pl/api/getOnlinePlayers";
       const response = await axios.get(url);
-      this.setState({ onlinePlayers: response.data, onlinePlayersLoaded: true });
+      this.setState({
+        onlinePlayers: response.data,
+        onlinePlayersLoaded: true,
+      });
     } catch (error) {
       this.setState({ onlinePlayersLoaded: true });
     }
@@ -44,7 +47,9 @@ class getOnlinePlayers extends React.Component {
                       />
                       <span className="player__cricle__online"></span>
                     </div>
-                    <h6 className="mt-2 text-muted text-break">{object.username}</h6>
+                    <h6 className="mt-2 text-muted text-break">
+                      {object.username}
+                    </h6>
                   </div>
                 </div>
               </div>
@@ -61,16 +66,15 @@ class getOnlinePlayers extends React.Component {
               height={80}
               width={80}
             />
-          <p className="text-small text-center text-muted mb-0">
-            Na serwerze nie ma nikogo.
-          </p>
-          <p className="text-small text-center text-muted mb-0">
-            Może chcesz wejść i to zmienić?
-          </p>
-        </div>
+            <p className="text-small text-center text-muted mb-0">
+              Na serwerze nie ma nikogo.
+            </p>
+            <p className="text-small text-center text-muted mb-0">
+              Może chcesz wejść i to zmienić?
+            </p>
+          </div>
         );
       }
-
     } else {
       return (
         <div className="block__center w-100 h-100 mt-5 mb-5">
