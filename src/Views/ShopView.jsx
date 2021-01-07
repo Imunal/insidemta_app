@@ -1,4 +1,7 @@
-import React from "react";
+import {useState} from 'react';
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 import ShopPopup from "../Components/Shop/shopPopup";
 import ShopCard from "../Components/Shop/shopCard";
 
@@ -9,31 +12,28 @@ import CardsImg from "../Assets/Images/Shop/cards.png";
 import GarageImg from "../Assets/Images/Shop/garage.png";
 import HouseImg from "../Assets/Images/Shop/house.png";
 
-class ShopView extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      shopSelected: 0,
-    };
-
-    this.popupClose = this.popupClose.bind(this);
+const ShopView = () => {
+  const playerData = useSelector((state) => state.player);
+  const history = useHistory();
+  if(!playerData.personalToken) {
+    history.push("/login");
   }
 
-  popupOpen = (selected) => {
-    this.setState({ shopSelected: selected });
+  const [shopSelected, setShopSelected] = useState(null);
+
+  const popupOpen = (props_id) => {
+    setShopSelected(props_id);
+  }
+
+  const popupClose = () => {
+    setShopSelected(null);
   };
 
-  popupClose = () => {
-    this.setState({ shopSelected: null });
-  };
-
-  render() {
     return (
       <>
-        <ShopPopup
-          shopSelected={this.state.shopSelected}
-          popupClose={this.popupClose}
-        ></ShopPopup>
+      {
+        shopSelected ? <ShopPopup shopSelected={shopSelected} popupClose={popupClose} /> : null
+      }
 
         <div className="container">
           <div className="panel mt-5">
@@ -61,8 +61,9 @@ class ShopView extends React.Component {
                     type="Premium"
                     time="Czasowe"
                     class="gold"
-                    popupOpen={this.popupOpen}
-                  ></ShopCard>
+                    //onClick={() => setShopSelected(1)}
+                    popupOpen={() => popupOpen(1)}
+                  />
                 </div>
 
                 <div className="col-lg-6 mb-2">
@@ -85,8 +86,9 @@ class ShopView extends React.Component {
                     type="Premium"
                     time="Czasowe"
                     class="diamond"
-                    popupOpen={this.popupOpen}
-                  ></ShopCard>
+                    //onClick={() => setShopSelected(2)}
+                    popupOpen={() => popupOpen(2)}
+                  />
                 </div>
               </div>
 
@@ -106,8 +108,9 @@ class ShopView extends React.Component {
                     type="Karty"
                     time="1 zagranie"
                     class="cards"
-                    popupOpen={this.popupOpen}
-                  ></ShopCard>
+                    //onClick={() => setShopSelected(3)}
+                    popupOpen={() => popupOpen(3)}
+                  />
                 </div>
 
                 <div className="col-lg-6">
@@ -122,8 +125,9 @@ class ShopView extends React.Component {
                     type="Karty"
                     time="10 zagrań"
                     class="cards-big"
-                    popupOpen={this.popupOpen}
-                  ></ShopCard>
+                    //onClick={() => setShopSelected(4)}
+                    popupOpen={() => popupOpen(4)}
+                  />
                 </div>
               </div>
 
@@ -143,8 +147,9 @@ class ShopView extends React.Component {
                     type="Miejsce"
                     time="+1 miejsce"
                     class="car"
-                    popupOpen={this.popupOpen}
-                  ></ShopCard>
+                    //onClick={() => setShopSelected(5)}
+                    popupOpen={() => popupOpen(5)}
+                  />
                 </div>
 
                 <div className="col-lg-6">
@@ -159,8 +164,9 @@ class ShopView extends React.Component {
                     type="Miejsce"
                     time="+1 miejsce"
                     class="house"
-                    popupOpen={this.popupOpen}
-                  ></ShopCard>
+                    //onClick={() => setShopSelected(6)}
+                    popupOpen={() => popupOpen(6)}
+                  />
                 </div>
               </div>
             </div>
@@ -168,7 +174,6 @@ class ShopView extends React.Component {
         </div>
       </>
     );
-  }
 }
 
 export default ShopView;

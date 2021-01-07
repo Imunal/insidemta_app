@@ -4,9 +4,6 @@ import Loader from "react-loader-spinner";
 
 import { Link, useHistory } from "react-router-dom";
 
-//import {connect } from 'react-redux';
-//import {setAuthentication} from '../Actions';
-
 import { useSelector, useDispatch } from "react-redux";
 
 function LoginView() {

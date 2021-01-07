@@ -1,34 +1,31 @@
-import React from "react";
-
-class shopCard extends React.Component {
-  render() {
+const ShopCard = (props) => {
     return (
       <>
         <div
-          className={"card " + this.props.class}
-          onClick={() => this.props.popupOpen(this.props.id)}
-          key={this.props.id}
+          className={"card " + props.class}
+          onClick={() => props.popupOpen(props.id)}
+          key={props.id}
         >
           <div className="additional">
             <div className="shop-card">
-              <div className="level center">{this.props.type}</div>
-              <div className="points center">{this.props.time}</div>
+              <div className="level center">{props.type}</div>
+              <div className="points center">{props.time}</div>
               <div className="center card-icon">
-                <img src={this.props.icon} alt="Shop icon" />
+                <img src={props.icon} alt="Shop icon" />
               </div>
             </div>
 
             <div className="more-info">
               <h2>Informacje</h2>
-              {this.props.info.map((text, index) => (
+              {props.info.map((text, index) => (
                 <div className="coords" key={index}>
                   <span>{text}</span>
                 </div>
               ))}
 
-              {this.props.stats && (
+              {props.stats && (
                 <div className="stats">
-                  {this.props.stats.map((data, index) => (
+                  {props.stats.map((data, index) => (
                     <div key={index}>
                       <div className="title">{data[0]}</div>
                       <i className={data[1]}></i>
@@ -41,14 +38,13 @@ class shopCard extends React.Component {
           </div>
 
           <div className="general">
-            <h2>{this.props.title}</h2>
-            <p>{this.props.text}</p>
+            <h2>{props.title}</h2>
+            <p>{props.text}</p>
             <span className="more">Najedź na kartę po więcej informacji</span>
           </div>
         </div>
       </>
     );
   }
-}
 
-export default shopCard;
+export default ShopCard;

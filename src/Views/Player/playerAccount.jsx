@@ -2,7 +2,6 @@ import {useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-
 //Views
 import PlayerInformation from './Information/playerInformation';
 import PlayerVehicles from './Information/playerVehicles';
@@ -10,25 +9,25 @@ import PlayerRealEstate from './Information/playerRealEstate';
 import PlayerOrganizations from './Information/playerOrganizations';
 
 function PlayerAccount() {
+    const personalToken = useSelector((state) => state.player.personalToken);
     const dispatch = useDispatch();
     const history = useHistory();
-    const personalToken = useSelector((state) => state.player.personalToken);
     const [selectedPaginate, setPaginate] = useState(1);
 
     if(!personalToken) {
         history.push("/login");
     }
 
-    const renderPagination = () => {
+    const renderPagination = (selectedPaginate) => {
         switch(selectedPaginate){
             case 1:
-                return <PlayerInformation personalToken={personalToken}/>;
+                return <PlayerInformation/>;
             case 2:
-                return <PlayerVehicles personalToken={personalToken}/>;
+                return <PlayerVehicles/>;
             case 3:
-                return <PlayerRealEstate personalToken={personalToken} />;
+                return <PlayerRealEstate/>;
             case 4:
-                return <PlayerOrganizations personalToken={personalToken}/>;
+                return <PlayerOrganizations/>;
             case 5:
                 dispatch({ type: 'REMOVE_AUTHENTICATION' });
                 return history.push("/login");
@@ -47,8 +46,8 @@ function PlayerAccount() {
           <div className="row">
             <div className="col-md-3">
               <ul className="account__switcher">
-                <li className={"account__switch d-flex " + (selectedPaginate === 1 ? 'account__switch__active' : '')} onClick={() => setPaginate(1)}>
-                  <a>
+                <li role="button" className={"account__switch d-flex " + (selectedPaginate === 1 ? 'account__switch__active' : '')} onClick={() => setPaginate(1)}>
+                  <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -58,10 +57,10 @@ function PlayerAccount() {
                       <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
                     </svg>
                     Podstawowe informację
-                  </a>
+                  </div>
                 </li>
-                <li className={"account__switch d-flex " + (selectedPaginate === 2 ? 'account__switch__active' : '')} onClick={() => setPaginate(2)}>
-                  <a>
+                <li role="button" className={"account__switch d-flex " + (selectedPaginate === 2 ? 'account__switch__active' : '')} onClick={() => setPaginate(2)}>
+                  <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -81,10 +80,10 @@ function PlayerAccount() {
                       />
                     </svg>
                     Moje pojazdy
-                  </a>
+                  </div>
                 </li>
-                <li className={"account__switch d-flex " + (selectedPaginate === 3 ? 'account__switch__active' : '')} onClick={() => setPaginate(3)}>
-                  <a>
+                <li role="button" className={"account__switch d-flex " + (selectedPaginate === 3 ? 'account__switch__active' : '')} onClick={() => setPaginate(3)}>
+                  <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -100,10 +99,10 @@ function PlayerAccount() {
                       />
                     </svg>
                     Moje posiadłości
-                  </a>
+                  </div>
                 </li>
-                <li className={"account__switch d-flex " + (selectedPaginate === 4 ? 'account__switch__active' : '')} onClick={() => setPaginate(4)}>
-                  <a>
+                <li role="button" className={"account__switch d-flex " + (selectedPaginate === 4 ? 'account__switch__active' : '')} onClick={() => setPaginate(4)}>
+                  <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -119,20 +118,20 @@ function PlayerAccount() {
                       />
                     </svg>
                     Moje organizacje
-                  </a>
+                  </div>
                 </li>
-                <li className="account__switch d-flex" onClick={() => setPaginate(5)}>
-                  <a>
+                <li role="button" className="account__switch d-flex" onClick={() => setPaginate(5)}>
+                  <div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                     </svg>
                     Wyloguj się
-                  </a>
+                  </div>
                 </li>
               </ul>
             </div>
             <div className="col-md-9">
-                {renderPagination()}
+                {renderPagination(selectedPaginate)}
             </div>
           </div>
         </div>
