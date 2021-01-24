@@ -7,9 +7,9 @@ import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 function LoginView() {
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const isLogged = useSelector((state) => state.player.personalToken);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const isLogged = useSelector((state) => state.player.personalToken);
 
   if (isLogged) {
     history.push("/account");
@@ -39,7 +39,7 @@ function LoginView() {
           userPassword: userPassword,
         }
       );
-      dispatch({ type: 'SET_AUTHENTICATION', payload: response.data });
+      dispatch({ type: "SET_AUTHENTICATION", payload: response.data });
       history.push("/account");
     } catch (error) {
       console.log(error);
@@ -87,7 +87,10 @@ function LoginView() {
             ) : (
               ""
             )}
-            <form className="w-50 d-block m-auto" onSubmit={(e) => validateForm(e)}>
+            <form
+              className="w-50 d-block m-auto"
+              onSubmit={(e) => validateForm(e)}
+            >
               <div className="form-floating mb-3">
                 <input
                   type="text"

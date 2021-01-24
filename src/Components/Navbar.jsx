@@ -9,13 +9,19 @@ function Navbar() {
   const authView = () => {
     if (isLogged) {
       return (
-        <NavLink className="btn btn__navbar btn__dark btn-block align-self-center" to="/account">
+        <NavLink
+          className="btn btn__navbar btn__dark btn-block align-self-center"
+          to="/account"
+        >
           Moje konto
         </NavLink>
       );
     } else {
       return (
-        <NavLink className="btn btn__navbar btn__dark btn-block align-self-center" to="/login">
+        <NavLink
+          className="btn btn__navbar btn__dark btn-block align-self-center"
+          to="/login"
+        >
           Zaloguj się
         </NavLink>
       );

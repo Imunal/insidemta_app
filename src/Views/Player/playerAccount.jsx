@@ -1,40 +1,40 @@
-import {useState} from 'react';
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 //Views
-import PlayerInformation from './Information/playerInformation';
-import PlayerVehicles from './Information/playerVehicles';
-import PlayerRealEstate from './Information/playerRealEstate';
-import PlayerOrganizations from './Information/playerOrganizations';
+import PlayerInformation from "./Information/playerInformation";
+import PlayerVehicles from "./Information/playerVehicles";
+import PlayerRealEstate from "./Information/playerRealEstate";
+import PlayerOrganizations from "./Information/playerOrganizations";
 
 function PlayerAccount() {
-    const personalToken = useSelector((state) => state.player.personalToken);
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const [selectedPaginate, setPaginate] = useState(1);
+  const personalToken = useSelector((state) => state.player.personalToken);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [selectedPaginate, setPaginate] = useState(1);
 
-    if(!personalToken) {
-        history.push("/login");
-    }
+  if (!personalToken) {
+    history.push("/login");
+  }
 
-    const renderPagination = (selectedPaginate) => {
-        switch(selectedPaginate){
-            case 1:
-                return <PlayerInformation/>;
-            case 2:
-                return <PlayerVehicles/>;
-            case 3:
-                return <PlayerRealEstate/>;
-            case 4:
-                return <PlayerOrganizations/>;
-            case 5:
-                dispatch({ type: 'REMOVE_AUTHENTICATION' });
-                return history.push("/login");
-            default:
-                return null;
-        }
+  const renderPagination = (selectedPaginate) => {
+    switch (selectedPaginate) {
+      case 1:
+        return <PlayerInformation />;
+      case 2:
+        return <PlayerVehicles />;
+      case 3:
+        return <PlayerRealEstate />;
+      case 4:
+        return <PlayerOrganizations />;
+      case 5:
+        dispatch({ type: "REMOVE_AUTHENTICATION" });
+        return history.push("/login");
+      default:
+        return null;
     }
+  };
 
   return (
     <div className="container mt-5">
@@ -46,7 +46,14 @@ function PlayerAccount() {
           <div className="row">
             <div className="col-md-3">
               <ul className="account__switcher">
-                <li role="button" className={"account__switch d-flex " + (selectedPaginate === 1 ? 'account__switch__active' : '')} onClick={() => setPaginate(1)}>
+                <li
+                  role="button"
+                  className={
+                    "account__switch d-flex " +
+                    (selectedPaginate === 1 ? "account__switch__active" : "")
+                  }
+                  onClick={() => setPaginate(1)}
+                >
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +66,14 @@ function PlayerAccount() {
                     Podstawowe informację
                   </div>
                 </li>
-                <li role="button" className={"account__switch d-flex " + (selectedPaginate === 2 ? 'account__switch__active' : '')} onClick={() => setPaginate(2)}>
+                <li
+                  role="button"
+                  className={
+                    "account__switch d-flex " +
+                    (selectedPaginate === 2 ? "account__switch__active" : "")
+                  }
+                  onClick={() => setPaginate(2)}
+                >
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +96,14 @@ function PlayerAccount() {
                     Moje pojazdy
                   </div>
                 </li>
-                <li role="button" className={"account__switch d-flex " + (selectedPaginate === 3 ? 'account__switch__active' : '')} onClick={() => setPaginate(3)}>
+                <li
+                  role="button"
+                  className={
+                    "account__switch d-flex " +
+                    (selectedPaginate === 3 ? "account__switch__active" : "")
+                  }
+                  onClick={() => setPaginate(3)}
+                >
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +122,14 @@ function PlayerAccount() {
                     Moje posiadłości
                   </div>
                 </li>
-                <li role="button" className={"account__switch d-flex " + (selectedPaginate === 4 ? 'account__switch__active' : '')} onClick={() => setPaginate(4)}>
+                <li
+                  role="button"
+                  className={
+                    "account__switch d-flex " +
+                    (selectedPaginate === 4 ? "account__switch__active" : "")
+                  }
+                  onClick={() => setPaginate(4)}
+                >
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -120,19 +148,32 @@ function PlayerAccount() {
                     Moje organizacje
                   </div>
                 </li>
-                <li role="button" className="account__switch d-flex" onClick={() => setPaginate(5)}>
+                <li
+                  role="button"
+                  className="account__switch d-flex"
+                  onClick={() => setPaginate(5)}
+                >
                   <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      width="20"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                      />
                     </svg>
                     Wyloguj się
                   </div>
                 </li>
               </ul>
             </div>
-            <div className="col-md-9">
-                {renderPagination(selectedPaginate)}
-            </div>
+            <div className="col-md-9">{renderPagination(selectedPaginate)}</div>
           </div>
         </div>
       </div>

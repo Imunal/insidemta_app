@@ -1,60 +1,60 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
 const HotPayPayment = ({ shopSelected }) => {
-    const playerData = useSelector((state) => state.player.nickname);
+  const playerData = useSelector((state) => state.player.nickname);
 
-    const [selectedPayment, setSelectedPayment] = useState(null);
-    const [paymentPrice,    setPaymentPrice] = useState(null);
-    const [paymentOptions,  setPaymentOptions] = useState(null);
+  const [selectedPayment, setSelectedPayment] = useState(null);
+  const [paymentPrice, setPaymentPrice] = useState(null);
+  const [paymentOptions, setPaymentOptions] = useState(null);
 
-    useEffect(() => {
-        const getPaymentOptions = async () => {
-            try {
-                const response = await axios.get('http://localhost:8000/api/payment/options/'+shopSelected);
-                setPaymentOptions(response.data);
-            } catch (error) {
-                console.error(error);
-            }
-        }
-        getPaymentOptions();
-    }, [shopSelected]);
+  useEffect(() => {
+    const getPaymentOptions = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8000/api/payment/options/" + shopSelected
+        );
+        setPaymentOptions(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getPaymentOptions();
+  }, [shopSelected]);
 
-    return(
-        <>
-            <div className="row">
-                {
-                    paymentOptions ? (
-                                paymentOptions.map((option, index) => (
-                                    <div className="col-md-4 mt-2" key={index} role="button" onClick={() => {
-                                        setSelectedPayment(option.option_id);
-                                        setPaymentPrice(option.option_price);
-                                    }}>
-                                        <div className="panel__body__element text-center">
-                                            <h3 className="fw-900">
-                                                {option.option_days} dni
-                                            </h3>
-                                            <p>{option.option_price} zł brutto</p>
-                                        </div>
-                                    </div>
-                                ))
-                    ) : (
-                        null
-                    )
-                }
-                <div className="buttonSMS buttonCard mt-3">
-                    <div className="buttonSMS__container">
-                        <p>Płatność HotPay</p>
-                    </div>
+  return (
+    <>
+      <div className="row">
+        {paymentOptions
+          ? paymentOptions.map((option, index) => (
+              <div
+                className="col-md-4 mt-2"
+                key={index}
+                role="button"
+                onClick={() => {
+                  setSelectedPayment(option.option_id);
+                  setPaymentPrice(option.option_price);
+                }}
+              >
+                <div className="panel__body__element text-center">
+                  <h3 className="fw-900">{option.option_days} dni</h3>
+                  <p>{option.option_price} zł brutto</p>
                 </div>
-            </div>
-        </>
-    );
-}
+              </div>
+            ))
+          : null}
+        <div className="buttonSMS buttonCard mt-3">
+          <div className="buttonSMS__container">
+            <p>Płatność HotPay</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default HotPayPayment;
-
 
 /*getSMSPayment = () => {
     if (!this.state.isSMSPayment) return;
