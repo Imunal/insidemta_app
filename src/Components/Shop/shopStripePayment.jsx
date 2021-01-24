@@ -65,7 +65,7 @@ const StripePayment = ({ shopSelected }) => {
                   setPaymentPrice(option.option_price);
                 }}
               >
-                <div className="panel__body__element text-center">
+                <div className={`${selectedPayment === option.option_id ? 'shop__selected ' : ' '}panel__body__element text-center`}>
                   <h3 className="fw-900">{option.option_days} dni</h3>
                   <p>{option.option_price} zł brutto</p>
                 </div>

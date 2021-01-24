@@ -23,6 +23,10 @@ const HotPayPayment = ({ shopSelected }) => {
     getPaymentOptions();
   }, [shopSelected]);
 
+  const handleHotPay = () => {
+    
+  }
+
   return (
     <>
       <div className="row">
@@ -37,14 +41,14 @@ const HotPayPayment = ({ shopSelected }) => {
                   setPaymentPrice(option.option_price);
                 }}
               >
-                <div className="panel__body__element text-center">
+                <div className={`${selectedPayment === option.option_id ? 'shop__selected ' : ' '}panel__body__element text-center`}>
                   <h3 className="fw-900">{option.option_days} dni</h3>
                   <p>{option.option_price} zł brutto</p>
                 </div>
               </div>
             ))
           : null}
-        <div className="buttonSMS buttonCard mt-3">
+        <div className="buttonSMS buttonCard mt-3" onClick={() => handleHotPay()}>
           <div className="buttonSMS__container">
             <p>Płatność HotPay</p>
           </div>

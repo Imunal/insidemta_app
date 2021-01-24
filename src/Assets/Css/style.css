@@ -334,6 +334,10 @@ svg {
   color: #fff;
 }
 
+.shop__selected {
+  background-color: #151515 !important;
+}
+
 /* .diamond{
     color: #31caff;
 } */
