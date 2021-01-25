@@ -40,15 +40,10 @@ const HotPayPayment = ({ shopSelected }) => {
         selectedPremiumDays: selectedPayment,
         playerName: playerData,
         smsCode: codeState,
-        //number: smsData[0],
-        number: paymentOptions.option_smsNumber
+        number: paymentNumber
       })
-      .then((response) => {
-        if (response.data.status === 1) {
-          setPaymentSuccess('Pomyślnie zweryfikowano płaność.');
-        } else {
-          setPaymentError('Wystąpił błąd, upewnij się że wpisany kod jest prawidłowy.');
-        }
+      .then(() => {
+        setPaymentSuccess('Pomyślnie zweryfikowano płatność.');
       })
       .catch(() => {
         setPaymentError('Wystąpił błąd, upewnij się że wpisany kod jest prawidłowy.');
@@ -102,7 +97,7 @@ const HotPayPayment = ({ shopSelected }) => {
                 key={index}
                 role="button"
                 onClick={() => {
-                  setSelectedPayment(option.option_id);
+                  setSelectedPayment(option.option_days);
                   setPaymentPrice(option.option_price);
                   setPaymentNumber(option.option_smsNumber);
                 }}
@@ -121,12 +116,12 @@ const HotPayPayment = ({ shopSelected }) => {
         )}
         {paymentError ? (
           <div className="alert alert-danger" role="alert">
-            paymentError
+            {paymentError}
           </div>
         ) : ''}
         {paymentSuccess ? (
           <div className="alert alert-success" role="alert">
-            paymentSuccess
+            {paymentSuccess}
           </div>
         ) : ''}
       </div>
