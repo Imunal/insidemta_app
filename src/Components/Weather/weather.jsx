@@ -55,7 +55,7 @@ class Weather extends React.Component {
   getWeatherData = async () => {
     try {
       await this.sleep(2000);
-      const url = "https://admin.insidemta.pl/api/getWeather";
+      const url = "http://api.insidemta.pl/api/getWeather";
       const response = await axios.get(url);
       this.setState({ weatherData: response.data });
     } catch (error) {

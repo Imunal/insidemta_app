@@ -19,7 +19,7 @@ class getOnlinePlayers extends React.Component {
   getOnlinePlayers = async () => {
     try {
       await this.sleep(2000);
-      const url = "https://admin.insidemta.pl/api/getOnlinePlayers";
+      const url = "http://api.insidemta.pl/api/getOnlinePlayers";
       const response = await axios.get(url);
       this.setState({
         onlinePlayers: response.data,

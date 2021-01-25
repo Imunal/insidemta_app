@@ -258,7 +258,7 @@ class VehiclesView extends React.Component {
   getExchangeVehicles = async () => {
     try {
       await this.sleep(2000);
-      const url = "https://admin.insidemta.pl/api/getVehiclesExchange";
+      const url = "http://api.insidemta.pl/api/getVehiclesExchange";
       const response = await axios.get(url);
       this.setState({ vehicles: response.data, loading: false });
     } catch (error) {

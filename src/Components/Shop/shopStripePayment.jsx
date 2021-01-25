@@ -20,7 +20,7 @@ const StripePayment = ({ shopSelected }) => {
     const getPaymentOptions = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/payment/options/" + shopSelected
+          "http://api.insidemta.pl/api/payment/options/" + shopSelected
         );
         setPaymentOptions(response.data);
       } catch (error) {
@@ -40,7 +40,7 @@ const StripePayment = ({ shopSelected }) => {
     try {
       await axios
         .post(
-          "https://admin.insidemta.pl/api/payment/stripe/create-checkout-session",
+          "http://api.insidemta.pl/api/payment/stripe/create-checkout-session",
           {
             shopSelected: shopSelected,
             selectedPremiumDays: selectedPayment,

@@ -18,7 +18,7 @@ class latestCharacter extends React.Component {
   getLatestCharacter = async () => {
     try {
       await this.sleep(2000);
-      const url = "https://admin.insidemta.pl/api/getLatestPlayers";
+      const url = "http://api.insidemta.pl/api/getLatestPlayers";
       const response = await axios.get(url);
       this.setState({
         latestCharacters: response.data,
