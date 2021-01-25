@@ -18,9 +18,10 @@ class vehicleExchange extends React.Component {
         <div className="row flex-row vehicle">
           <div className="vehicle__img">
             <img
-              src={`https://api.insidemta.pl/cdn/vehicles/${this.props.model}.png`}
+              src={`https://cdn.insidemta.pl/vehicles/${this.props.model}.png`}
               className="img-fluid"
               alt="Vehicle"
+              loading="lazy"
             />
           </div>
           <div className="vehicle__details">

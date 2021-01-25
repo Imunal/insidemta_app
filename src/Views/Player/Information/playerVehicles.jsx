@@ -12,8 +12,9 @@ function PlayerVehicles() {
             <div className="panel__body__element text-center">
               <img
                 className="panel__body__image img-fluid"
-                src={`https://api.insidemta.pl/cdn/vehicles/${vehicle.model}.png`}
+                src={`https://cdn.insidemta.pl/vehicles/${vehicle.model}.png`}
                 alt="Skin"
+                loading="lazy"
               />
               <h6 className="mt-3 text-muted text-break">
                 {vehicle.model} ({vehicle.ID})

@@ -10,8 +10,9 @@ function PlayerInformation() {
         <div className="col-md-3 align-self-center">
           <img
             className="panel__body__image img-fluid"
-            src={`https://api.insidemta.pl/cdn/skins/${playerData.skin}.png`}
+            src={`https://cdn.insidemta.pl/skins/${playerData.skin}.png`}
             alt="Skin"
+            loading="lazy"
           />
         </div>
         <div className="col-md-4 align-self-center">

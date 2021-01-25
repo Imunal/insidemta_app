@@ -41,9 +41,10 @@ class getOnlinePlayers extends React.Component {
                   <div className="player">
                     <div className="player__circle block__center">
                       <img
-                        src={`https://api.insidemta.pl/cdn/skins/${object.skin}.png`}
+                        src={`https://cdn.insidemta.pl/skins/${object.skin}.png`}
                         className="img-fluid"
                         alt="Skin"
+                        loading="lazy"
                       />
                       <span className="player__cricle__online"></span>
                     </div>

@@ -22,9 +22,10 @@ class getPlayerVehicles extends React.Component {
                   <div className="player">
                     <div className="player__circle block__center">
                       <img
-                        src={`https://api.insidemta.pl/cdn/vehicles/${object.model}.png`}
+                        src={`https://cdn.insidemta.pl/vehicles/${object.model}.png`}
                         className="img-fluid"
                         alt="Model"
+                        loading="lazy"
                       />
                       <span className="player__cricle__online"></span>
                     </div>
