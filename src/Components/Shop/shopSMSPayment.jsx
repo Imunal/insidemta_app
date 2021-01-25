@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const HotPayPayment = ({ shopSelected }) => {
-  const playerData = useSelector((state) => state.player.nickname);
+  const playerData = useSelector((state) => state.player.username);
+  const history = useHistory();
+  if (!playerData) {
+    history.push("/login");
+  }
 
   const [selectedPayment, setSelectedPayment] = useState(null);
   const [paymentPrice, setPaymentPrice] = useState(null);
   const [paymentOptions, setPaymentOptions] = useState(null);
   const [codeState, setCodeState] = useState(null);
+  const [paymentError, setPaymentError] = useState(null);
+  const [paymentSuccess, setPaymentSuccess] = useState(null);
+  const [paymentNumber, setPaymentNumber] = useState(null);
 
   useEffect(() => {
     const getPaymentOptions = async () => {
@@ -24,17 +32,41 @@ const HotPayPayment = ({ shopSelected }) => {
     getPaymentOptions();
   }, [shopSelected]);
 
+  const validateSMS = () => {
+    const url = "http://localhost:8000/api/payment/sms";
+    axios
+      .post(url, {
+        shopSelected: shopSelected,
+        selectedPremiumDays: selectedPayment,
+        playerName: playerData,
+        smsCode: codeState,
+        //number: smsData[0],
+        number: paymentOptions.option_smsNumber
+      })
+      .then((response) => {
+        if (response.data.status === 1) {
+          setPaymentSuccess('Pomyślnie zweryfikowano płaność.');
+        } else {
+          setPaymentError('Wystąpił błąd, upewnij się że wpisany kod jest prawidłowy.');
+        }
+      })
+      .catch(() => {
+        setPaymentError('Wystąpił błąd, upewnij się że wpisany kod jest prawidłowy.');
+      });
+  }
+
   const handleHotPay = () => {
     return (
       <>
+        <hr className="mt-3 mb-3"></hr>
         <div className="form-group">
           <h3 className="form-help">Wyślij wiadomość SMS</h3>
           <p>
-            Numer: {smsData[0]}
+            Numer: <b>{paymentNumber}</b>
             <br />
-            Wiadomość: AVR.INSIDEMTA
+            Wiadomość: <b>AVR.INSIDEMTA</b>
             <br />
-            Koszt: {smsData[1]}
+            Koszt: <b>{paymentPrice} zł brutto</b>
             <br />
           </p>
         </div>
@@ -46,22 +78,13 @@ const HotPayPayment = ({ shopSelected }) => {
             id="smsCode"
             className="form-control"
             placeholder="Kod SMS"
-            onChange={setCodeState}
-            required
+            onChange={(e) => setCodeState(e.target.value)}
             autoComplete="off"
           />
         </div>
 
-        <div
-          className="form-group mb-0 mt-2"
-          style={{
-            display:
-              selectedPayment
-                ? "block"
-                : "none",
-          }}
-        >
-          <button type="submit" className="btn btn__dark btn-block">
+        <div className="d-grid">
+          <button type="submit" className="btn btn__dark btn-lg btn-block mt-3" onClick={() => validateSMS() }>
             Sprawdź kod
           </button>
         </div>
@@ -81,6 +104,7 @@ const HotPayPayment = ({ shopSelected }) => {
                 onClick={() => {
                   setSelectedPayment(option.option_id);
                   setPaymentPrice(option.option_price);
+                  setPaymentNumber(option.option_smsNumber);
                 }}
               >
                 <div className={`${selectedPayment === option.option_id ? 'shop__selected ' : ' '}panel__body__element text-center`}>
@@ -90,11 +114,21 @@ const HotPayPayment = ({ shopSelected }) => {
               </div>
             ))
           : null}
-        <div className="buttonSMS buttonCard mt-3" onClick={() => handleHotPay()}>
-          <div className="buttonSMS__container">
-            <p>Płatność HotPay</p>
+        {selectedPayment ? handleHotPay() : (
+          <p className="text-center mt-3">
+            Wybierz interesującą cię opcję zakupu.
+          </p>
+        )}
+        {paymentError ? (
+          <div className="alert alert-danger" role="alert">
+            paymentError
           </div>
-        </div>
+        ) : ''}
+        {paymentSuccess ? (
+          <div className="alert alert-success" role="alert">
+            paymentSuccess
+          </div>
+        ) : ''}
       </div>
     </>
   );

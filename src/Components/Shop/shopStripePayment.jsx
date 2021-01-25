@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import { loadStripe } from "@stripe/stripe-js";
 
 const StripePayment = ({ shopSelected }) => {
-  const playerData = useSelector((state) => state.player.nickname);
+  const playerData = useSelector((state) => state.player.username);
+  const history = useHistory();
+  if (!playerData) {
+    history.push("/login");
+  }
 
   const [selectedPayment, setSelectedPayment] = useState(null);
   const [paymentPrice, setPaymentPrice] = useState(null);

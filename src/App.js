@@ -22,7 +22,7 @@ import PaymentErrorView from "./Views/PaymentErrorView";
 import PaymentSuccessView from "./Views/PaymentSuccessView";
 
 import PlayerAccount from "./Views/Player/playerAccount";
-import playerPasswordRestore from "./Views/Player/playerPasswordRestore";
+import PlayerPasswordRestore from "./Views/Player/playerPasswordRestore";
 
 function App() {
   return (
@@ -54,7 +54,7 @@ function App() {
           <PlayerAccount />
         </Route>
         <Route path="/reset-password">
-          <playerPasswordRestore />
+          <PlayerPasswordRestore />
         </Route>
         <Route path="*">
           <NotFoundView />
