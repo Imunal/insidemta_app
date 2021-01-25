@@ -8,7 +8,7 @@ function PlayerPasswordRestore() {
 
   const resetPassword = () => {
       if(!userEmail) return;
-      axios.post('http://api.insidemta.pl/api/player/passwordReset', {
+      axios.post('https://api.insidemta.pl/api/player/passwordReset', {
         playerEmail: userEmail
       }).then(() => {
         setPaymentSuccess('Na twój adres e-mail została wysłana wiadomość z nowym hasłem.');

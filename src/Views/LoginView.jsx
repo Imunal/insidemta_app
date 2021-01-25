@@ -33,7 +33,7 @@ function LoginView() {
     setIsErrored("");
     try {
       const response = await axios.post(
-        "http://api.insidemta.pl/api/player/authenticate",
+        "https://api.insidemta.pl/api/player/authenticate",
         {
           userName: userName,
           userPassword: userPassword,

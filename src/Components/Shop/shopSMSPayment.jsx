@@ -22,7 +22,7 @@ const HotPayPayment = ({ shopSelected }) => {
     const getPaymentOptions = async () => {
       try {
         const response = await axios.get(
-          "http://api.insidemta.pl/api/payment/options/" + shopSelected
+          "https://api.insidemta.pl/api/payment/options/" + shopSelected
         );
         setPaymentOptions(response.data);
       } catch (error) {
@@ -33,7 +33,7 @@ const HotPayPayment = ({ shopSelected }) => {
   }, [shopSelected]);
 
   const validateSMS = () => {
-    const url = "http://api.insidemta.pl/api/payment/sms";
+    const url = "https://api.insidemta.pl/api/payment/sms";
     axios
       .post(url, {
         shopSelected: shopSelected,
@@ -187,7 +187,7 @@ export default HotPayPayment;
   checkSMSPayment = async () => {
     this.setState({ requestOpen: true });
 
-    const url = "http://api.insidemta.pl/api/payment/sms";
+    const url = "https://api.insidemta.pl/api/payment/sms";
     const smsData = this.getOptionSMS();
 
     axios
