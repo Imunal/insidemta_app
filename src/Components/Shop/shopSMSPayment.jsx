@@ -115,12 +115,12 @@ const HotPayPayment = ({ shopSelected }) => {
           </p>
         )}
         {paymentError ? (
-          <div className="alert alert-danger" role="alert">
+          <div className="alert alert-danger mt-3" role="alert">
             {paymentError}
           </div>
         ) : ''}
         {paymentSuccess ? (
-          <div className="alert alert-success" role="alert">
+          <div className="alert alert-success mt-3" role="alert">
             {paymentSuccess}
           </div>
         ) : ''}
