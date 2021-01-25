@@ -38,7 +38,7 @@ class latestCharacter extends React.Component {
               <div className="panel__body__element text-center">
                 <img
                   className="panel__body__image img-fluid"
-                  src={`https://cnd.insidemta.pl/skins/${object.skin}.png`}
+                  src={`https://cdn.insidemta.pl/skins/${object.skin}.png`}
                   alt="Skin"
                   loading="lazy"
                 />
