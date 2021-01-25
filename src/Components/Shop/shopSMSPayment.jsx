@@ -8,6 +8,7 @@ const HotPayPayment = ({ shopSelected }) => {
   const [selectedPayment, setSelectedPayment] = useState(null);
   const [paymentPrice, setPaymentPrice] = useState(null);
   const [paymentOptions, setPaymentOptions] = useState(null);
+  const [codeState, setCodeState] = useState(null);
 
   useEffect(() => {
     const getPaymentOptions = async () => {
@@ -24,7 +25,48 @@ const HotPayPayment = ({ shopSelected }) => {
   }, [shopSelected]);
 
   const handleHotPay = () => {
-    
+    return (
+      <>
+        <div className="form-group">
+          <h3 className="form-help">Wyślij wiadomość SMS</h3>
+          <p>
+            Numer: {smsData[0]}
+            <br />
+            Wiadomość: AVR.INSIDEMTA
+            <br />
+            Koszt: {smsData[1]}
+            <br />
+          </p>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="smsCode">Wprowadź kod z SMS:</label>
+          <input
+            name="smsCode"
+            id="smsCode"
+            className="form-control"
+            placeholder="Kod SMS"
+            onChange={setCodeState}
+            required
+            autoComplete="off"
+          />
+        </div>
+
+        <div
+          className="form-group mb-0 mt-2"
+          style={{
+            display:
+              selectedPayment
+                ? "block"
+                : "none",
+          }}
+        >
+          <button type="submit" className="btn btn__dark btn-block">
+            Sprawdź kod
+          </button>
+        </div>
+      </>
+    )
   }
 
   return (
