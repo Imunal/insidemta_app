@@ -4,6 +4,7 @@ import Loader from "react-loader-spinner";
 import Sadface from "../../Assets/Images/Player/no-found.png";
 
 class getOnlinePlayers extends React.Component {
+  _isMounted = true;
   constructor(props) {
     super(props);
     this.state = {
@@ -13,18 +14,25 @@ class getOnlinePlayers extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     this.getOnlinePlayers();
   }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  };
 
   getOnlinePlayers = async () => {
     try {
       await this.sleep(2000);
       const url = "https://api.insidemta.pl/api/getOnlinePlayers";
       const response = await axios.get(url);
-      this.setState({
-        onlinePlayers: response.data,
-        onlinePlayersLoaded: true,
-      });
+      if(this._isMounted){
+        this.setState({
+          onlinePlayers: response.data,
+          onlinePlayersLoaded: true,
+        });
+      }
     } catch (error) {
       this.setState({ onlinePlayersLoaded: true });
     }

@@ -17,7 +17,7 @@ body {
   color: #ffffff;
   /* font-family: 'Lato', sans-serif; */
   font-family: "Inter", sans-serif;
-  background-image: url("../../Assets/Images/Background/xmas.jpg");
+  background-image: url("../../Assets/Images/Background/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -74,9 +74,10 @@ svg {
 
 .panel__header h1 {
   color: #ccc;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 5px 5px;
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
 }
 
 .panel__body {
@@ -130,9 +131,11 @@ svg {
 
 .widget__header h1 {
   color: #ccc;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 900;
   padding: 15px 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
 }
 
 .widget__body {

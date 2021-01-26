@@ -3,6 +3,8 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 
 class latestCharacter extends React.Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +14,12 @@ class latestCharacter extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     this.getLatestCharacter();
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   getLatestCharacter = async () => {
@@ -20,10 +27,12 @@ class latestCharacter extends React.Component {
       await this.sleep(2000);
       const url = "https://api.insidemta.pl/api/getLatestPlayers";
       const response = await axios.get(url);
-      this.setState({
-        latestCharacters: response.data,
-        latestCharactersLoaded: true,
-      });
+      if (this._isMounted) {
+        this.setState({
+          latestCharacters: response.data,
+          latestCharactersLoaded: true,
+        });
+      }
     } catch (error) {
       console.error(error);
     }

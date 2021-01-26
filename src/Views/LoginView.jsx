@@ -100,6 +100,7 @@ function LoginView() {
                   className="form-control"
                   id="userName"
                   placeholder="Twój login"
+                  autoComplete="username"
                   required
                 />
                 <label htmlFor="userName">Wprowadź swój login z gry</label>
@@ -113,6 +114,7 @@ function LoginView() {
                   className="form-control"
                   id="userPassword"
                   placeholder="Twoje hasło"
+                  autoComplete="current-password"
                   required
                 />
                 <label htmlFor="userPassword">Wprowadź swoje hasło z gry</label>

@@ -35,19 +35,20 @@ function PlayerPasswordRestore() {
                     {paymentSuccess}
                 </div>
                 ) : ''}
-                <div className="form-group">
-                    <label htmlFor="emailInput">Wprowadź swój adres e-mail:</label>
+                <div className="form-floating mb-3">
                     <input
-                        name="emailInput"
-                        id="emailInput"
-                        className="form-control"
-                        placeholder="Adres e-mail"
-                        onChange={(e) => setUserEmail(e.target.value)}
-                        autoComplete="off"
+                      type="email"
+                      htmlFor="emailInput"
+                      onChange={(e) => setUserEmail(e)}
+                      className="form-control"
+                      id="emailInput"
+                      placeholder="Wprowadź swój adres e-mail"
+                      required
                     />
+                    <label htmlFor="emailInput">Wprowadź swój adres e-mail</label>
                 </div>
                 <div className="d-grid">
-                    <button type="submit" className="btn btn__dark btn-lg btn-block mt-3" onClick={() => resetPassword() }>
+                    <button type="submit" className="btn btn__dark btn-lg btn-block" onClick={() => resetPassword() }>
                         Zresetuj hasło
                     </button>
                 </div>

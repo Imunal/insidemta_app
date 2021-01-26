@@ -18,14 +18,13 @@ class VehiclesView extends React.Component {
     };
   }
 
-  //readonly VehicleData = JSON.parse(JSON.stringify(VehicleData))
-
   componentDidMount() {
     this.getExchangeVehicles();
   }
 
   getVehicleName(model) {
-    return this.VehicleData.names[model - 400];
+    const gameVehicles = JSON.parse(JSON.stringify(VehicleData))
+    return gameVehicles.names[model - 400];
   }
 
   getVehicleColor(colors, type) {
@@ -43,8 +42,9 @@ class VehiclesView extends React.Component {
     if (!upgrades) return "Brak";
 
     let tuning = "";
+    const gameVehicles = JSON.parse(JSON.stringify(VehicleData))
     upgrades[0].map((object, index) => {
-      tuning += VehicleData.upgrades[object - 1000];
+      tuning += gameVehicles.upgrades[object - 1000];
 
       if (index + 1 < upgrades[0].length) tuning += ", ";
 
@@ -168,10 +168,9 @@ class VehiclesView extends React.Component {
   }
 
   isVehicleInCategory(model) {
+    const gameVehicles = JSON.parse(JSON.stringify(VehicleData))
     if (this.state.sortingVehicleType === "all") return true;
-    if (
-      this.findInTable(this.VehicleData[this.state.sortingVehicleType], model)
-    )
+    if (this.findInTable(gameVehicles[this.state.sortingVehicleType], model))
       return true;
     return false;
   }

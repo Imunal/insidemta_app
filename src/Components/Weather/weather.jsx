@@ -5,6 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
 class Weather extends React.Component {
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -49,7 +50,12 @@ class Weather extends React.Component {
   ];
 
   componentDidMount = () => {
+    this._isMounted = true;
     this.getWeatherData();
+  };
+
+  componentWillUnmount() {
+    this._isMounted = false;
   };
 
   getWeatherData = async () => {
@@ -57,7 +63,9 @@ class Weather extends React.Component {
       await this.sleep(2000);
       const url = "https://api.insidemta.pl/api/getWeather";
       const response = await axios.get(url);
-      this.setState({ weatherData: response.data });
+      if(this._isMounted){
+        this.setState({ weatherData: response.data });
+      }
     } catch (error) {
       this.setState({ onlinePlayersLoaded: true });
     }
