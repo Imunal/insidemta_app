@@ -1,6 +1,7 @@
 import React from "react";
 import Loader from "react-loader-spinner";
 import Sadface from "../../Assets/Images/Player/no-found.png";
+import VehicleData from "../Assets/Json/vehicleData.json";
 
 class getPlayerVehicles extends React.Component {
   constructor(props) {
@@ -9,6 +10,11 @@ class getPlayerVehicles extends React.Component {
       playerVehicles: [],
       playerVehiclesLoaded: false,
     };
+  }
+
+  getVehicleName = (model) => {
+    const gameVehicles = JSON.parse(JSON.stringify(VehicleData))
+    return gameVehicles.names[model - 400];
   }
 
   renderPlayerVehicles = () => {
@@ -30,7 +36,7 @@ class getPlayerVehicles extends React.Component {
                       <span className="player__cricle__online"></span>
                     </div>
                     <h6 className="mt-2 text-muted text-break">
-                      {object.model}
+                      {this.getVehicleName(object.model)}
                     </h6>
                   </div>
                 </div>
