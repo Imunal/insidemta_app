@@ -78,6 +78,16 @@ function Navbar() {
                 exact
                 className="nav-link"
                 activeClassName="selected"
+                to="/organizations"
+              >
+                Organizacje
+              </NavLink>
+            </li>
+            <li className="nav-item d-flex">
+              <NavLink
+                exact
+                className="nav-link"
+                activeClassName="selected"
                 to="/shop"
               >
                 Sklep

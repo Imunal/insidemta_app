@@ -1,6 +1,6 @@
 import React from "react";
 import Loader from "react-loader-spinner";
-import axios from "axios";
+import axiosInstance from '../Configs/axios';
 import VehicleExchange from "../Components/Vehicles/vehicleExchange";
 import VehicleData from "../Assets/Json/vehicleData.json";
 import Sadface from "../Assets/Images/Player/no-found.png";
@@ -257,8 +257,7 @@ class VehiclesView extends React.Component {
   getExchangeVehicles = async () => {
     try {
       await this.sleep(2000);
-      const url = "https://api.insidemta.pl/api/getVehiclesExchange";
-      const response = await axios.get(url);
+      const response = await axiosInstance.get('server/getVehiclesExchange');
       this.setState({ vehicles: response.data, loading: false });
     } catch (error) {
       // this.setState({ onlinePlayersLoaded: true });

@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosInstance from '../../Configs/axios';
 import Loader from "react-loader-spinner";
 
 class latestCharacter extends React.Component {
@@ -25,8 +25,7 @@ class latestCharacter extends React.Component {
   getLatestCharacter = async () => {
     try {
       await this.sleep(2000);
-      const url = "https://api.insidemta.pl/api/getLatestPlayers";
-      const response = await axios.get(url);
+      const response = await axiosInstance.get('server/getLatestPlayers');
       if (this._isMounted) {
         this.setState({
           latestCharacters: response.data,

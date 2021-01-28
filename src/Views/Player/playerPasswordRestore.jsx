@@ -1,58 +1,98 @@
 import { useState } from "react";
-import axios from 'axios';
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axiosInstance from '../../Configs/axios';
+import Loader from "react-loader-spinner";
 
-function PlayerPasswordRestore() {
-  const [userEmail, setUserEmail] = useState(null);
-  const [paymentError, setPaymentError] = useState(false);
-  const [paymentSuccess, setPaymentSuccess] = useState(false);
+const PlayerPasswordRestore = () => {
 
-  const resetPassword = () => {
-      if(!userEmail) return;
-      axios.post('https://api.insidemta.pl/api/player/passwordReset', {
-        playerEmail: userEmail
-      }).then(() => {
-        setPaymentSuccess('Na twój adres e-mail została wysłana wiadomość z nowym hasłem.');
-      }).catch(() => {
-        setPaymentError('Wystąpił błąd, upewnij się że wpisany adres e-mail jest poprawny.');
-      })
+  const history = useHistory();
+  const isLogged = useSelector((state) => state.player.personalToken);
+  if (isLogged) {
+    history.push("/account");
   }
 
+  const [userEmail, setUserEmail] = useState("");
+  const [formError, setFormError] = useState("");
+  const [formSuccess, setFormSuccess] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const validateForm = (e) => {
+    e.preventDefault();
+    resetPassword();
+  };
+
+  const resetPassword = async () => {
+      try {
+      setIsLoading(true);
+      const response = await axiosInstance.post(
+        "player/passwordReset",
+        {
+          playerEmail: userEmail
+        }
+      );
+      setIsLoading(false);
+      setFormSuccess('Na twój adres e-mail została wysłana wiadomość z nowym hasłem.');
+    } catch (error) {
+      setIsLoading(false);
+      setFormError("Wystąpił błąd, upewnij się że wpisany adres e-mail jest poprawny.");
+    }
+  }
+
+  const handleUserEmailChange = (e) => {
+    setUserEmail(e.target.value);
+  };
+
   return (
-    <div className="container mt-5">
-      <div className="panel">
+    <div className="container">
+      <div className="panel mt-5">
         <div className="panel__header">
           <h1>Resetowanie hasła</h1>
         </div>
         <div className="panel__body">
-            <div className="w-50 mx-auto">
-                {paymentError ? (
-                <div className="alert alert-danger" role="alert">
-                    {paymentError}
-                </div>
-                ) : ''}
-                {paymentSuccess ? (
-                <div className="alert alert-success" role="alert">
-                    {paymentSuccess}
-                </div>
-                ) : ''}
-                <div className="form-floating mb-3">
-                    <input
-                      type="email"
-                      htmlFor="emailInput"
-                      onChange={(e) => setUserEmail(e)}
-                      className="form-control"
-                      id="emailInput"
-                      placeholder="Wprowadź swój adres e-mail"
-                      required
-                    />
-                    <label htmlFor="emailInput">Wprowadź swój adres e-mail</label>
-                </div>
-                <div className="d-grid">
-                    <button type="submit" className="btn btn__dark btn-lg btn-block" onClick={() => resetPassword() }>
-                        Zresetuj hasło
-                    </button>
-                </div>
-            </div>
+            <>
+                <form className="w-50 d-block m-auto" onSubmit={(e) => validateForm(e)}>
+                  {isLoading ? (
+                    <div className="block__center w-100 h-100 mt-5 mb-5">
+                      <Loader type="Bars" color="#ccc" height={50} width={50} />
+                      <p className="text-small text-center text-muted m-0 mt-3">
+                        Hej, sprawdzamy czy twoje dane są poprawne
+                        <br />
+                        Poczekaj chwilę...
+                      </p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {formError ? (
+                  <div className="alert alert-danger" role="alert">
+                      {formError}
+                  </div>
+                  ) : ''}
+                  {formSuccess ? (
+                  <div className="alert alert-success" role="alert">
+                      {formSuccess}
+                  </div>
+                  ) : ''}
+                  <div className="form-floating mb-3">
+                      <input
+                        type="email"
+                        onChange={(e) => handleUserEmailChange(e)}
+                        value={userEmail}
+                        className="form-control"
+                        id="emailInput"
+                        placeholder="Wprowadź swój adres e-mail"
+                        required
+                      />
+                      <label htmlFor="emailInput">Wprowadź swój adres e-mail</label>
+                  </div>
+                  <div className="d-grid">
+                      <button type="submit" className="btn btn__dark btn-lg btn-block">
+                          Zresetuj hasło
+                      </button>
+                  </div>
+                </form>
+            </>
         </div>
       </div>
     </div>

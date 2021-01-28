@@ -1,5 +1,6 @@
 import React from "react";
-import axios from "axios";
+import axiosInstance from '../../Configs/axios';
+
 import Loader from "react-loader-spinner";
 import "react-responsive-carousel/lib/styles/carousel.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -61,8 +62,7 @@ class Weather extends React.Component {
   getWeatherData = async () => {
     try {
       await this.sleep(2000);
-      const url = "https://api.insidemta.pl/api/getWeather";
-      const response = await axios.get(url);
+      const response = await axiosInstance.get('server/getWeather');
       if(this._isMounted){
         this.setState({ weatherData: response.data });
       }

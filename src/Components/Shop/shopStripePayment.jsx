@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from '../../Configs/axios';
 
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -19,8 +19,8 @@ const StripePayment = ({ shopSelected }) => {
   useEffect(() => {
     const getPaymentOptions = async () => {
       try {
-        const response = await axios.get(
-          "https://api.insidemta.pl/api/payment/options/" + shopSelected
+        const response = await axiosInstance.get(
+          "payment/options/" + shopSelected
         );
         setPaymentOptions(response.data);
       } catch (error) {
@@ -38,9 +38,9 @@ const StripePayment = ({ shopSelected }) => {
     if (!selectedPayment) return;
     const stripe = await stripePromise;
     try {
-      await axios
+      await axiosInstance
         .post(
-          "https://api.insidemta.pl/api/payment/stripe/create-checkout-session",
+          "payment/stripe/create-checkout-session",
           {
             shopSelected: shopSelected,
             selectedPremiumDays: selectedPayment,
@@ -66,11 +66,11 @@ const StripePayment = ({ shopSelected }) => {
                 key={index}
                 role="button"
                 onClick={() => {
-                  setSelectedPayment(option.option_id);
+                  setSelectedPayment(option.option_days);
                   setPaymentPrice(option.option_price);
                 }}
               >
-                <div className={`${selectedPayment === option.option_id ? 'shop__selected ' : ' '}panel__body__element text-center`}>
+                <div className={`${selectedPayment === option.option_days ? 'shop__selected ' : ' '}panel__body__element text-center`}>
                   <h3 className="fw-900">{option.option_days} dni</h3>
                   <p>{option.option_price} zł brutto</p>
                 </div>

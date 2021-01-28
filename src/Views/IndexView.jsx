@@ -51,7 +51,7 @@ class IndexView extends React.Component {
                 <h1 className="mb-0">Dołącz do gry</h1>
               </div>
               <div className="widget__body clicable p-0">
-                <a href="mtasa://graj.insidemta.pl">
+                <a href="mtasa://graj.insidemta.pl:22003">
                   <img
                     src={Server}
                     className="img-fluid object-cover"

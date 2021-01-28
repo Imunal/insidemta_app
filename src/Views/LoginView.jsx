@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axiosInstance from '../Configs/axios';
 import Loader from "react-loader-spinner";
 
 import { Link, useHistory } from "react-router-dom";
@@ -32,8 +32,8 @@ function LoginView() {
     setIsLoading(true);
     setIsErrored("");
     try {
-      const response = await axios.post(
-        "https://api.insidemta.pl/api/player/authenticate",
+      const response = await axiosInstance.post(
+        "player/authenticate",
         {
           userName: userName,
           userPassword: userPassword,

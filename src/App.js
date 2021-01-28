@@ -24,6 +24,8 @@ import PaymentSuccessView from "./Views/PaymentSuccessView";
 import PlayerAccount from "./Views/Player/playerAccount";
 import PlayerPasswordRestore from "./Views/Player/playerPasswordRestore";
 
+import ShowOrganizations from "./Views/Organization/showOrganizations";
+
 function App() {
   return (
     <Router>
@@ -31,6 +33,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <IndexView />
+        </Route>
+        <Route path="/organizations">
+          <ShowOrganizations />
         </Route>
         <Route path="/shop">
           <ShopView />

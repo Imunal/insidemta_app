@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from '../../Configs/axios';
 
 const HotPayPayment = ({ shopSelected }) => {
   const playerData = useSelector((state) => state.player.username);
@@ -21,8 +21,8 @@ const HotPayPayment = ({ shopSelected }) => {
   useEffect(() => {
     const getPaymentOptions = async () => {
       try {
-        const response = await axios.get(
-          "https://api.insidemta.pl/api/payment/options/" + shopSelected
+        const response = await axiosInstance.get(
+          "payment/options/" + shopSelected
         );
         setPaymentOptions(response.data);
       } catch (error) {
@@ -33,8 +33,8 @@ const HotPayPayment = ({ shopSelected }) => {
   }, [shopSelected]);
 
   const validateSMS = () => {
-    const url = "https://api.insidemta.pl/api/payment/sms";
-    axios
+    const url = "payment/sms";
+    axiosInstance
       .post(url, {
         shopSelected: shopSelected,
         selectedPremiumDays: selectedPayment,
@@ -102,7 +102,7 @@ const HotPayPayment = ({ shopSelected }) => {
                   setPaymentNumber(option.option_smsNumber);
                 }}
               >
-                <div className={`${selectedPayment === option.option_id ? 'shop__selected ' : ' '}panel__body__element text-center`}>
+                <div className={`${selectedPayment === option.option_days ? 'shop__selected ' : ' '}panel__body__element text-center`}>
                   <h3 className="fw-900">{option.option_days} dni</h3>
                   <p>{option.option_price} zł brutto</p>
                 </div>
@@ -130,88 +130,3 @@ const HotPayPayment = ({ shopSelected }) => {
 };
 
 export default HotPayPayment;
-
-/*getSMSPayment = () => {
-    if (!this.state.isSMSPayment) return;
-    const smsData = this.getOptionSMS();
-    return (
-      <>
-        <div className="form-group">
-          <h3 className="form-help">Wyślij wiadomość SMS</h3>
-          <p>
-            Numer: {smsData[0]}
-            <br />
-            Wiadomość: AVR.INSIDEMTA
-            <br />
-            Koszt: {smsData[1]}
-            <br />
-          </p>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="smsCode">Wprowadź kod z SMS:</label>
-          <input
-            name="smsCode"
-            id="smsCode"
-            className="form-control"
-            placeholder="Kod SMS"
-            onChange={this.handelInputSMSChange}
-            required
-            autoComplete="off"
-            disabled={this.state.loaderOpen ? true : false}
-          />
-        </div>
-
-        <div
-          className="form-group mb-0 mt-2"
-          style={{
-            display:
-              this.state.isSMSPayment && !this.state.loaderOpen
-                ? "block"
-                : "none",
-          }}
-        >
-          <button type="submit" className="btn btn__dark btn-block">
-            Sprawdź kod
-          </button>
-        </div>
-      </>
-    );
-  };
-
-  checkSMSPayment = async () => {
-    this.setState({ requestOpen: true });
-
-    const url = "https://api.insidemta.pl/api/payment/sms";
-    const smsData = this.getOptionSMS();
-
-    axios
-      .post(url, {
-        shopSelected: this.props.shopSelected,
-        selectedPremiumDays: this.state.selectedPremiumDays,
-        playerName: this.state.playerName,
-        smsCode: this.state.smsCode,
-        success: true,
-        number: smsData[0],
-      })
-      .then((response) => {
-        if (response.data.status === 1) {
-          this.setState({
-            requestResult: 1,
-            haveError: "",
-            isSMSPayment: false,
-          });
-        } else {
-          this.setState({
-            haveError: "Podany kod SMS jest niepoprawny.",
-            requestOpen: false,
-          });
-        }
-      })
-      .catch((error) => {
-        this.setState({
-          haveError: "Podany kod SMS jest niepoprawny.",
-          requestOpen: false,
-        });
-      });
-  };*/
