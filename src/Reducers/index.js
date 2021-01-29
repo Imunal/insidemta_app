@@ -1,6 +1,9 @@
 const initialState = {
   player: [],
   vehicles: [],
+  penalties: [],
+  organizations: [],
+  realestate: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -10,6 +13,9 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         player: action.payload.player,
         vehicles: action.payload.vehicles,
+        penalties: action.payload.penalties,
+        organizations: action.payload.organizations,
+        realestate: action.payload.realestate,
       };
     }
     case "REMOVE_AUTHENTICATION": {

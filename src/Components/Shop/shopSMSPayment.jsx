@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import axiosInstance from '../../Configs/axios';
+import axiosInstance from "../../Configs/axios";
 
 const HotPayPayment = ({ shopSelected }) => {
   const playerData = useSelector((state) => state.player.username);
@@ -40,15 +40,17 @@ const HotPayPayment = ({ shopSelected }) => {
         selectedPremiumDays: selectedPayment,
         playerName: playerData,
         smsCode: codeState,
-        number: paymentNumber
+        number: paymentNumber,
       })
       .then(() => {
-        setPaymentSuccess('Pomyślnie zweryfikowano płatność.');
+        setPaymentSuccess("Pomyślnie zweryfikowano płatność.");
       })
       .catch(() => {
-        setPaymentError('Wystąpił błąd, upewnij się że wpisany kod jest prawidłowy.');
+        setPaymentError(
+          "Wystąpił błąd, upewnij się że wpisany kod jest prawidłowy."
+        );
       });
-  }
+  };
 
   const handleHotPay = () => {
     return (
@@ -79,13 +81,17 @@ const HotPayPayment = ({ shopSelected }) => {
         </div>
 
         <div className="d-grid">
-          <button type="submit" className="btn btn__dark btn-lg btn-block mt-3" onClick={() => validateSMS() }>
+          <button
+            type="submit"
+            className="btn btn__dark btn-lg btn-block mt-3"
+            onClick={() => validateSMS()}
+          >
             Sprawdź kod
           </button>
         </div>
       </>
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -102,14 +108,22 @@ const HotPayPayment = ({ shopSelected }) => {
                   setPaymentNumber(option.option_smsNumber);
                 }}
               >
-                <div className={`${selectedPayment === option.option_days ? 'shop__selected ' : ' '}panel__body__element text-center`}>
+                <div
+                  className={`${
+                    selectedPayment === option.option_days
+                      ? "shop__selected "
+                      : " "
+                  }panel__body__element text-center`}
+                >
                   <h3 className="fw-900">{option.option_days} dni</h3>
                   <p>{option.option_price} zł brutto</p>
                 </div>
               </div>
             ))
           : null}
-        {selectedPayment ? handleHotPay() : (
+        {selectedPayment ? (
+          handleHotPay()
+        ) : (
           <p className="text-center mt-3">
             Wybierz interesującą cię opcję zakupu.
           </p>
@@ -118,12 +132,16 @@ const HotPayPayment = ({ shopSelected }) => {
           <div className="alert alert-danger mt-3" role="alert">
             {paymentError}
           </div>
-        ) : ''}
+        ) : (
+          ""
+        )}
         {paymentSuccess ? (
           <div className="alert alert-success mt-3" role="alert">
             {paymentSuccess}
           </div>
-        ) : ''}
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

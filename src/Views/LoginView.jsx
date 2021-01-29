@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axiosInstance from '../Configs/axios';
+import axiosInstance from "../Configs/axios";
 import Loader from "react-loader-spinner";
 
 import { Link, useHistory } from "react-router-dom";
@@ -32,13 +32,10 @@ function LoginView() {
     setIsLoading(true);
     setIsErrored("");
     try {
-      const response = await axiosInstance.post(
-        "player/authenticate",
-        {
-          userName: userName,
-          userPassword: userPassword,
-        }
-      );
+      const response = await axiosInstance.post("player/authenticate", {
+        userName: userName,
+        userPassword: userPassword,
+      });
       dispatch({ type: "SET_AUTHENTICATION", payload: response.data });
       history.push("/account");
     } catch (error) {

@@ -1,5 +1,5 @@
 import React from "react";
-import axiosInstance from '../../Configs/axios';
+import axiosInstance from "../../Configs/axios";
 import Loader from "react-loader-spinner";
 
 class latestCharacter extends React.Component {
@@ -25,7 +25,7 @@ class latestCharacter extends React.Component {
   getLatestCharacter = async () => {
     try {
       await this.sleep(2000);
-      const response = await axiosInstance.get('server/getLatestPlayers');
+      const response = await axiosInstance.get("server/getLatestPlayers");
       if (this._isMounted) {
         this.setState({
           latestCharacters: response.data,
@@ -42,7 +42,7 @@ class latestCharacter extends React.Component {
       return (
         <>
           {this.state.latestCharacters.map((object, index) => (
-            <div className="col-md-3" key={index}>
+            <div className="col-6 col-md-3" key={index}>
               <div className="panel__body__element text-center">
                 <img
                   className="panel__body__image img-fluid"

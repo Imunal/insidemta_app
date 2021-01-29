@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import axiosInstance from '../../Configs/axios';
+import axiosInstance from "../../Configs/axios";
 
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -39,15 +39,12 @@ const StripePayment = ({ shopSelected }) => {
     const stripe = await stripePromise;
     try {
       await axiosInstance
-        .post(
-          "payment/stripe/create-checkout-session",
-          {
-            shopSelected: shopSelected,
-            selectedPremiumDays: selectedPayment,
-            playerName: playerData,
-            optionPrice: paymentPrice * 100,
-          }
-        )
+        .post("payment/stripe/create-checkout-session", {
+          shopSelected: shopSelected,
+          selectedPremiumDays: selectedPayment,
+          playerName: playerData,
+          optionPrice: paymentPrice * 100,
+        })
         .then((response) => {
           stripe.redirectToCheckout({ sessionId: response.data.id });
         });
@@ -70,7 +67,13 @@ const StripePayment = ({ shopSelected }) => {
                   setPaymentPrice(option.option_price);
                 }}
               >
-                <div className={`${selectedPayment === option.option_days ? 'shop__selected ' : ' '}panel__body__element text-center`}>
+                <div
+                  className={`${
+                    selectedPayment === option.option_days
+                      ? "shop__selected "
+                      : " "
+                  }panel__body__element text-center`}
+                >
                   <h3 className="fw-900">{option.option_days} dni</h3>
                   <p>{option.option_price} zł brutto</p>
                 </div>

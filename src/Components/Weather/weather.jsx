@@ -1,5 +1,5 @@
 import React from "react";
-import axiosInstance from '../../Configs/axios';
+import axiosInstance from "../../Configs/axios";
 
 import Loader from "react-loader-spinner";
 import "react-responsive-carousel/lib/styles/carousel.css"; // requires a loader
@@ -57,13 +57,13 @@ class Weather extends React.Component {
 
   componentWillUnmount() {
     this._isMounted = false;
-  };
+  }
 
   getWeatherData = async () => {
     try {
       await this.sleep(2000);
-      const response = await axiosInstance.get('server/getWeather');
-      if(this._isMounted){
+      const response = await axiosInstance.get("server/getWeather");
+      if (this._isMounted) {
         this.setState({ weatherData: response.data });
       }
     } catch (error) {

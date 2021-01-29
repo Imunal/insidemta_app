@@ -12,11 +12,11 @@ class IndexView extends React.Component {
     this.state = {
       playerCount: false,
     };
-    this.updatePlayerCount = this.updatePlayerCount.bind(this)
+    this.updatePlayerCount = this.updatePlayerCount.bind(this);
   }
 
   updatePlayerCount(count) {
-    this.setState({playerCount: count})
+    this.setState({ playerCount: count });
   }
 
   render() {
@@ -40,13 +40,15 @@ class IndexView extends React.Component {
             <div className="panel mt-3">
               <div className="panel__header d-flex justify-content-between">
                 <h1 className="mb-0 p-2">Ilość graczy</h1>
-                <h1 className="mb-0 p-2">{this.state.playerCount && (this.state.playerCount + "/600") || "Wczytywanie..."}</h1>
+                <h1 className="mb-0 p-2">
+                  {this.state.playerCount
+                    ? this.state.playerCount + "/600"
+                    : "Wczytywanie..."}
+                </h1>
               </div>
               <div className="panel__body">
                 <div className="row">
-                  <GetOnlinePlayers
-                  updateParent = {this.updatePlayerCount}
-                  />
+                  <GetOnlinePlayers updateParent={this.updatePlayerCount} />
                 </div>
               </div>
             </div>

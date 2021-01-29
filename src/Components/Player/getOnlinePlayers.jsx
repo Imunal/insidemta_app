@@ -1,5 +1,5 @@
 import React from "react";
-import axiosInstance from '../../Configs/axios';
+import axiosInstance from "../../Configs/axios";
 import Loader from "react-loader-spinner";
 import Sadface from "../../Assets/Images/Player/no-found.png";
 
@@ -20,13 +20,13 @@ class getOnlinePlayers extends React.Component {
 
   componentWillUnmount() {
     this._isMounted = false;
-  };
+  }
 
   getOnlinePlayers = async () => {
     try {
       await this.sleep(2000);
-      const response = await axiosInstance.get('server/getOnlinePlayers');
-      if(this._isMounted){
+      const response = await axiosInstance.get("server/getOnlinePlayers");
+      if (this._isMounted) {
         this.setState({
           onlinePlayers: response.data,
           onlinePlayersLoaded: true,
@@ -45,7 +45,7 @@ class getOnlinePlayers extends React.Component {
         return (
           <>
             {this.state.onlinePlayers.map((object, index) => (
-              <div className="col-md-2 mt-2" key={index}>
+              <div className="col-4 col-md-2 mt-2" key={index}>
                 <div className="text-center">
                   <div className="player">
                     <div className="player__circle block__center">
@@ -57,7 +57,7 @@ class getOnlinePlayers extends React.Component {
                       />
                       <span className="player__cricle__online"></span>
                     </div>
-                    <h6 className="mt-2 text-muted text-break">
+                    <h6 className="mt-2 text-muted text-break text-center">
                       {object.username}
                     </h6>
                   </div>

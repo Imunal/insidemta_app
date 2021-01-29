@@ -971,3 +971,18 @@ footer a:hover {
 .fw-900 {
   font-weight: 900;
 }
+
+.custom__alert {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.custom__alert h1 {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.custom__alert__info {
+  background-color: #7289da;
+  color: #fff;
+}

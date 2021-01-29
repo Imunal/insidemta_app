@@ -1,6 +1,6 @@
 import React from "react";
 import Loader from "react-loader-spinner";
-import axiosInstance from '../Configs/axios';
+import axiosInstance from "../Configs/axios";
 import VehicleExchange from "../Components/Vehicles/vehicleExchange";
 import VehicleData from "../Assets/Json/vehicleData.json";
 import Sadface from "../Assets/Images/Player/no-found.png";
@@ -23,7 +23,7 @@ class VehiclesView extends React.Component {
   }
 
   getVehicleName(model) {
-    const gameVehicles = JSON.parse(JSON.stringify(VehicleData))
+    const gameVehicles = JSON.parse(JSON.stringify(VehicleData));
     return gameVehicles.names[model - 400];
   }
 
@@ -42,7 +42,7 @@ class VehiclesView extends React.Component {
     if (!upgrades) return "Brak";
 
     let tuning = "";
-    const gameVehicles = JSON.parse(JSON.stringify(VehicleData))
+    const gameVehicles = JSON.parse(JSON.stringify(VehicleData));
     upgrades[0].map((object, index) => {
       tuning += gameVehicles.upgrades[object - 1000];
 
@@ -168,7 +168,7 @@ class VehiclesView extends React.Component {
   }
 
   isVehicleInCategory(model) {
-    const gameVehicles = JSON.parse(JSON.stringify(VehicleData))
+    const gameVehicles = JSON.parse(JSON.stringify(VehicleData));
     if (this.state.sortingVehicleType === "all") return true;
     if (this.findInTable(gameVehicles[this.state.sortingVehicleType], model))
       return true;
@@ -257,7 +257,7 @@ class VehiclesView extends React.Component {
   getExchangeVehicles = async () => {
     try {
       await this.sleep(2000);
-      const response = await axiosInstance.get('server/getVehiclesExchange');
+      const response = await axiosInstance.get("server/getVehiclesExchange");
       this.setState({ vehicles: response.data, loading: false });
     } catch (error) {
       // this.setState({ onlinePlayersLoaded: true });

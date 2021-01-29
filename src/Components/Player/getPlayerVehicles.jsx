@@ -13,9 +13,9 @@ class getPlayerVehicles extends React.Component {
   }
 
   getVehicleName = (model) => {
-    const gameVehicles = JSON.parse(JSON.stringify(VehicleData))
+    const gameVehicles = JSON.parse(JSON.stringify(VehicleData));
     return gameVehicles.names[model - 400];
-  }
+  };
 
   renderPlayerVehicles = () => {
     if (this.state.playerVehiclesLoaded) {
