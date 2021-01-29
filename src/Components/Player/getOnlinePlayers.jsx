@@ -31,6 +31,8 @@ class getOnlinePlayers extends React.Component {
           onlinePlayers: response.data,
           onlinePlayersLoaded: true,
         });
+
+        this.props.updateParent(response.data.length);
       }
     } catch (error) {
       this.setState({ onlinePlayersLoaded: true });

@@ -7,6 +7,18 @@ import Discord from "../Assets/Images/Social/discord.png";
 import Server from "../Assets/Images/Social/server.png";
 
 class IndexView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      playerCount: false,
+    };
+    this.updatePlayerCount = this.updatePlayerCount.bind(this)
+  }
+
+  updatePlayerCount(count) {
+    this.setState({playerCount: count})
+  }
+
   render() {
     return (
       <div className="container">
@@ -26,12 +38,15 @@ class IndexView extends React.Component {
 
             {/* ONLINE CHARACTERS */}
             <div className="panel mt-3">
-              <div className="panel__header">
-                <h1 className="mb-0">Gracze online</h1>
+              <div className="panel__header d-flex justify-content-between">
+                <h1 className="mb-0 p-2">Ilość graczy</h1>
+                <h1 className="mb-0 p-2">{this.state.playerCount && (this.state.playerCount + "/600") || "Wczytywanie..."}</h1>
               </div>
               <div className="panel__body">
                 <div className="row">
-                  <GetOnlinePlayers />
+                  <GetOnlinePlayers
+                  updateParent = {this.updatePlayerCount}
+                  />
                 </div>
               </div>
             </div>
