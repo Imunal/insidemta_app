@@ -56,15 +56,20 @@ function PlayerOrganizations() {
       <h5 className="fw-900">Organizacje do których należysz:</h5>
       <hr />
       {playerOrganizations.length ? (
-          <div className="row">{renderOrganizations()}</div>
-        ) : (
-          <div className="custom__alert custom__alert__info">
-            <h1> Nie należysz do żadnej organizacji 😔</h1>
-            <p className="m-0">
-              Możesz dołączyć do organizacji <b>cywilnej</b>,  <b>przestępczej</b> w każdej chwili, sprawdź czy są jakieś rekrutacje na naszym forum!
-            </p>
-          </div>
-        )}
+        <div className="row">{renderOrganizations()}</div>
+      ) : (
+        <div className="custom__alert custom__alert__info">
+          <h1> Nie należysz do żadnej organizacji 😔</h1>
+          <p className="m-0">
+            Możesz dołączyć do organizacji cywilnej czy przestępczej praktycznie
+            w każdym momencie. Nie wiesz jak to zrobić? Rozejrzyj się na forum w
+            dziale organizacji przestępczych, czy żadna z nich nie prowadzi
+            rekrutacji lub popytaj graczy na serwerze. Jeśli nie uda ci się
+            znaleźć odpowiedniej dla siebie - zawsze możesz utworzyć swoją
+            własną.
+          </p>
+        </div>
+      )}
     </>
   );
 }

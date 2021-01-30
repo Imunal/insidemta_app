@@ -102,7 +102,7 @@ function PlayerInformation() {
           <div className="custom__alert custom__alert__info">
             <h1> Nie posidasz żadnych kar 🥰</h1>
             <p className="m-0">
-              Aktualnie w systemie nie posidasz żadnych kar, tak trzymaj!
+              Aktualnie w systemie nie posidasz żadnych kar. Tak trzymaj!
             </p>
           </div>
         )}
