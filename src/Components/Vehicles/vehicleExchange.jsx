@@ -36,28 +36,13 @@ class vehicleExchange extends React.Component {
               {this.props.engineCapacity}
               <br />
               <span className="detail__name">Kolor:</span>
-              <i
-                className="fas fa-square"
-                style={{ color: "rgba(" + this.props.color1 + ",255)" }}
-              ></i>
-              <i
-                className="fas fa-square"
-                style={{ color: "rgba(" + this.props.color2 + ",255)" }}
-              ></i>
-              <i
-                className="fas fa-square"
-                style={{ color: "rgba(" + this.props.color3 + ",255)" }}
-              ></i>
-              <i
-                className="fas fa-square"
-                style={{ color: "rgba(" + this.props.color4 + ",255)" }}
-              ></i>
+              <div className="colorShowcase" style={{ backgroundColor: "rgba(" + this.props.color1 + ",255)" }}></div>
+              <div className="colorShowcase" style={{ backgroundColor: "rgba(" + this.props.color2 + ",255)" }}></div>
+              <div className="colorShowcase" style={{ backgroundColor: "rgba(" + this.props.color3 + ",255)" }}></div>
+              <div className="colorShowcase" style={{ backgroundColor: "rgba(" + this.props.color4 + ",255)" }}></div>
               <br />
               <span className="detail__name">Światła:</span>
-              <i
-                className="fas fa-square"
-                style={{ color: "rgba(" + this.props.colorLights + ",255)" }}
-              ></i>
+              <div className="colorShowcase" style={{ backgroundColor: "rgba(" + this.props.colorLights + ",255)" }}></div>
               <br />
               <span className="detail__name">Ulepszenia:</span>{" "}
               {this.props.upgrades}

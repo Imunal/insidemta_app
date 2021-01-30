@@ -52,3 +52,10 @@
 .seller {
   font-size: 0.9rem;
 }
+
+.colorShowcase {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  margin-left: 2px;
+}
