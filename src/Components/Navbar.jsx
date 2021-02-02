@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -5,6 +6,7 @@ import Logo from "../Assets/Images/Logo/logo_insidemta.png";
 
 function Navbar() {
   const isLogged = useSelector((state) => state.player.personalToken);
+  const [isCollapsed, setIsCollapsed] = useState([]);
 
   const authView = () => {
     if (isLogged) {
@@ -34,19 +36,16 @@ function Navbar() {
         <NavLink className="navbar-brand" to="/">
           <img src={Logo} alt="InsideMTA" />
         </NavLink>
-        <button
+        <div
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarText"
-          aria-controls="navbarText"
-          aria-expanded="false"
           aria-label="Toggle navigation"
+          onClick={() => setIsCollapsed(!isCollapsed)}
         >
           <span className="navbar-toggler-icon"></span>
-        </button>
+        </div>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className={`${isCollapsed ? 'show' : ''} collapse navbar-collapse`} id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item d-flex">
               <NavLink
