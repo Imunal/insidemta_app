@@ -6,7 +6,7 @@ import Logo from "../Assets/Images/Logo/logo_insidemta.png";
 
 function Navbar() {
   const isLogged = useSelector((state) => state.player.personalToken);
-  const [isCollapsed, setIsCollapsed] = useState([]);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const authView = () => {
     if (isLogged) {
