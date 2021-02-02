@@ -24,7 +24,6 @@ class latestCharacter extends React.Component {
 
   getLatestCharacter = async () => {
     try {
-      await this.sleep(2000);
       const response = await axiosInstance.get("server/getLatestPlayers");
       if (this._isMounted) {
         this.setState({
@@ -68,10 +67,6 @@ class latestCharacter extends React.Component {
         </div>
       );
     }
-  };
-
-  sleep = (ms) => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
   };
 
   render() {

@@ -61,7 +61,6 @@ class Weather extends React.Component {
 
   getWeatherData = async () => {
     try {
-      await this.sleep(2000);
       const response = await axiosInstance.get("server/getWeather");
       if (this._isMounted) {
         this.setState({ weatherData: response.data });
@@ -170,10 +169,6 @@ class Weather extends React.Component {
         </>
       );
     }
-  };
-
-  sleep = (ms) => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
   };
 
   render() {

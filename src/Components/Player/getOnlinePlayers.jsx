@@ -24,7 +24,6 @@ class getOnlinePlayers extends React.Component {
 
   getOnlinePlayers = async () => {
     try {
-      await this.sleep(2000);
       const response = await axiosInstance.get("server/getOnlinePlayers");
       if (this._isMounted) {
         this.setState({
@@ -95,10 +94,6 @@ class getOnlinePlayers extends React.Component {
         </div>
       );
     }
-  };
-
-  sleep = (ms) => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
   };
 
   render() {
