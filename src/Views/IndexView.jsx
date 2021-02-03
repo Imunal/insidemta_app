@@ -1,10 +1,15 @@
 import React from "react";
+import Image from 'react-image-webp';
+
 import LatestCharacter from "../Components/Player/getLatestPlayer";
 import GetOnlinePlayers from "../Components/Player/getOnlinePlayers";
 import Weather from "../Components/Weather/weather";
 
-import Discord from "../Assets/Images/Social/discord.png";
-import Server from "../Assets/Images/Social/server.png";
+import Discord from "../Assets/Images/Social/discord.jpg";
+import Server from "../Assets/Images/Social/server.jpg";
+
+import DiscordWebP from "../Assets/Images/Social/discord.webp";
+import ServerWebP from "../Assets/Images/Social/server.webp";
 
 class IndexView extends React.Component {
   constructor(props) {
@@ -69,10 +74,11 @@ class IndexView extends React.Component {
               </div>
               <div className="widget__body clicable p-0">
                 <a href="mtasa://graj.insidemta.pl:22003">
-                  <img
-                    src={Server}
-                    className="img-fluid object-cover"
-                    alt="Server"
+                  <Image
+                      src={Server}
+                      webp={ServerWebP}
+                      className="img-fluid object-cover"
+                      alt="Server"
                   />
                   <div></div>
                 </a>
@@ -85,10 +91,11 @@ class IndexView extends React.Component {
               </div>
               <div className="widget__body clicable p-0">
                 <a href="https://discord.gg/QB7Y6aj">
-                  <img
-                    src={Discord}
-                    className="img-fluid object-cover"
-                    alt="Discord"
+                  <Image
+                      src={Discord}
+                      webp={DiscordWebP}
+                      className="img-fluid object-cover"
+                      alt="Discord"
                   />
                   <div></div>
                 </a>

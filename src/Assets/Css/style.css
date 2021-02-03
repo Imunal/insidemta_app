@@ -53,6 +53,10 @@ svg {
   margin: 0 auto;
 }
 
+.footer__logo{
+  width: 200px;
+}
+
 /* PANEL */
 
 .panel {

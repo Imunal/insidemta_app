@@ -1,8 +1,11 @@
 import {useState} from 'react';
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Image from 'react-image-webp';
 
 import Logo from "../Assets/Images/Logo/logo_insidemta.png";
+import LogoWebP from "../Assets/Images/Logo/logo_insidemta.webp";
+
 
 function Navbar() {
   const isLogged = useSelector((state) => state.player.personalToken);
@@ -34,7 +37,12 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <NavLink className="navbar-brand" to="/">
-          <img src={Logo} alt="InsideMTA" />
+          <Image
+            src={Logo}
+            webp={LogoWebP}
+            className="img-fluid object-cover"
+            alt="InsideMTA"
+          />
         </NavLink>
         <div
           className="navbar-toggler"
