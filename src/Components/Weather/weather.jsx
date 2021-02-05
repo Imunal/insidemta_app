@@ -50,7 +50,6 @@ const Weather = () => {
 
   const getCityWeatherIcon = (weatherInfo) => {
     const weather = getCityWeather(weatherInfo);
-    console.log(weather[1]);
     if (weather[1] === "sun") {
       return (
         <div className="sun">
