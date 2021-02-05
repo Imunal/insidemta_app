@@ -1,33 +1,23 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import axiosInstance from "../../Configs/axios";
-
 import Loader from "react-loader-spinner";
-import "react-responsive-carousel/lib/styles/carousel.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-class Weather extends React.Component {
-  _isMounted = false;
-  constructor(props) {
-    super(props);
-    this.state = {
-      weatherData: [],
-      selectedWeather: 0,
-    };
-  }
+const Weather = () => {
+  const [weatherData, setWeatherData] = useState([]);
 
-  cities = [
-    "Los Santos",
-    "Las Venturas",
-    "San Fierro",
+  useEffect(() => {
+    getWeatherData();
+  }, []);
 
-    "Red County",
-    "Whetstone",
-    "Flint County",
-    "Bone County",
-    "Tierra Robada",
-  ];
+  const getWeatherData = () => {
+    axiosInstance.get("/server/getWeather").then((response) => {
+      setWeatherData(response.data);
+    });
+  };
 
-  weatherInfo = [
+  const weatherInfo = [
     ["Bezchmurne niebo", "sun"], // LS
     ["Nie użyte", "sun"],
     ["Nie użyte", "cloud"],
@@ -50,36 +40,17 @@ class Weather extends React.Component {
     ["Burza piaskowa", "lightning"], // LV
   ];
 
-  componentDidMount = () => {
-    this._isMounted = true;
-    this.getWeatherData();
+  const getCityWeather = (weather) => {
+    return weatherInfo[weather];
   };
 
-  componentWillUnmount() {
-    this._isMounted = false;
-  }
-
-  getWeatherData = async () => {
-    try {
-      const response = await axiosInstance.get("server/getWeather");
-      if (this._isMounted) {
-        this.setState({ weatherData: response.data });
-      }
-    } catch (error) {
-      this.setState({ onlinePlayersLoaded: true });
-    }
+  const getCityWeatherInfo = (city) => {
+    return getCityWeather(city)[0];
   };
 
-  getCityWeather = (city) => {
-    return this.weatherInfo[this.state.weatherData[city]];
-  };
-
-  getCityWeatherInfo = (city) => {
-    return this.getCityWeather(city)[0];
-  };
-
-  getCityWeatherIcon = (city) => {
-    const weather = this.getCityWeather(city);
+  const getCityWeatherIcon = (weatherInfo) => {
+    const weather = getCityWeather(weatherInfo);
+    console.log(weather[1]);
     if (weather[1] === "sun") {
       return (
         <div className="sun">
@@ -132,48 +103,44 @@ class Weather extends React.Component {
     }
   };
 
-  getWidget = () => {
-    if (this.state.weatherData.length < 1) {
-      return (
-        <div className="block__center p-3">
-          <Loader type="Bars" color="#ccc" height={50} width={50} />
-          <p className="text-small text-center text-muted m-0">
-            Trwa pobieranie danych z serwera
-          </p>
-        </div>
-      );
-    } else {
-      return (
-        <>
-          <Carousel showThumbs={false} showStatus={false}>
-            {this.cities.map((object, index) => (
-              <div className="container" key={index}>
-                <div className="row weather__body">
-                  <div className="col-md-4">
-                    <div className="weahter__icon">
-                      {this.getCityWeatherIcon(object)}
-                    </div>
-                  </div>
-                  <div className="col-md-6 align-self-center">
-                    <div className="weather text-left">
-                      <h4 className="weather__city">{object}</h4>
-                      <h6 className="weather__desc">
-                        {this.getCityWeatherInfo(object)}
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Carousel>
-        </>
-      );
-    }
+  const renderLoader = () => {
+    return (
+      <div className="block__center p-3">
+        <Loader type="Bars" color="#ccc" height={50} width={50} />
+        <p className="text-small text-center text-muted m-0">
+          Trwa pobieranie danych z serwera
+        </p>
+      </div>
+    );
   };
 
-  render() {
-    return <>{this.getWidget()}</>;
-  }
-}
+  const renderWeather = () => {
+    return (<>
+      <Carousel showThumbs={false} showStatus={false}>
+        {weatherData.map((object) => (
+          <div className="container" key={object.weather_id}>
+            <div className="row weather__body">
+              <div className="col-md-4">
+                <div className="weahter__icon">
+                  {object.weather_value ? getCityWeatherIcon(object.weather_value) : ''}
+                </div>
+              </div>
+              <div className="col-md-6 align-self-center">
+                <div className="weather text-left">
+                  <h4 className="weather__city">{object.weather_zone}</h4>
+                  <h6 className="weather__desc">
+                    {object.weather_value ? getCityWeatherInfo(object.weather_value) : ''}
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </Carousel>
+    </>);
+  };
+
+  return <>{weatherData.length < 1 ? renderLoader() : renderWeather()}</>;
+};
 
 export default Weather;

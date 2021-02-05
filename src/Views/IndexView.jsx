@@ -1,5 +1,5 @@
 import React from "react";
-import Image from 'react-image-webp';
+import Image from "react-image-webp";
 
 import LatestCharacter from "../Components/Player/getLatestPlayer";
 import GetOnlinePlayers from "../Components/Player/getOnlinePlayers";
@@ -75,10 +75,10 @@ class IndexView extends React.Component {
               <div className="widget__body clicable p-0">
                 <a href="mtasa://graj.insidemta.pl:22003">
                   <Image
-                      src={Server}
-                      webp={ServerWebP}
-                      className="img-fluid object-cover"
-                      alt="Server"
+                    src={Server}
+                    webp={ServerWebP}
+                    className="img-fluid object-cover"
+                    alt="Server"
                   />
                   <div></div>
                 </a>
@@ -92,10 +92,10 @@ class IndexView extends React.Component {
               <div className="widget__body clicable p-0">
                 <a href="https://discord.gg/QB7Y6aj">
                   <Image
-                      src={Discord}
-                      webp={DiscordWebP}
-                      className="img-fluid object-cover"
-                      alt="Discord"
+                    src={Discord}
+                    webp={DiscordWebP}
+                    className="img-fluid object-cover"
+                    alt="Discord"
                   />
                   <div></div>
                 </a>

@@ -1,11 +1,10 @@
-import {useState} from 'react';
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Image from 'react-image-webp';
+import Image from "react-image-webp";
 
 import Logo from "../Assets/Images/Logo/logo_insidemta.png";
 import LogoWebP from "../Assets/Images/Logo/logo_insidemta.webp";
-
 
 function Navbar() {
   const isLogged = useSelector((state) => state.player.personalToken);
@@ -53,7 +52,10 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </div>
 
-        <div className={`${isCollapsed ? 'show' : ''} collapse navbar-collapse`} id="navbarSupportedContent">
+        <div
+          className={`${isCollapsed ? "show" : ""} collapse navbar-collapse`}
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item d-flex">
               <NavLink

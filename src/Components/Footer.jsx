@@ -1,4 +1,4 @@
-import Image from 'react-image-webp';
+import Image from "react-image-webp";
 
 import Logo from "../Assets/Images/Logo/logo_insidemta.png";
 import LogoWebP from "../Assets/Images/Logo/logo_insidemta.webp";
