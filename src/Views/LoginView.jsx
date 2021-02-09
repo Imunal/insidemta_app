@@ -4,10 +4,13 @@ import Loader from "react-loader-spinner";
 
 import { Link, useHistory } from "react-router-dom";
 
+
+import { useToasts } from 'react-toast-notifications';
 import { useSelector, useDispatch } from "react-redux";
 import { auto } from "@popperjs/core";
 
 function LoginView() {
+  const { addToast } = useToasts();
   const dispatch = useDispatch();
   const history = useHistory();
   const isLogged = useSelector((state) => state.player.personalToken);
@@ -19,7 +22,6 @@ function LoginView() {
   const [userName, setUserName] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isErrored, setIsErrored] = useState("");
 
   const validateForm = (e) => {
     e.preventDefault();
@@ -31,7 +33,6 @@ function LoginView() {
 
   const authenticate = async () => {
     setIsLoading(true);
-    setIsErrored("");
     try {
       const response = await axiosInstance.post("player/authenticate", {
         userName: userName,
@@ -42,7 +43,7 @@ function LoginView() {
     } catch (error) {
       console.log(error);
       setIsLoading(false);
-      setIsErrored("Niepoprawny login lub hasło");
+      addToast('Wystąpił problem z logowaniem, sprawdź swoje dane.', { appearance: 'error' })
     }
   };
 
@@ -70,19 +71,6 @@ function LoginView() {
     return (
       <div style={{ maxWidth: 500, margin: auto }}>
         <h3 className="text-center">Zaloguj się</h3>
-        {isErrored ? (
-          <div
-            className="alert text-center d-block m-auto mb-3"
-            style={{ border: 0, color: "#bc3e3e" }}
-            role="alert"
-          >
-            <b>Wystąpił problem podczas próby zalogowania.</b>
-            <br />
-            {isErrored}
-          </div>
-        ) : (
-          ""
-        )}
         <form
           className="d-block m-auto mt-4"
           onSubmit={(e) => validateForm(e)}

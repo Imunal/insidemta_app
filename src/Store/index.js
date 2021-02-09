@@ -1,23 +1,8 @@
-import { createStore, applyMiddleware, compose } from "redux";
-
-import thunk from "redux-thunk";
+import { createStore, compose } from "redux";
 import rootReducer from "../Reducers";
 
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-
-const persistConfig = {
-  key: "root",
-  storage,
-};
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-let store = createStore(
-  persistedReducer,
-  composeEnhancers(applyMiddleware(thunk))
-);
-let persistor = persistStore(store);
+let store = createStore(rootReducer, composeEnhancers());
 
-export { store, persistor };
+export { store };

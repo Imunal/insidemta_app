@@ -47,15 +47,20 @@ const ShowOrganizations = () => {
               {organization.name}
             </h3>
             <p className="text-muted">
-              <span className="detail__name">Właściciel: </span>{organization.owner}
+              <span className="detail__name">Właściciel: </span>
+              {organization.owner}
               <br />
-              <span className="detail__name">Majątek: </span>${Math.round(organization.money*100)/100}
+              <span className="detail__name">Majątek: </span>$
+              {Math.round(organization.money * 100) / 100}
               <br />
-              <span className="detail__name">Limit członków: </span>{organization.players * 5}
+              <span className="detail__name">Limit członków: </span>
+              {organization.players * 5}
               <br />
-              <span className="detail__name">Limit pojazdów: </span>{organization.vehicles * 3}
+              <span className="detail__name">Limit pojazdów: </span>
+              {organization.vehicles * 3}
               <br />
-              <span className="detail__name">Utworzona: </span>{organization.created}
+              <span className="detail__name">Utworzona: </span>
+              {organization.created}
             </p>
           </div>
         </div>
