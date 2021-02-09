@@ -5,6 +5,7 @@ import Loader from "react-loader-spinner";
 import { Link, useHistory } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
+import { auto } from "@popperjs/core";
 
 function LoginView() {
   const dispatch = useDispatch();
@@ -52,83 +53,95 @@ function LoginView() {
   const handleUserPasswordChange = (e) => {
     setUserPassword(e.target.value);
   };
+
+  const renderLoginElements = () => {
+    if (isLoading)
+      return (
+        <div className="block__center w-100 h-100 mt-5 mb-5">
+          <Loader type="Bars" color="#ccc" height={50} width={50} />
+          <p className="text-small text-center text-muted m-0 mt-3">
+            Hej, sprawdzamy czy twoje dane są poprawne
+            <br />
+            Poczekaj chwilę...
+          </p>
+        </div>
+      );
+
+    return (
+      <div style={{ maxWidth: 500, margin: auto }}>
+        <h3 className="text-center">Zaloguj się</h3>
+        {isErrored ? (
+          <div
+            className="alert text-center d-block m-auto mb-3"
+            style={{ border: 0, color: "#bc3e3e" }}
+            role="alert"
+          >
+            <b>Wystąpił problem podczas próby zalogowania.</b>
+            <br />
+            {isErrored}
+          </div>
+        ) : (
+          ""
+        )}
+        <form
+          className="d-block m-auto mt-4"
+          onSubmit={(e) => validateForm(e)}
+          style={{ alignSelf: "center", maxWidth: 400 }}
+        >
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              htmlFor="userName"
+              onChange={(e) => handleUserNameChange(e)}
+              value={userName}
+              className="form-control"
+              id="userName"
+              placeholder="Twój login"
+              autoComplete="username"
+              required
+            />
+            <label htmlFor="userName">Login</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="password"
+              htmlFor="userPassword"
+              onChange={(e) => handleUserPasswordChange(e)}
+              value={userPassword}
+              className="form-control"
+              id="userPassword"
+              placeholder="Twoje hasło"
+              autoComplete="current-password"
+              required
+            />
+            <label htmlFor="userPassword">Hasło</label>
+          </div>
+          <div className="d-grid mb-3">
+            <button type="submit" className="btn btn-lg btn__dark btn-block">
+              Zaloguj się
+            </button>
+          </div>
+
+          <Link
+            to="/reset-password"
+            className="text-muted mt-4 d-block text-center text-decoration-none text-uppercase font-weight-bold"
+            style={{ fontSize: 14 }}
+          >
+            Nie możesz się zalogować?
+          </Link>
+        </form>
+      </div>
+    );
+  };
+
   return (
     <>
       <div className="container">
         <div className="panel mt-5">
           <div className="panel__header">
-            <h1 className="mb-0">Zaloguj się</h1>
+            <h1 className="mb-0">Panel gracza</h1>
           </div>
-          <div className="panel__body">
-            {isLoading ? (
-              <div className="block__center w-100 h-100 mt-5 mb-5">
-                <Loader type="Bars" color="#ccc" height={50} width={50} />
-                <p className="text-small text-center text-muted m-0 mt-3">
-                  Hej, sprawdzamy czy twoje dane są poprawne
-                  <br />
-                  Poczekaj chwilę...
-                </p>
-              </div>
-            ) : (
-              ""
-            )}
-            {isErrored ? (
-              <div
-                className="alert alert-danger text-center w-50 d-block m-auto mb-3"
-                role="alert"
-              >
-                <b>Wystąpił problem podczas próby zalogowania.</b>
-                <br />
-                {isErrored}
-              </div>
-            ) : (
-              ""
-            )}
-            <form
-              className="w-50 d-block m-auto"
-              onSubmit={(e) => validateForm(e)}
-            >
-              <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  htmlFor="userName"
-                  onChange={(e) => handleUserNameChange(e)}
-                  value={userName}
-                  className="form-control"
-                  id="userName"
-                  placeholder="Twój login"
-                  autoComplete="username"
-                  required
-                />
-                <label htmlFor="userName">Wprowadź swój login z gry</label>
-              </div>
-              <div className="form-floating mb-3">
-                <input
-                  type="password"
-                  htmlFor="userPassword"
-                  onChange={(e) => handleUserPasswordChange(e)}
-                  value={userPassword}
-                  className="form-control"
-                  id="userPassword"
-                  placeholder="Twoje hasło"
-                  autoComplete="current-password"
-                  required
-                />
-                <label htmlFor="userPassword">Wprowadź swoje hasło z gry</label>
-              </div>
-              <div className="d-grid mb-3">
-                <button
-                  type="submit"
-                  className="btn btn-lg btn__dark btn-block"
-                >
-                  Zaloguj się
-                </button>
-              </div>
-              <Link to="/reset-password" className="small text-muted mt-3">
-                Zapomniałeś swojego hasła?
-              </Link>
-            </form>
-          </div>
+          <div className="panel__body">{renderLoginElements()}</div>
         </div>
       </div>
     </>

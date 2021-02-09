@@ -9,7 +9,7 @@ function Footer() {
       <Image
         src={Logo}
         webp={LogoWebP}
-        className="img-fluid object-cover d-block mx-auto footer__logo"
+        className="img-fluid object-cover d-block mx-auto footer__logo mb-2"
         alt="InsideMTA"
       />
       <p className="text-muted text-small text-center m-0 p-0">

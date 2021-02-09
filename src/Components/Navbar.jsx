@@ -14,7 +14,7 @@ function Navbar() {
     if (isLogged) {
       return (
         <NavLink
-          className="btn btn__navbar btn__dark btn-block align-self-center"
+          className="btn btn__navbar btn__dark btn-block align-self-center m-1"
           to="/account"
         >
           Moje konto
@@ -23,7 +23,7 @@ function Navbar() {
     } else {
       return (
         <NavLink
-          className="btn btn__navbar btn__dark btn-block align-self-center"
+          className="btn btn__navbar btn__dark btn-block align-self-center m-1"
           to="/login"
         >
           Zaloguj się
@@ -57,7 +57,7 @@ function Navbar() {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item d-flex">
+            <li className="nav-item d-flex m-1">
               <NavLink
                 exact
                 className="nav-link"
@@ -67,12 +67,12 @@ function Navbar() {
                 Strona główna
               </NavLink>
             </li>
-            <li className="nav-item d-flex">
+            <li className="nav-item d-flex m-1">
               <a className="nav-link" href="https://forum.insidemta.pl/">
                 Forum
               </a>
             </li>
-            <li className="nav-item d-flex">
+            <li className="nav-item d-flex m-1">
               <NavLink
                 exact
                 className="nav-link"
@@ -82,7 +82,7 @@ function Navbar() {
                 Giełda
               </NavLink>
             </li>
-            <li className="nav-item d-flex">
+            <li className="nav-item d-flex m-1">
               <NavLink
                 exact
                 className="nav-link"
@@ -92,7 +92,7 @@ function Navbar() {
                 Organizacje
               </NavLink>
             </li>
-            <li className="nav-item d-flex">
+            <li className="nav-item d-flex m-1">
               <NavLink
                 exact
                 className="nav-link"

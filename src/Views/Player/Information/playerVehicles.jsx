@@ -64,7 +64,7 @@ function PlayerVehicles() {
         <div className="custom__alert custom__alert__info">
           <h1> Nie posiadasz żadnych pojazdów 🏎️</h1>
           <p className="m-0">
-            Jeżeli posidasz odpowiednią ilość gotówki możesz odwiedzić salon
+            Jeżeli posiadasz odpowiednią ilość gotówki możesz odwiedzić salon
             samochodowy i kupić swój pierwszy pojazd!
           </p>
         </div>

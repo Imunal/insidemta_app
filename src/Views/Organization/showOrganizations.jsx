@@ -27,7 +27,7 @@ const ShowOrganizations = () => {
     return organizations.map((organization) => {
       return (
         <div className="col-md-4 mb-3" key={organization.ID}>
-          <div className="panel__body__element text-center">
+          <div className="panel__body__element text-center h-100">
             {organization.img ? (
               <img
                 src={organization.img}
@@ -38,34 +38,25 @@ const ShowOrganizations = () => {
             ) : (
               <img
                 src={NoImage}
-                className="img-fluid mx-auto w-10"
+                className="img-fluid mx-auto w-10 m-4"
                 loading="lazy"
                 alt="Logo Organizacji"
               ></img>
             )}
-            <h5 className="mt-3 text-muted text-break fw-900">
-              {organization.name} ({organization.ID})
-            </h5>
-            <span className="text-muted text-break">
-              Utworzono: {organization.created}
-            </span>
-            <br />
-            <span className="text-muted text-break">
-              Lider: {organization.owner}
-            </span>
-            <br />
-            <span className="text-muted text-break">
-              Majątek: ${organization.money}
-            </span>
-            <br />
-            <span className="text-muted text-break">
-              Ilość członków: {organization.players}
-            </span>
-            <br />
-            <span className="text-muted text-break">
-              Ilość pojazdów: {organization.vehicles}
-            </span>
-            <br />
+            <h3 className="mt-3 text-muted text-break fw-900">
+              {organization.name}
+            </h3>
+            <p className="text-muted">
+              <span className="detail__name">Właściciel: </span>{organization.owner}
+              <br />
+              <span className="detail__name">Majątek: </span>${Math.round(organization.money*100)/100}
+              <br />
+              <span className="detail__name">Limit członków: </span>{organization.players * 5}
+              <br />
+              <span className="detail__name">Limit pojazdów: </span>{organization.vehicles * 3}
+              <br />
+              <span className="detail__name">Utworzona: </span>{organization.created}
+            </p>
           </div>
         </div>
       );
@@ -76,7 +67,7 @@ const ShowOrganizations = () => {
     <div className="container">
       <div className="panel mt-5">
         <div className="panel__header">
-          <h1>Lista organizacji:</h1>
+          <h1 className="mb-0">Lista organizacji:</h1>
         </div>
         <div className="panel__body">
           <>

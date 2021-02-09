@@ -100,9 +100,9 @@ function PlayerInformation() {
           <div className="row">{renderPenalties()}</div>
         ) : (
           <div className="custom__alert custom__alert__info">
-            <h1> Nie posidasz żadnych kar 🥰</h1>
+            <h1> Nie posiadasz żadnych kar 🥰</h1>
             <p className="m-0">
-              Aktualnie w systemie nie posidasz żadnych kar. Tak trzymaj!
+              Aktualnie w systemie nie posiadasz żadnych kar. Tak trzymaj!
             </p>
           </div>
         )}

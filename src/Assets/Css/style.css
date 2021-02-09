@@ -57,6 +57,15 @@ svg {
   width: 200px;
 }
 
+/* PROGRESS */
+.progress {
+  background-color: #303030;
+}
+
+.progress-bar {
+  background-color: #919191 !important;
+}
+
 /* PANEL */
 
 .panel {
@@ -266,13 +275,18 @@ svg {
 }
 
 .btn__dark:hover {
-  box-shadow: 0 0 0 0.25rem;
   transition: all 0.5s;
-  color: #ddd;
+  border-color: #17191f;
+  color: #ccc;
+  outline: 0;
+  box-shadow: 0 0 0 0.12rem rgba(220, 220, 220, 0.35);
 }
 
 .btn__dark:focus {
-  box-shadow: 0 0 0 0.25rem;
+  border-color: #17191f;
+  color: #ccc;
+  outline: 0;
+  box-shadow: 0 0 0 0.12rem rgba(220, 220, 220, 0.35);
 }
 
 .form-control {
@@ -288,8 +302,7 @@ svg {
   background-color: #fff;
   border-color: #17191f;
   outline: 0;
-  /* box-shadow: 0 0 0 0.2rem rgba(23, 25, 31,.25); */
-  box-shadow: 0 0 0 0.25rem;
+  box-shadow: 0 0 0 0.12rem rgba(220, 220, 220, 0.35);
 }
 
 .form-control::placeholder {

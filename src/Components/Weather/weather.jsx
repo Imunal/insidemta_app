@@ -41,7 +41,7 @@ const Weather = () => {
   ];
 
   const getCityWeather = (weather) => {
-    return weatherInfo[weather];
+    return weatherInfo[weather * 1];
   };
 
   const getCityWeatherInfo = (city) => {
@@ -114,29 +114,35 @@ const Weather = () => {
   };
 
   const renderWeather = () => {
-    return (<>
-      <Carousel showThumbs={false} showStatus={false}>
-        {weatherData.map((object) => (
-          <div className="container" key={object.weather_id}>
-            <div className="row weather__body">
-              <div className="col-md-4">
-                <div className="weahter__icon">
-                  {object.weather_value ? getCityWeatherIcon(object.weather_value) : ''}
+    return (
+      <>
+        <Carousel showThumbs={false} showStatus={false}>
+          {weatherData.map((object) => (
+            <div className="container" key={object.weather_id}>
+              <div className="row weather__body">
+                <div className="col-md-4">
+                  <div className="weahter__icon">
+                    {object.weather_value
+                      ? getCityWeatherIcon(object.weather_value)
+                      : ""}
+                  </div>
                 </div>
-              </div>
-              <div className="col-md-6 align-self-center">
-                <div className="weather text-left">
-                  <h4 className="weather__city">{object.weather_zone}</h4>
-                  <h6 className="weather__desc">
-                    {object.weather_value ? getCityWeatherInfo(object.weather_value) : ''}
-                  </h6>
+                <div className="col-md-6 align-self-center">
+                  <div className="weather text-left">
+                    <h4 className="weather__city">{object.weather_zone}</h4>
+                    <h6 className="weather__desc">
+                      {object.weather_value
+                        ? getCityWeatherInfo(object.weather_value)
+                        : ""}
+                    </h6>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </Carousel>
-    </>);
+          ))}
+        </Carousel>
+      </>
+    );
   };
 
   return <>{weatherData.length < 1 ? renderLoader() : renderWeather()}</>;
