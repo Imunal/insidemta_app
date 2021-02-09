@@ -9,6 +9,7 @@ function PlayerSettings() {
   const [playerRolePlayName, setPlayerRolePlayName] = useState('');
 
   const updatePlayerRolePlayName = () => {
+    if(!playerRolePlayName) return;
     axiosConfig.put('/player/setPlayerRPName', {
         playerUID: playerData.UID,
         targetedRPName: playerRolePlayName
