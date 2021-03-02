@@ -16,7 +16,7 @@ function PlayerSettings() {
     }).then(() => {
         addToast('Twój nick RP został pomyślnie ustawiony', { appearance: 'success' })
     }).catch(() => {
-        addToast('Posiadasz już ustawiony nick Role-Play', { appearance: 'error' })
+        addToast('Posiadasz już ustawiony nick Role-Play, nick Role-Play możesz ustawić tylko raz!', { appearance: 'error' })
     })
   }
 
