@@ -44,7 +44,7 @@ class IndexView extends React.Component {
             {/* ONLINE CHARACTERS */}
             <div className="panel mt-3">
               <div className="panel__header d-flex justify-content-between">
-                <h1 className="mb-0 p-2">Ilość graczy</h1>
+                <h1 className="mb-0 p-2">Aktualna Ilość graczy</h1>
                 <h1 className="mb-0 p-2">
                   {this.state.playerCount
                     ? this.state.playerCount + "/600"
