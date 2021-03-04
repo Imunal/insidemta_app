@@ -1,340 +1,335 @@
-@import url("https://fonts.googleapis.com/css?family=Abel");
+@import url('https://fonts.googleapis.com/css?family=Abel');
 
 .center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
 }
 
 .card {
-  width: 100%;
-  max-width: 450px;
-  height: 280px;
-  background-color: #1f1f1f;
-  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
-  border-radius: 6px;
-  overflow: hidden;
-  position: relative;
-  margin: 1.5rem auto;
-  cursor: pointer;
-  color: #bbb;
+    width: 100%;
+    max-width: 450px;
+    height: 280px;
+    background-color: #1f1f1f;
+    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    margin: 1.5rem auto;
+    cursor: pointer;
+    color: #bbb;
 }
 
 .card h2 {
-  text-align: center;
-  font-weight: 600;
-  color: #ddd;
+    text-align: center;
+    font-weight: 600;
+    color: #ddd;
 }
 
 .card .additional h2 {
-  color: #fff;
+    color: #fff;
 }
 
 .card img {
-  width: 100%;
+    width: 100%;
 }
 
 .card-icon {
-  width: 80%;
+    width: 80%;
 }
 
 .card .additional {
-  position: absolute;
-  width: 150px;
-  height: 100%;
-  background: linear-gradient(#b38600, #b38600);
-  transition: width 0.4s;
-  overflow: hidden;
-  z-index: 2;
-  color: #eee;
+    position: absolute;
+    width: 150px;
+    height: 100%;
+    background: linear-gradient(#b38600, #b38600);
+    transition: width 0.4s;
+    overflow: hidden;
+    z-index: 2;
+    color: #eee;
 }
 
 .card.diamond .additional {
-  background: linear-gradient(#0085b3, #0085b3);
+    background: linear-gradient(#0085b3, #0085b3);
 }
 
 .card.cards .additional {
-  background: linear-gradient(#3d962b, #3d962b);
+    background: linear-gradient(#3d962b, #3d962b);
 }
 
 .card.cards-big .additional {
-  background: linear-gradient(#b43434, #b43434);
+    background: linear-gradient(#b43434, #b43434);
 }
 
 .card.car .additional {
-  background: linear-gradient(#2b8f96, #2b8f96);
+    background: linear-gradient(#2b8f96, #2b8f96);
 }
 
 .card.house .additional {
-  background: linear-gradient(#652b96, #652b96);
+    background: linear-gradient(#652b96, #652b96);
 }
 
 .card:hover .additional {
-  width: 100%;
-  border-radius: 0 5px 5px 0;
+    width: 100%;
+    border-radius: 0 5px 5px 0;
 }
 
 .card .additional .shop-card {
-  width: 150px;
-  height: 100%;
-  position: relative;
-  float: left;
+    width: 150px;
+    height: 100%;
+    position: relative;
+    float: left;
 }
 
 .card .additional .shop-card::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 10%;
-  right: -2px;
-  height: 80%;
-  border-left: 2px solid rgba(0, 0, 0, 0.065);
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: -2px;
+    height: 80%;
+    border-left: 2px solid rgba(0, 0, 0, 0.065);
 }
 
 .card .additional .shop-card .level,
 .card .additional .shop-card .points {
-  top: 15%;
-  /* color: #fff; */
-  text-transform: uppercase;
-  font-size: 0.75em;
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.15);
-  padding: 0.125rem 0.75rem;
-  border-radius: 100px;
-  white-space: nowrap;
+    top: 15%;
+    /* color: #fff; */
+    text-transform: uppercase;
+    font-size: 0.75em;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0.125rem 0.75rem;
+    border-radius: 100px;
+    white-space: nowrap;
 }
 
 .card .additional .shop-card .points {
-  top: 85%;
+    top: 85%;
 }
 
 .card .additional .more-info {
-  width: 300px;
-  float: left;
-  position: absolute;
-  left: 150px;
-  height: 100%;
-  padding: 1rem;
+    width: 300px;
+    float: left;
+    position: absolute;
+    left: 150px;
+    height: 100%;
+    padding: 1rem;
 }
 
 .card .additional .more-info h1 {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .card .additional .coords {
-  margin: 0 1rem;
-  font-size: 1rem;
+    margin: 0 1rem;
+    font-size: 1rem;
 }
 
 .card .additional .stats {
-  font-size: 2rem;
-  display: flex;
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  top: auto;
-  flex-wrap: wrap;
+    font-size: 2rem;
+    display: flex;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    top: auto;
+    flex-wrap: wrap;
 }
 
 .card .additional .stats > div {
-  flex: 33%;
-  text-align: center;
+    flex: 33%;
+    text-align: center;
 }
 
 .card .additional .stats i {
-  display: block;
-  font-size: 2rem;
-  margin: 5px 0;
+    display: block;
+    font-size: 2rem;
+    margin: 5px 0;
 }
 
 .card .additional .stats div.title {
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .card .additional .stats div.value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
 }
 
 .card .general {
-  width: 300px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  box-sizing: border-box;
-  padding: 1rem;
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 1rem;
 }
 
 .card .general .more {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 0.9em;
-  color: #9c9c9c;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.9em;
+    color: #9c9c9c;
 }
 
 hr.shop {
-  width: 80%;
-  background-color: #4f5364;
-  height: 1px;
+    width: 80%;
+    background-color: #4f5364;
+    height: 1px;
 }
 
 @media only screen and (max-width: 1199px) {
-  .card .additional {
-    width: 120px;
-  }
-  .card .additional .shop-card {
-    width: 120px;
-  }
-  .card .additional .more-info {
-    width: 350px;
-    left: 100px;
-  }
+    .card .additional {
+        width: 120px;
+    }
+    .card .additional .shop-card {
+        width: 120px;
+    }
+    .card .additional .more-info {
+        width: 350px;
+        left: 100px;
+    }
 }
 
 @media only screen and (max-width: 539px) {
-  .card {
-    height: 340px;
-  }
-  .card .additional {
-    width: 20px;
-  }
-  .card .additional .shop-card {
-    display: none;
-  }
-  .card .additional .more-info {
-    width: 100%;
-    left: 0px;
-    display: none;
-  }
-  .card:hover .additional .more-info {
-    display: block;
-  }
-  .card .general {
-    width: calc(100% - 30px);
-  }
-  .card .general h2 {
-    text-align: left;
-  }
+    .card {
+        height: 340px;
+    }
+    .card .additional {
+        width: 20px;
+    }
+    .card .additional .shop-card {
+        display: none;
+    }
+    .card .additional .more-info {
+        width: 100%;
+        left: 0px;
+        display: none;
+    }
+    .card:hover .additional .more-info {
+        display: block;
+    }
+    .card .general {
+        width: calc(100% - 30px);
+    }
+    .card .general h2 {
+        text-align: left;
+    }
 }
 
 .dropdown {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  height: 38px;
-  width: 100%;
-  border: 1px solid;
-  border-radius: 3px;
-  background: #17191f;
-  border-color: #17191f #17191f #17191f;
-  background-image: -webkit-linear-gradient(
-    top,
-    transparent,
-    rgba(0, 0, 0, 0.4)
-  );
-  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
-  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
-  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
-  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1),
-    0 1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 38px;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 3px;
+    background: #17191f;
+    border-color: #17191f #17191f #17191f;
+    background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+    background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+    background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+    background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown:before,
 .dropdown:after {
-  content: "";
-  position: absolute;
-  z-index: 4;
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 4px dashed;
-  border-color: #17191f transparent;
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    z-index: 4;
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 4px dashed;
+    border-color: #17191f transparent;
+    pointer-events: none;
 }
 
 .dropdown:before {
-  border-bottom-style: solid;
-  border-top: none;
-  border-bottom-color: #aaa;
+    border-bottom-style: solid;
+    border-top: none;
+    border-bottom-color: #aaa;
 }
 
 .dropdown:after {
-  margin-top: 7px;
-  border-top-style: solid;
-  border-bottom: none;
-  border-top-color: #aaa;
+    margin-top: 7px;
+    border-top-style: solid;
+    border-bottom: none;
+    border-top-color: #aaa;
 }
 
 .dropdown-select {
-  position: relative;
-  width: 130%;
-  margin: 0;
-  padding: 6px 8px 6px 10px;
-  height: 38px;
-  line-height: 24px;
-  font-size: 1rem;
-  color: #aaa;
-  text-shadow: 0 1px black;
-  background: #f2f2f2; /* Fallback for IE 8 */
-  background: #242424 !important; /* "transparent" doesn't work with Opera */
-  border: 0;
-  border-radius: 0;
-  -webkit-appearance: none;
+    position: relative;
+    width: 130%;
+    margin: 0;
+    padding: 6px 8px 6px 10px;
+    height: 38px;
+    line-height: 24px;
+    font-size: 1rem;
+    color: #aaa;
+    text-shadow: 0 1px black;
+    background: #f2f2f2; /* Fallback for IE 8 */
+    background: #242424 !important; /* "transparent" doesn't work with Opera */
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
 }
 
 .dropdown-select:focus {
-  z-index: 3;
-  width: 100%;
-  outline: 0px;
-  outline: 0px;
-  outline-offset: -2px;
-  color: #bbb;
+    z-index: 3;
+    width: 100%;
+    outline: 0px;
+    outline: 0px;
+    outline-offset: -2px;
+    color: #bbb;
 }
 
 .dropdown-select:focus > select {
-  box-shadow: 0 0 0 0.2rem rgba(23, 25, 31, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(23, 25, 31, 0.25);
 }
 
 .dropdown-select > option {
-  margin: 3px;
-  padding: 6px 8px;
-  text-shadow: none;
-  border-radius: 3px;
-  cursor: pointer;
+    margin: 3px;
+    padding: 6px 8px;
+    text-shadow: none;
+    border-radius: 3px;
+    cursor: pointer;
 
-  background: #242424;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.4);
-  z-index: 5;
+    background: #242424;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+    z-index: 5;
 }
 
 /* Fix for IE 8 putting the arrows behind the select element. */
 
 .lt-ie9 .dropdown {
-  z-index: 1;
+    z-index: 1;
 }
 
 .lt-ie9 .dropdown-select {
-  z-index: -1;
+    z-index: -1;
 }
 
 .lt-ie9 .dropdown-select:focus {
-  z-index: 3;
+    z-index: 3;
 }
 
 /* Dirty fix for Firefox adding padding where it shouldn't. */
 
 @-moz-document url-prefix() {
-  .dropdown-select {
-    padding-left: 6px;
-  }
+    .dropdown-select {
+        padding-left: 6px;
+    }
 }
