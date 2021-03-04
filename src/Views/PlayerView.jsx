@@ -27,7 +27,6 @@ const PlayerView = () => {
         axios
             .get(`/player/${playerUID}`)
             .then((response) => {
-                console.log(response.data);
                 setPlayerData(response.data);
             })
             .catch((error) => {
@@ -180,7 +179,6 @@ const PlayerView = () => {
     };
 
     const renderPlayerData = () => {
-        console.log('called');
         return (
             <>
                 <h5 className="fw-900">Podstawowe informację o koncie gracza:</h5>

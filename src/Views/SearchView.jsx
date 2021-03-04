@@ -14,7 +14,6 @@ const SearchView = () => {
         axios
             .get(`/search/player/${searchName}`)
             .then((response) => {
-                console.log(response.data);
                 setResponsePlayers(response.data);
             })
             .catch((error) => {
