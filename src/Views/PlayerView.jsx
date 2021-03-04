@@ -20,6 +20,7 @@ const PlayerView = () => {
 
     useEffect(() => {
         fetchPlayerData();
+        // eslint-disable-next-line
     }, []);
 
     const fetchPlayerData = () => {
