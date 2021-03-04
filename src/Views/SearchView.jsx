@@ -9,7 +9,7 @@ const SearchView = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const fetchSearch = () => {
-        if(!searchName) return;
+        if (!searchName) return;
         setIsLoading(true);
         axios
             .get(`/search/player/${searchName}`)
@@ -27,21 +27,21 @@ const SearchView = () => {
     const renderResponse = () => {
         return (
             <div className="row">
-            <hr className="mt-3 mb-3"/>
-            {responsePlayers.map((player) => (
-                <div className="col-md-3 mb-3" key={player.UID}>
-                    <div className="panel__body__element text-center h-100">
-                        <img
-                            className="panel__body__image img-fluid skin__image__width"
-                            src={`https://cdn.insidemta.pl/skins/${player.skin}.png`}
-                            alt="Skin"
-                            loading="lazy"
-                        />
-                        <h5 className="mt-3 text-muted text-break fw-600">{player.username}</h5>
-                        <Link to={`/player/${player.UID}`} className="btn btn__dark btn-lg btn-block">Sprawdź profil gracza</Link>
+                <hr className="mt-3 mb-3" />
+                {responsePlayers.map((player) => (
+                    <div className="col-md-3 mb-3" key={player.UID}>
+                        <div className="panel__body__element text-center h-100">
+                            <img
+                                className="panel__body__image img-fluid skin__image__width"
+                                src={`https://cdn.insidemta.pl/skins/${player.skin}.png`}
+                                alt="Skin"
+                                loading="lazy"
+                            />
+                            <h5 className="mt-3 text-muted text-break fw-600">{player.username}</h5>
+                            <Link to={`/player/${player.UID}`} className="btn btn__dark btn-lg btn-block">Sprawdź profil gracza</Link>
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
             </div>
         )
     };
@@ -63,7 +63,7 @@ const SearchView = () => {
                             placeholder="Wprowadź nazwę gracza"
                             disabled={isLoading}
                         />
-                        <label htmlFor="searchName">Wprowadź nazwę gracza aby go wyszukać</label>
+                        <label htmlFor="searchName">Wprowadź nazwę gracza</label>
                     </div>
                     <p className="text-small text-muted">
                         Nick gracza nie musi być dokładny.
@@ -82,8 +82,8 @@ const SearchView = () => {
                                 <span className="visually-hidden">Wczytywanie...</span>
                             </>
                         ) : (
-                            'Wyszukaj gracza'
-                        )}
+                                'Wyszukaj gracza'
+                            )}
                     </button>
                     {responsePlayers.length ? renderResponse() : ''}
                 </div>
