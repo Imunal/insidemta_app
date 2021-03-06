@@ -12,28 +12,12 @@
       "vehicleModel":402
    },
    {
-      "vehicleName":"Linerunner",
-      "vehicleModel":403
-   },
-   {
       "vehicleName":"Perennial",
       "vehicleModel":404
    },
    {
       "vehicleName":"Sentinel",
       "vehicleModel":405
-   },
-   {
-      "vehicleName":"Dumper",
-      "vehicleModel":406
-   },
-   {
-      "vehicleName":"Fire Truck",
-      "vehicleModel":407
-   },
-   {
-      "vehicleName":"Trashmaster",
-      "vehicleModel":408
    },
    {
       "vehicleName":"Stretch",
@@ -56,20 +40,8 @@
       "vehicleModel":413
    },
    {
-      "vehicleName":"Mule",
-      "vehicleModel":414
-   },
-   {
       "vehicleName":"Cheetah",
       "vehicleModel":415
-   },
-   {
-      "vehicleName":"Ambulance",
-      "vehicleModel":416
-   },
-   {
-      "vehicleName":"Leviathan",
-      "vehicleModel":417
    },
    {
       "vehicleName":"Moonbeam",
@@ -80,10 +52,6 @@
       "vehicleModel":419
    },
    {
-      "vehicleName":"Taxi",
-      "vehicleModel":420
-   },
-   {
       "vehicleName":"Washington",
       "vehicleModel":421
    },
@@ -92,64 +60,24 @@
       "vehicleModel":422
    },
    {
-      "vehicleName":"Mr. Whoopee",
-      "vehicleModel":423
-   },
-   {
       "vehicleName":"BF Injection",
       "vehicleModel":424
-   },
-   {
-      "vehicleName":"Hunter",
-      "vehicleModel":425
    },
    {
       "vehicleName":"Premier",
       "vehicleModel":426
    },
    {
-      "vehicleName":"Enforcer",
-      "vehicleModel":427
-   },
-   {
-      "vehicleName":"Securicar",
-      "vehicleModel":428
-   },
-   {
       "vehicleName":"Banshee",
       "vehicleModel":429
-   },
-   {
-      "vehicleName":"Predator",
-      "vehicleModel":430
-   },
-   {
-      "vehicleName":"Bus",
-      "vehicleModel":431
-   },
-   {
-      "vehicleName":"Rhino",
-      "vehicleModel":432
-   },
-   {
-      "vehicleName":"Barracks",
-      "vehicleModel":433
    },
    {
       "vehicleName":"Hotknife",
       "vehicleModel":434
    },
    {
-      "vehicleName":"Trailer 1",
-      "vehicleModel":435
-   },
-   {
       "vehicleName":"Previon",
       "vehicleModel":436
-   },
-   {
-      "vehicleName":"Coach",
-      "vehicleModel":437
    },
    {
       "vehicleName":"Cabbie",
@@ -164,10 +92,6 @@
       "vehicleModel":440
    },
    {
-      "vehicleName":"RC Bandit",
-      "vehicleModel":441
-   },
-   {
       "vehicleName":"Romero",
       "vehicleModel":442
    },
@@ -176,16 +100,8 @@
       "vehicleModel":443
    },
    {
-      "vehicleName":"Monster 1",
-      "vehicleModel":444
-   },
-   {
       "vehicleName":"Admiral",
       "vehicleModel":445
-   },
-   {
-      "vehicleName":"Squalo",
-      "vehicleModel":446
    },
    {
       "vehicleName":"Seasparrow",
@@ -194,14 +110,6 @@
    {
       "vehicleName":"Pizzaboy",
       "vehicleModel":448
-   },
-   {
-      "vehicleName":"Tram",
-      "vehicleModel":449
-   },
-   {
-      "vehicleName":"Trailer 2",
-      "vehicleModel":450
    },
    {
       "vehicleName":"Turismo",
@@ -220,10 +128,6 @@
       "vehicleModel":454
    },
    {
-      "vehicleName":"Flatbed",
-      "vehicleModel":455
-   },
-   {
       "vehicleName":"Yankee",
       "vehicleModel":456
    },
@@ -234,10 +138,6 @@
    {
       "vehicleName":"Solair",
       "vehicleModel":458
-   },
-   {
-      "vehicleName":"Berkley's RC Van",
-      "vehicleModel":459
    },
    {
       "vehicleName":"Skimmer",
@@ -256,14 +156,6 @@
       "vehicleModel":463
    },
    {
-      "vehicleName":"RC Baron",
-      "vehicleModel":464
-   },
-   {
-      "vehicleName":"RC Raider",
-      "vehicleModel":465
-   },
-   {
       "vehicleName":"Glendale",
       "vehicleModel":466
    },
@@ -280,16 +172,8 @@
       "vehicleModel":469
    },
    {
-      "vehicleName":"Patriot",
-      "vehicleModel":470
-   },
-   {
       "vehicleName":"Quadbike",
       "vehicleModel":471
-   },
-   {
-      "vehicleName":"Coastguard",
-      "vehicleModel":472
    },
    {
       "vehicleName":"Dinghy",
@@ -324,10 +208,6 @@
       "vehicleModel":480
    },
    {
-      "vehicleName":"BMX",
-      "vehicleModel":481
-   },
-   {
       "vehicleName":"Burrito",
       "vehicleModel":482
    },
@@ -344,24 +224,12 @@
       "vehicleModel":485
    },
    {
-      "vehicleName":"Dozer",
-      "vehicleModel":486
-   },
-   {
       "vehicleName":"Maverick",
       "vehicleModel":487
    },
    {
-      "vehicleName":"News Chopper",
-      "vehicleModel":488
-   },
-   {
       "vehicleName":"Rancher",
       "vehicleModel":489
-   },
-   {
-      "vehicleName":"FBI Rancher",
-      "vehicleModel":490
    },
    {
       "vehicleName":"Virgo",
@@ -376,10 +244,6 @@
       "vehicleModel":493
    },
    {
-      "vehicleName":"Hotring Racer",
-      "vehicleModel":494
-   },
-   {
       "vehicleName":"Sandking",
       "vehicleModel":495
    },
@@ -388,40 +252,8 @@
       "vehicleModel":496
    },
    {
-      "vehicleName":"Police Maverick",
-      "vehicleModel":497
-   },
-   {
-      "vehicleName":"Boxville",
-      "vehicleModel":498
-   },
-   {
-      "vehicleName":"Benson",
-      "vehicleModel":499
-   },
-   {
       "vehicleName":"Mesa",
       "vehicleModel":500
-   },
-   {
-      "vehicleName":"RC Goblin",
-      "vehicleModel":501
-   },
-   {
-      "vehicleName":"Hotring Racer 3",
-      "vehicleModel":502
-   },
-   {
-      "vehicleName":"Hotring Racer 2",
-      "vehicleModel":503
-   },
-   {
-      "vehicleName":"Bloodring Banger",
-      "vehicleModel":504
-   },
-   {
-      "vehicleName":"Rancher Lure",
-      "vehicleModel":505
    },
    {
       "vehicleName":"Super GT",
@@ -436,14 +268,6 @@
       "vehicleModel":508
    },
    {
-      "vehicleName":"Bike",
-      "vehicleModel":509
-   },
-   {
-      "vehicleName":"Mountain Bike",
-      "vehicleModel":510
-   },
-   {
       "vehicleName":"Beagle",
       "vehicleModel":511
    },
@@ -454,14 +278,6 @@
    {
       "vehicleName":"Stuntplane",
       "vehicleModel":513
-   },
-   {
-      "vehicleName":"Tanker",
-      "vehicleModel":514
-   },
-   {
-      "vehicleName":"Roadtrain",
-      "vehicleModel":515
    },
    {
       "vehicleName":"Nebula",
@@ -480,28 +296,12 @@
       "vehicleModel":519
    },
    {
-      "vehicleName":"Hydra",
-      "vehicleModel":520
-   },
-   {
       "vehicleName":"FCR-900",
       "vehicleModel":521
    },
    {
       "vehicleName":"NRG-500",
       "vehicleModel":522
-   },
-   {
-      "vehicleName":"HPV1000",
-      "vehicleModel":523
-   },
-   {
-      "vehicleName":"Cement Truck",
-      "vehicleModel":524
-   },
-   {
-      "vehicleName":"Towtruck",
-      "vehicleModel":525
    },
    {
       "vehicleName":"Fortune",
@@ -512,24 +312,8 @@
       "vehicleModel":527
    },
    {
-      "vehicleName":"FBI Truck",
-      "vehicleModel":528
-   },
-   {
       "vehicleName":"Willard",
       "vehicleModel":529
-   },
-   {
-      "vehicleName":"Forklift",
-      "vehicleModel":530
-   },
-   {
-      "vehicleName":"Tractor",
-      "vehicleModel":531
-   },
-   {
-      "vehicleName":"Combine Harvester",
-      "vehicleModel":532
    },
    {
       "vehicleName":"Feltzer",
@@ -548,18 +332,6 @@
       "vehicleModel":536
    },
    {
-      "vehicleName":"Freight",
-      "vehicleModel":537
-   },
-   {
-      "vehicleName":"Streak",
-      "vehicleModel":538
-   },
-   {
-      "vehicleName":"Vortex",
-      "vehicleModel":539
-   },
-   {
       "vehicleName":"Vincent",
       "vehicleModel":540
    },
@@ -576,10 +348,6 @@
       "vehicleModel":543
    },
    {
-      "vehicleName":"Fire Truck Ladder",
-      "vehicleModel":544
-   },
-   {
       "vehicleName":"Hustler",
       "vehicleModel":545
    },
@@ -590,10 +358,6 @@
    {
       "vehicleName":"Primo",
       "vehicleModel":547
-   },
-   {
-      "vehicleName":"Cargobob",
-      "vehicleModel":548
    },
    {
       "vehicleName":"Tampa",
@@ -608,28 +372,12 @@
       "vehicleModel":551
    },
    {
-      "vehicleName":"Utility Van",
-      "vehicleModel":552
-   },
-   {
-      "vehicleName":"Nevada",
-      "vehicleModel":553
-   },
-   {
       "vehicleName":"Yosemite",
       "vehicleModel":554
    },
    {
       "vehicleName":"Windsor",
       "vehicleModel":555
-   },
-   {
-      "vehicleName":"Monster 2",
-      "vehicleModel":556
-   },
-   {
-      "vehicleName":"Monster 3",
-      "vehicleModel":557
    },
    {
       "vehicleName":"Uranus",
@@ -652,14 +400,6 @@
       "vehicleModel":562
    },
    {
-      "vehicleName":"Raindance",
-      "vehicleModel":563
-   },
-   {
-      "vehicleName":"RC Tiger",
-      "vehicleModel":564
-   },
-   {
       "vehicleName":"Flash",
       "vehicleModel":565
    },
@@ -676,28 +416,8 @@
       "vehicleModel":568
    },
    {
-      "vehicleName":"Freight Train Flatbed",
-      "vehicleModel":569
-   },
-   {
-      "vehicleName":"Streak Train Trailer",
-      "vehicleModel":570
-   },
-   {
       "vehicleName":"Kart",
       "vehicleModel":571
-   },
-   {
-      "vehicleName":"Mower",
-      "vehicleModel":572
-   },
-   {
-      "vehicleName":"Dune",
-      "vehicleModel":573
-   },
-   {
-      "vehicleName":"Sweeper",
-      "vehicleModel":574
    },
    {
       "vehicleName":"Broadway",
@@ -706,14 +426,6 @@
    {
       "vehicleName":"Tornado",
       "vehicleModel":576
-   },
-   {
-      "vehicleName":"AT-400",
-      "vehicleModel":577
-   },
-   {
-      "vehicleName":"DFT-30",
-      "vehicleModel":578
    },
    {
       "vehicleName":"Huntley",
@@ -732,14 +444,6 @@
       "vehicleModel":582
    },
    {
-      "vehicleName":"Tug",
-      "vehicleModel":583
-   },
-   {
-      "vehicleName":"Trailer (Tanker Commando)",
-      "vehicleModel":584
-   },
-   {
       "vehicleName":"Emperor",
       "vehicleModel":585
    },
@@ -752,60 +456,16 @@
       "vehicleModel":587
    },
    {
-      "vehicleName":"Hotdog",
-      "vehicleModel":588
-   },
-   {
       "vehicleName":"Club",
       "vehicleModel":589
-   },
-   {
-      "vehicleName":"Box Freight",
-      "vehicleModel":590
-   },
-   {
-      "vehicleName":"Trailer 3",
-      "vehicleModel":591
-   },
-   {
-      "vehicleName":"Andromada",
-      "vehicleModel":592
    },
    {
       "vehicleName":"Dodo",
       "vehicleModel":593
    },
    {
-      "vehicleName":"RC Cam",
-      "vehicleModel":594
-   },
-   {
-      "vehicleName":"Launch",
-      "vehicleModel":595
-   },
-   {
-      "vehicleName":"Police LS",
-      "vehicleModel":596
-   },
-   {
-      "vehicleName":"Police SF",
-      "vehicleModel":597
-   },
-   {
-      "vehicleName":"Police LV",
-      "vehicleModel":598
-   },
-   {
-      "vehicleName":"Police Ranger",
-      "vehicleModel":599
-   },
-   {
       "vehicleName":"Picador",
       "vehicleModel":600
-   },
-   {
-      "vehicleName":"S.W.A.T.",
-      "vehicleModel":601
    },
    {
       "vehicleName":"Alpha",
@@ -816,35 +476,7 @@
       "vehicleModel":603
    },
    {
-      "vehicleName":"Glendale Damaged",
-      "vehicleModel":604
-   },
-   {
       "vehicleName":"Sadler",
       "vehicleModel":605
-   },
-   {
-      "vehicleName":"Baggage Trailer (covered)",
-      "vehicleModel":606
-   },
-   {
-      "vehicleName":"Baggage Trailer (Uncovered)",
-      "vehicleModel":607
-   },
-   {
-      "vehicleName":"Trailer (Stairs)",
-      "vehicleModel":608
-   },
-   {
-      "vehicleName":"Boxville Mission",
-      "vehicleModel":609
-   },
-   {
-      "vehicleName":"Farm Trailer",
-      "vehicleModel":610
-   },
-   {
-      "vehicleName":"Street Clean Trailer",
-      "vehicleModel":611
    }
 ]
