@@ -1,8 +1,4 @@
-import { useSelector } from 'react-redux';
-
-function PlayerRealEstate() {
-    const playerRealEstate = useSelector((state) => state.realestate);
-
+const PlayerRealEstate = ({playerRealEstate}) => {
     const renderRealEstate = () => {
         return playerRealEstate.map((realestate) => (
             <div className="col-md-4 mb-3" key={realestate.ID}>
@@ -39,7 +35,7 @@ function PlayerRealEstate() {
     };
     return (
         <>
-            <h5 className="fw-900">Twoje nieruchomości:</h5>
+            <h5 className="fw-900">Nieruchomości:</h5>
             <hr />
             {playerRealEstate.length ? (
                 <div className="row">{renderRealEstate()}</div>

@@ -11,6 +11,11 @@ import PlayerSettings from './Information/playerSettings';
 
 function PlayerAccount() {
     const personalToken = useSelector((state) => state.player.personalToken);
+
+    const vehicleData = useSelector((state) => state.vehicles);
+    const realEstateData = useSelector((state) => state.realestate);
+    const organizationData = useSelector((state) => state.organizations);
+
     const dispatch = useDispatch();
     const history = useHistory();
     const [selectedPaginate, setPaginate] = useState(1);
@@ -24,11 +29,11 @@ function PlayerAccount() {
             case 1:
                 return <PlayerInformation />;
             case 2:
-                return <PlayerVehicles />;
+                return <PlayerVehicles playerVehicles={vehicleData} />;
             case 3:
-                return <PlayerRealEstate />;
+                return <PlayerRealEstate playerRealEstate={realEstateData} />;
             case 4:
-                return <PlayerOrganizations />;
+                return <PlayerOrganizations playerOrganizations={organizationData} />;
             case 5:
                 dispatch({ type: 'REMOVE_AUTHENTICATION' });
                 return history.push('/login');

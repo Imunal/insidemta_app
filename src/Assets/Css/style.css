@@ -224,6 +224,32 @@ svg {
 }
 
 /* BOOTSTRAP */
+.dropdown-menu {
+    color: #fff;
+    background-color: #151515;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    color: #9c9c9c;
+    background-color: #1f1f1f;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #dfb632;
+}
+
+.dropdown-menu {
+    top: 80%;
+}
+
 .navbar-brand img {
     max-width: 200px;
 }

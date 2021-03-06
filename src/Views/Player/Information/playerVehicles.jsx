@@ -1,8 +1,7 @@
-import { useSelector } from 'react-redux';
 import VehicleData from '../../../Assets/Json/vehicleData.json';
 
-function PlayerVehicles() {
-    const vehicleData = useSelector((state) => state.vehicles);
+const PlayerVehicles = ({playerVehicles}) => {
+    //const vehicleData = useSelector((state) => state.vehicles);
 
     const getVehicleName = (model) => {
         const gameVehicles = JSON.parse(JSON.stringify(VehicleData));
@@ -27,8 +26,8 @@ function PlayerVehicles() {
     };
 
     const rednerVehicles = () => {
-        return vehicleData.map((vehicle, index) => (
-            <div className="col-md-4" key={index}>
+        return playerVehicles.map((vehicle, index) => (
+            <div className="col-md-4 mb-3" key={index}>
                 <div className="panel__body__element text-center">
                     <img
                         className="panel__body__image img-fluid"
@@ -39,6 +38,10 @@ function PlayerVehicles() {
                     <h6 className="mt-3 text-muted text-break">
                         {getVehicleName(vehicle.model)} ({vehicle.ID})
                     </h6>
+                    <span className="text-muted text-break">
+                        Właściciel: {vehicle.username}
+                    </span>
+                    <br />
                     <span className="text-muted text-break">
                         Poj. silnika: {vehicle.engineCapacity}
                     </span>
@@ -56,9 +59,9 @@ function PlayerVehicles() {
     };
     return (
         <>
-            <h5 className="fw-900">Twoje pojazdy:</h5>
+            <h5 className="fw-900">Pojazdy:</h5>
             <hr />
-            {vehicleData.length ? (
+            {playerVehicles.length ? (
                 <div className="row">{rednerVehicles()}</div>
             ) : (
                 <div className="custom__alert custom__alert__info">

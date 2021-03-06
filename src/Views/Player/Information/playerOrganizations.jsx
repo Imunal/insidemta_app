@@ -1,9 +1,6 @@
-import { useSelector } from 'react-redux';
 import NoImage from '../../../Assets/Images/Player/no-found.png';
 
-function PlayerOrganizations() {
-    const playerOrganizations = useSelector((state) => state.organizations);
-
+const PlayerOrganizations = ({playerOrganizations}) => {
     const renderOrganizations = () => {
         return playerOrganizations.map((organization) => (
             <div className="col-md-4 mb-3" key={organization.ID}>
@@ -47,7 +44,7 @@ function PlayerOrganizations() {
 
     return (
         <>
-            <h5 className="fw-900">Organizacje do których należysz:</h5>
+            <h5 className="fw-900">Organizacje:</h5>
             <hr />
             {playerOrganizations.length ? (
                 <div className="row">{renderOrganizations()}</div>

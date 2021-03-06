@@ -18,8 +18,11 @@ import PlayerPasswordRestore from './Views/Player/playerPasswordRestore';
 
 import ShowOrganizations from './Views/Organization/showOrganizations';
 
-import SearchView from './Views/SearchView';
+import SearchPlayerView from './Views/SearchView';
+import SearchVehicleView from './Views/VehicleSearchView';
+
 import PlayerView from './Views/PlayerView';
+import VehicleView from './Views/VehicleView';
 
 const App = () => {
     return (
@@ -28,6 +31,7 @@ const App = () => {
             <Switch>
                 <Route exact path="/" component={IndexView} />
                 <Route path="/player/:playerUID" component={PlayerView} />
+                <Route path="/vehicle/:vehicleModel" component={VehicleView} />
                 <Route path="/organizations" component={ShowOrganizations} />
                 <Route path="/shop" component={ShopView} />
                 <Route path="/exchange" component={VehiclesView} />
@@ -37,7 +41,8 @@ const App = () => {
                 <Route path="/login" component={LoginView} />
                 <Route path="/account" component={PlayerAccount} />
                 <Route path="/reset-password" component={PlayerPasswordRestore} />
-                <Route path="/search" component={SearchView} />
+                <Route path="/search/player" component={SearchPlayerView} />
+                <Route path="/search/vehicle" component={SearchVehicleView} />
                 <Route path="*" component={NotFoundView} />
             </Switch>
             <Footer />
