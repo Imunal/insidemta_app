@@ -121,9 +121,6 @@ const PlayerView = () => {
                         <p className="mb-1">
                             Saldo konta bankowego: <b>${playerData.player.bankmoney}</b>
                         </p>
-                        <p className="mb-1">
-                            Ostatnio w grze: <b>{playerData.player.lastOnline}</b>
-                        </p>
                     </div>
                 </div>
                 <div className="mt-3">

@@ -88,9 +88,6 @@ function PlayerInformation() {
                     <p className="mb-1">
                         Saldo konta bankowego: <b>${playerData.bankmoney}</b>
                     </p>
-                    <p className="mb-1">
-                        Ostatnio w grze: <b>{playerData.lastOnline}</b>
-                    </p>
                 </div>
             </div>
             <div className="mt-3">

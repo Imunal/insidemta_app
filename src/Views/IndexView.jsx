@@ -107,6 +107,21 @@ class IndexView extends React.Component {
                                     </a>
                                 </div>
                             </div>
+                            <div className="widget mt-2">
+                                <div className="widget__header">
+                                    <h1 className="mb-0">Śledź rozwój projektu</h1>
+                                </div>
+                                <div className="widget__body clicable p-0">
+                                    <a href="https://trello.com/b/ULCXr3uR/insidemta">
+                                        <img
+                                            src="https://i.imgur.com/xlYItyc.png"
+                                            className="img-fluid object-cover"
+                                            alt="Discord"
+                                        />
+                                        <div></div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
