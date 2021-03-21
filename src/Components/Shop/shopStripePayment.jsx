@@ -6,7 +6,7 @@ import axiosInstance from '../../Configs/axios';
 import { loadStripe } from '@stripe/stripe-js';
 
 const StripePayment = ({ shopSelected }) => {
-    const playerData = useSelector((state) => state.player.username);
+    const playerData = useSelector((state) => state.player.UID);
     const history = useHistory();
     if (!playerData) {
         history.push('/login');
@@ -40,7 +40,7 @@ const StripePayment = ({ shopSelected }) => {
                 .post('payment/stripe/create-checkout-session', {
                     shopSelected: shopSelected,
                     selectedPremiumDays: selectedPayment,
-                    playerName: playerData,
+                    playerUID: playerData,
                     optionPrice: paymentPrice * 100,
                 })
                 .then((response) => {

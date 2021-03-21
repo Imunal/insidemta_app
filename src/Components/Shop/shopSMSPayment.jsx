@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import axiosInstance from '../../Configs/axios';
 
 const HotPayPayment = ({ shopSelected }) => {
-    const playerData = useSelector((state) => state.player.username);
+    const playerData = useSelector((state) => state.player.UID);
     const history = useHistory();
     if (!playerData) {
         history.push('/login');
@@ -36,7 +36,7 @@ const HotPayPayment = ({ shopSelected }) => {
             .post(url, {
                 shopSelected: shopSelected,
                 selectedPremiumDays: selectedPayment,
-                playerName: playerData,
+                playerUID: playerData,
                 smsCode: codeState,
                 number: paymentNumber,
             })
