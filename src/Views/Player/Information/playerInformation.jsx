@@ -20,7 +20,7 @@ function PlayerInformation() {
     };
     return (
         <>
-            <h5 className="fw-900">Podstawowe informację o twoim koncie:</h5>
+            <h5 className="fw-900">Podstawowe informacje o twoim koncie:</h5>
             <hr />
             <div className="row">
                 <div className="col-md-2 align-self-center">

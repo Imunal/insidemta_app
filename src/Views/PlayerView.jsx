@@ -56,7 +56,7 @@ const PlayerView = () => {
     const renderPlayerData = () => {
         return (
             <>
-                <h5 className="fw-900">Podstawowe informację o koncie gracza:</h5>
+                <h5 className="fw-900">Podstawowe informacje o koncie gracza:</h5>
                 <hr />
                 <div className="row">
                     <div className="col-md-2 align-self-center">
