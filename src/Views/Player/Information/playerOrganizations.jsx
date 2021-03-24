@@ -27,14 +27,14 @@ const PlayerOrganizations = ({playerOrganizations}) => {
                     <br />
                     <span className="text-muted text-break">Lider: {organization.owner}</span>
                     <br />
-                    <span className="text-muted text-break">Majątek: ${organization.money}</span>
+                    <span className="text-muted text-break">Majątek: ${Math.round(organization.money * 100) / 100}</span>
                     <br />
                     <span className="text-muted text-break">
-                        Ilość członków: {organization.players}
+                        Ilość członków: {organization.players * 5}
                     </span>
                     <br />
                     <span className="text-muted text-break">
-                        Ilość pojazdów: {organization.vehicles}
+                        Ilość pojazdów: {organization.vehicles * 3}
                     </span>
                     <br />
                 </div>
