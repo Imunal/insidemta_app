@@ -32,7 +32,6 @@ const PlayerView = () => {
                 setPlayerData(response.data);
             })
             .catch((error) => {
-                console.log(error);
                 addToast('Nie znaleziono gracza.', { appearance: 'error' });
                 history.push('/search/player');
             });

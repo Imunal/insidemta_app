@@ -40,7 +40,6 @@ function LoginView() {
             dispatch({ type: 'SET_AUTHENTICATION', payload: response.data });
             history.push('/account');
         } catch (error) {
-            console.log(error);
             setIsLoading(false);
             addToast('Wystąpił problem z logowaniem, sprawdź swoje dane.', { appearance: 'error' });
         }

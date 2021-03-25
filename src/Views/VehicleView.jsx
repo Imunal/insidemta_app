@@ -29,7 +29,6 @@ const VehicleView = () => {
                 setVehicleData(response.data);
             })
             .catch((error) => {
-                console.log(error);
                 addToast('Nie znaleziono pojazdów.', { appearance: 'error' });
                 history.push('/search/vehicle');
             });
