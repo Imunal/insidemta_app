@@ -2,9 +2,11 @@ import { useState } from 'react';
 
 import HotPayPayment from './shopSMSPayment';
 import StripePayment from './shopStripePayment';
+import PaySafeCardPayment from './shopPaySafeCard';
 
 import HotPayLogo from '../../Assets/Images/Payment/hotpay-white.png';
 import StripeLogo from '../../Assets/Images/Payment/stripe.svg';
+import PaySafeCardLogo from '../../Assets/Images/Payment/logo_paysafecard.jpg';
 
 const ShopPopup = ({ shopSelected, popupClose }) => {
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
@@ -14,6 +16,8 @@ const ShopPopup = ({ shopSelected, popupClose }) => {
             return <StripePayment shopSelected={shopSelected} />;
         } else if (selectedPaymentMethod === 2) {
             return <HotPayPayment shopSelected={shopSelected} />;
+        } else if(selectedPaymentMethod === 3) {
+            return <PaySafeCardPayment shopSelected={shopSelected} />;
         }
     };
 
@@ -61,6 +65,22 @@ const ShopPopup = ({ shopSelected, popupClose }) => {
                                         />
                                         <p className="text-small text-muted text-center">
                                             Płatność SMS
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    className="col-md-12 align-self-center"
+                                    role="button"
+                                    onClick={() => setSelectedPaymentMethod(3)}
+                                >
+                                    <div>
+                                        <img
+                                            src={PaySafeCardLogo}
+                                            className="img-fluid"
+                                            alt="Płatności PaySafeCard"
+                                        />
+                                        <p className="text-small text-muted text-center">
+                                            Płatność PaySafeCard
                                         </p>
                                     </div>
                                 </div>
