@@ -39,7 +39,7 @@ const PlayerView = () => {
 
     const renderPenalties = () => {
         return playerData.penalties.map((penaltie) => (
-            <div className="col-md-4 mb-2" key={penaltie.ID}>
+            <div className="col-md-4 mb-2" key={penaltie.id}>
                 <div className="panel__body__element text-center">
                     <span className="text-break">Powód: {penaltie.reason}</span>
                     <br />
@@ -92,10 +92,12 @@ const PlayerView = () => {
                             Nazwa: <b>{playerData.player.username}</b>
                         </p>
                         <p className="mb-1">
-                            Utworzono dnia: <b>{playerData.player.created}</b>
+                            Utworzono dnia:{' '}
+                            <b>{new Date(playerData.player.created).toLocaleDateString('pl-PL')}</b>
                         </p>
                         <p className="mb-1">
-                            Ostatnio w grze: <b>{playerData.player.lastOnline}</b>
+                            Ostatnio w grze:{' '}
+                            <b>{new Date(playerData.player.created).toLocaleDateString('pl-PL')}</b>
                         </p>
                     </div>
                     <div className="col-md-5 align-self-center">
@@ -125,22 +127,36 @@ const PlayerView = () => {
                 <div className="mt-3">
                     {playerData.penalties.length ? (
                         <div className="row">{renderPenalties()}</div>
-                    ) : ''}
+                    ) : (
+                        ''
+                    )}
                 </div>
                 <div className="mt-3">
                     {playerData.vehicles.length ? (
-                        <div className="row">{<PlayerVehicles playerVehicles={playerData.vehicles}/>}</div>
-                    ) : ''}
+                        <div className="row">
+                            {<PlayerVehicles playerVehicles={playerData.vehicles} />}
+                        </div>
+                    ) : (
+                        ''
+                    )}
                 </div>
                 <div className="mt-3">
-                    {playerData.realestate.length ? (
-                        <div className="row">{<PlayerRealEstate playerRealEstate={playerData.realestate} />}</div>
-                    ) : ''}
+                    {playerData.realestates.length ? (
+                        <div className="row">
+                            {<PlayerRealEstate playerRealEstate={playerData.realestates} />}
+                        </div>
+                    ) : (
+                        ''
+                    )}
                 </div>
                 <div className="mt-3">
                     {playerData.organizations.length ? (
-                        <div className="row">{<PlayerOrganizations playerOrganizations={playerData.organizations} />}</div>
-                    ) : ''}
+                        <div className="row">
+                            {<PlayerOrganizations playerOrganizations={playerData.organizations} />}
+                        </div>
+                    ) : (
+                        ''
+                    )}
                 </div>
             </>
         );

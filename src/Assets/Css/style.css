@@ -49,6 +49,11 @@ svg {
     margin: 0 auto;
 }
 
+a {
+    color: #9c9c9c;
+    text-decoration: none;
+}
+
 .footer__logo {
     width: 200px;
 }
@@ -138,8 +143,14 @@ svg {
 .panel__body__element {
     border-radius: 8px;
     border: 1px solid #242424 !important;
-    background: #1f1f1f !important;
+    background-color: #1f1f1f;
     padding: 20px;
+
+    transition: 0.3s background-color ease-in;
+}
+
+.panel__body__element:hover {
+    background-color: #151515;
 }
 
 /* WIDGET */
@@ -201,6 +212,13 @@ svg {
 
 .player {
     display: block;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.2s background-color ease-in;
+}
+
+.player:hover {
+    background-color: #151515;
 }
 
 .player__circle {
@@ -279,6 +297,24 @@ svg {
     border-radius: 30px;
     line-height: 42px;
     padding: 0 27px;
+}
+
+.btn__stripe {
+    background: #5433ff;
+    color: #ffffff;
+    text-align: center;
+}
+
+.btn__hotpay {
+    background: #ab0000;
+    color: #ffffff;
+    text-align: center;
+}
+
+.btn__cashbill {
+    background: #e3001b;
+    color: #ffffff;
+    text-align: center;
 }
 
 .btn__insidemta {

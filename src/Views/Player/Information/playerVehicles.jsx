@@ -1,6 +1,6 @@
 import VehicleData from '../../../Assets/Json/vehicleData.json';
 
-const PlayerVehicles = ({playerVehicles}) => {
+const PlayerVehicles = ({ playerVehicles }) => {
     //const vehicleData = useSelector((state) => state.vehicles);
 
     const getVehicleName = (model) => {
@@ -38,9 +38,8 @@ const PlayerVehicles = ({playerVehicles}) => {
                     <h6 className="mt-3 text-muted text-break">
                         {getVehicleName(vehicle.model)} ({vehicle.ID})
                     </h6>
-                    <span className="text-muted text-break">
-                        Właściciel: {vehicle.username}
-                    </span>
+                    <br />
+                    <span className="text-muted text-break">Właściciel: {vehicle.username}</span>
                     <br />
                     <span className="text-muted text-break">
                         Poj. silnika: {vehicle.engineCapacity}
@@ -74,6 +73,6 @@ const PlayerVehicles = ({playerVehicles}) => {
             )}
         </>
     );
-}
+};
 
 export default PlayerVehicles;

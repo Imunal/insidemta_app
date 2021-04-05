@@ -1,9 +1,9 @@
 import NoImage from '../../../Assets/Images/Player/no-found.png';
 
-const PlayerOrganizations = ({playerOrganizations}) => {
+const PlayerOrganizations = ({ playerOrganizations }) => {
     const renderOrganizations = () => {
-        return playerOrganizations.map((organization) => (
-            <div className="col-md-4 mb-3" key={organization.ID}>
+        return playerOrganizations.map((organization, index) => (
+            <div className="col-md-4 mb-3" key={index}>
                 <div className="panel__body__element text-center">
                     {organization.img ? (
                         <img
@@ -23,11 +23,15 @@ const PlayerOrganizations = ({playerOrganizations}) => {
                     <h5 className="mt-3 text-muted text-break fw-900">
                         {organization.name} ({organization.ID})
                     </h5>
-                    <span className="text-muted text-break">Utworzono: {organization.created}</span>
+                    <span className="text-muted text-break">
+                        Utworzono: {new Date(organization.created).toLocaleDateString('pl-PL')}
+                    </span>
                     <br />
                     <span className="text-muted text-break">Lider: {organization.owner}</span>
                     <br />
-                    <span className="text-muted text-break">Majątek: ${Math.round(organization.money * 100) / 100}</span>
+                    <span className="text-muted text-break">
+                        Majątek: ${Math.round(organization.money * 100) / 100}
+                    </span>
                     <br />
                     <span className="text-muted text-break">
                         Ilość członków: {organization.players * 5}
@@ -62,6 +66,6 @@ const PlayerOrganizations = ({playerOrganizations}) => {
             )}
         </>
     );
-}
+};
 
 export default PlayerOrganizations;

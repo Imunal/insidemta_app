@@ -9,11 +9,11 @@ import PlayerRealEstate from './Information/playerRealEstate';
 import PlayerOrganizations from './Information/playerOrganizations';
 import PlayerSettings from './Information/playerSettings';
 
-function PlayerAccount() {
+const PlayerAccount = () => {
     const personalToken = useSelector((state) => state.player.personalToken);
 
     const vehicleData = useSelector((state) => state.vehicles);
-    const realEstateData = useSelector((state) => state.realestate);
+    const realEstateData = useSelector((state) => state.realestates);
     const organizationData = useSelector((state) => state.organizations);
 
     const dispatch = useDispatch();
@@ -36,7 +36,8 @@ function PlayerAccount() {
                 return <PlayerOrganizations playerOrganizations={organizationData} />;
             case 5:
                 dispatch({ type: 'REMOVE_AUTHENTICATION' });
-                return history.push('/login');
+                history.push('/login');
+                break;
             case 6:
                 return <PlayerSettings />;
             default:
@@ -213,6 +214,6 @@ function PlayerAccount() {
             </div>
         </div>
     );
-}
+};
 
 export default PlayerAccount;

@@ -1,7 +1,7 @@
-const PlayerRealEstate = ({playerRealEstate}) => {
+const PlayerRealEstate = ({ playerRealEstate }) => {
     const renderRealEstate = () => {
-        return playerRealEstate.map((realestate) => (
-            <div className="col-md-4 mb-3" key={realestate.ID}>
+        return playerRealEstate.map((realestate, index) => (
+            <div className="col-md-4 mb-3" key={index}>
                 <div className="panel__body__element text-center">
                     <div className="w-10">
                         <svg
@@ -21,7 +21,8 @@ const PlayerRealEstate = ({playerRealEstate}) => {
                         </svg>
                     </div>
                     <p className="text-muted">
-                        <span className="detail__name">Opłacony:</span> {realestate.date}
+                        <span className="detail__name">Opłacony:</span>
+                        {new Date(realestate.date).toLocaleDateString('pl-PL')}
                         <br />
                         <span className="detail__name">Cena wynajmu: </span>${realestate.price}
                         <br />
@@ -51,6 +52,6 @@ const PlayerRealEstate = ({playerRealEstate}) => {
             )}
         </>
     );
-}
+};
 
 export default PlayerRealEstate;

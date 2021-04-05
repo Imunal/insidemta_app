@@ -15,7 +15,15 @@ class VehiclesView extends React.Component {
             sortingType: 'cheap',
             sortingVehicleType: 'all',
             vehicles: [],
+            isVehicleBuyed: null,
         };
+    }
+
+    componentDidUpdate() {
+        if (this.state.isVehicleBuyed) {
+            this.getExchangeVehicles();
+            this.setState({ isVehicleBuyed: null });
+        }
     }
 
     componentDidMount() {
@@ -131,11 +139,11 @@ class VehiclesView extends React.Component {
     sortVehicles(vehicles) {
         if (this.state.sortingType === 'expensive')
             vehicles.sort((a, b) => {
-                return parseFloat(a.exchangePrice) > parseFloat(b.exchangePrice) ? -1 : 1;
+                return parseFloat(a.exchange_price) > parseFloat(b.exchange_price) ? -1 : 1;
             });
         if (this.state.sortingType === 'cheap')
             vehicles.sort((a, b) => {
-                return parseFloat(a.exchangePrice) > parseFloat(b.exchangePrice) ? 1 : -1;
+                return parseFloat(a.exchange_price) > parseFloat(b.exchange_price) ? 1 : -1;
             });
         if (this.state.sortingType === 'oldest')
             vehicles.sort((a, b) => {
@@ -147,15 +155,15 @@ class VehiclesView extends React.Component {
             });
         if (this.state.sortingType === 'slowest')
             vehicles.sort((a, b) => {
-                return this.getVehicleEngineCapacity(a.engineCapacity) >
-                    this.getVehicleEngineCapacity(b.engineCapacity)
+                return this.getVehicleEngineCapacity(a.engine_capacity) >
+                    this.getVehicleEngineCapacity(b.engine_capacity)
                     ? 1
                     : -1;
             });
         if (this.state.sortingType === 'fastest')
             vehicles.sort((a, b) => {
-                return this.getVehicleEngineCapacity(a.engineCapacity) >
-                    this.getVehicleEngineCapacity(b.engineCapacity)
+                return this.getVehicleEngineCapacity(a.engine_capacity) >
+                    this.getVehicleEngineCapacity(b.engine_capacity)
                     ? -1
                     : 1;
             });
@@ -207,7 +215,7 @@ class VehiclesView extends React.Component {
                     {vehicles.map((object, index) => (
                         <VehicleExchange
                             key={index}
-                            ID={object.ID}
+                            ID={object.id}
                             model={object.model}
                             name={this.getVehicleName(object.model)}
                             price={object.exchangePrice}
@@ -221,7 +229,8 @@ class VehiclesView extends React.Component {
                             color4={this.getVehicleColor(object.color, 'color4')}
                             colorLights={this.getVehicleColor(object.color, 'colorLights')}
                             upgrades={this.getVehicleUpgrades(object.tuning)}
-                        ></VehicleExchange>
+                            isVehicleBuyed={this.state.isVehicleBuyed}
+                        />
                     ))}
                 </>
             );
@@ -249,16 +258,11 @@ class VehiclesView extends React.Component {
     // Load vehicles
     getExchangeVehicles = async () => {
         try {
-            await this.sleep(2000);
             const response = await axiosInstance.get('server/getVehiclesExchange');
             this.setState({ vehicles: response.data, loading: false });
         } catch (error) {
             // this.setState({ onlinePlayersLoaded: true });
         }
-    };
-
-    sleep = (ms) => {
-        return new Promise((resolve) => setTimeout(resolve, ms));
     };
 
     render() {

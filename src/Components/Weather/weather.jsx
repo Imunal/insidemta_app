@@ -12,7 +12,7 @@ const Weather = () => {
     }, []);
 
     const getWeatherData = () => {
-        axiosInstance.get('/server/getWeather').then((response) => {
+        axiosInstance.get('/server/weather').then((response) => {
             setWeatherData(response.data);
         });
     };

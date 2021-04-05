@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import axiosInstance from '../../Configs/axios';
 import Loader from 'react-loader-spinner';
 
@@ -24,7 +25,7 @@ class latestCharacter extends React.Component {
 
     getLatestCharacter = async () => {
         try {
-            const response = await axiosInstance.get('server/getLatestPlayers');
+            const response = await axiosInstance.get('server/latestPlayers');
             if (this._isMounted) {
                 this.setState({
                     latestCharacters: response.data,
@@ -40,17 +41,21 @@ class latestCharacter extends React.Component {
         if (this.state.latestCharactersLoaded) {
             return (
                 <>
-                    {this.state.latestCharacters.map((object, index) => (
+                    {this.state.latestCharacters.map((player, index) => (
                         <div className="col-6 col-md-3" key={index}>
-                            <div className="panel__body__element text-center">
-                                <img
-                                    className="panel__body__image img-fluid"
-                                    src={`https://cdn.insidemta.pl/skins/${object.skin}.png`}
-                                    alt="Skin"
-                                    loading="lazy"
-                                />
-                                <h6 className="mt-3 text-muted text-break">{object.username}</h6>
-                            </div>
+                            <Link to={`/player/${player.UID}`}>
+                                <div className="panel__body__element text-center">
+                                    <img
+                                        className="panel__body__image img-fluid"
+                                        src={`https://cdn.insidemta.pl/skins/${player.skin}.png`}
+                                        alt="Skin"
+                                        loading="lazy"
+                                    />
+                                    <h6 className="mt-3 text-muted text-break">
+                                        {player.username}
+                                    </h6>
+                                </div>
+                            </Link>
                         </div>
                     ))}
                 </>

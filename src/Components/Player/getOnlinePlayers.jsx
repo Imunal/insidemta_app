@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import axiosInstance from '../../Configs/axios';
 import Loader from 'react-loader-spinner';
 import Sadface from '../../Assets/Images/Player/no-found.png';
@@ -24,7 +25,7 @@ class getOnlinePlayers extends React.Component {
 
     getOnlinePlayers = async () => {
         try {
-            const response = await axiosInstance.get('server/getOnlinePlayers');
+            const response = await axiosInstance.get('server/onlinePlayers');
             if (this._isMounted) {
                 this.setState({
                     onlinePlayers: response.data,
@@ -43,23 +44,25 @@ class getOnlinePlayers extends React.Component {
             if (this.state.onlinePlayers.length > 0) {
                 return (
                     <>
-                        {this.state.onlinePlayers.map((object, index) => (
+                        {this.state.onlinePlayers.map((player, index) => (
                             <div className="col-4 col-md-2 mt-2" key={index}>
                                 <div className="text-center">
-                                    <div className="player">
-                                        <div className="player__circle block__center">
-                                            <img
-                                                src={`https://cdn.insidemta.pl/skins/${object.skin}.png`}
-                                                className="img-fluid"
-                                                alt="Skin"
-                                                loading="lazy"
-                                            />
-                                            <span className="player__cricle__online"></span>
+                                    <Link to={`/player/${player.UID}`}>
+                                        <div className="player">
+                                            <div className="player__circle block__center">
+                                                <img
+                                                    src={`https://cdn.insidemta.pl/skins/${player.skin}.png`}
+                                                    className="img-fluid"
+                                                    alt="Skin"
+                                                    loading="lazy"
+                                                />
+                                                <span className="player__cricle__online"></span>
+                                            </div>
+                                            <h6 className="mt-2 text-muted text-break text-center">
+                                                {player.username}
+                                            </h6>
                                         </div>
-                                        <h6 className="mt-2 text-muted text-break text-center">
-                                            {object.username}
-                                        </h6>
-                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                         ))}

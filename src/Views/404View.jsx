@@ -1,4 +1,4 @@
-function NotFoundView() {
+const NotFoundView = () => {
     return (
         <div className="container">
             <div className="panel">
@@ -9,6 +9,6 @@ function NotFoundView() {
             </div>
         </div>
     );
-}
+};
 
 export default NotFoundView;

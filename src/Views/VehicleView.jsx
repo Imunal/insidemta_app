@@ -28,21 +28,15 @@ const VehicleView = () => {
             .then((response) => {
                 setVehicleData(response.data);
             })
-            .catch((error) => {
+            .catch(() => {
                 addToast('Nie znaleziono pojazdów.', { appearance: 'error' });
                 history.push('/search/vehicle');
             });
     };
 
     const renderVehicles = () => {
-        return (
-            <div className="row">
-                {
-                    <PlayerVehicles playerVehicles={vehicleData}  />
-                }
-            </div>
-        )
-    }
+        return <div className="row">{<PlayerVehicles playerVehicles={vehicleData} />}</div>;
+    };
 
     return (
         <>
@@ -52,16 +46,16 @@ const VehicleView = () => {
                         <h1 className="mb-0">Podgląd pojazdów</h1>
                     </div>
                     <div className="panel__body">
-                        {
-                            vehicleData.length ? renderVehicles() : (
-                                <div className="custom__alert custom__alert__info">
-                                    <h1> Brak pojazdów</h1>
-                                    <p className="m-0">
-                                        Na serwerze nie ma żadnych pojazdów o podanym modelu.
-                                    </p>
-                                </div>
-                            )
-                        }
+                        {vehicleData.length ? (
+                            renderVehicles()
+                        ) : (
+                            <div className="custom__alert custom__alert__info">
+                                <h1> Brak pojazdów</h1>
+                                <p className="m-0">
+                                    Na serwerze nie ma żadnych pojazdów o podanym modelu.
+                                </p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

@@ -1,19 +1,19 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import Image from 'react-image-webp';
 
 import Logo from '../Assets/Images/Logo/logo_insidemta.png';
 import LogoWebP from '../Assets/Images/Logo/logo_insidemta.webp';
 
-function Navbar() {
+const Navbar = () => {
     const isLogged = useSelector((state) => state.player.personalToken);
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [isDropDownCollapsed, setIsDropdownCollapsed] = useState(false);
 
     const changeDropDownState = () => {
         setIsDropdownCollapsed(!isDropDownCollapsed);
-    }
+    };
 
     const authView = () => {
         if (isLogged) {
@@ -83,24 +83,33 @@ function Navbar() {
                             </NavLink>
                         </li>
                         <li className="nav-item d-flex m-1">
-                            <a className="nav-link dropdown-toggle" href onClick={() => changeDropDownState()} role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                Wyszukiwarka
-                            </a>
-                            <ul className={`${isDropDownCollapsed ? 'show' : ''} dropdown-menu`} aria-labelledby="navbarDropdown">
-                                <li><NavLink className="dropdown-item" to="/search/player">Graczy</NavLink></li>
-                                <li><NavLink className="dropdown-item" to="/search/vehicle">Pojazdów</NavLink></li>
-                            </ul>
-                        </li>
-                        {/* <li className="nav-item d-flex m-1">
-                            <NavLink
-                                exact
-                                className="nav-link"
-                                activeClassName="selected"
-                                to="/search"
+                            <a
+                                className="nav-link dropdown-toggle"
+                                href
+                                role="button"
+                                onClick={() => changeDropDownState()}
+                                id="navbarDropdown"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
                             >
                                 Wyszukiwarka
-                            </NavLink>
-                        </li> */}
+                            </a>
+                            <ul
+                                className={`${isDropDownCollapsed ? 'show' : ''} dropdown-menu`}
+                                aria-labelledby="navbarDropdown"
+                            >
+                                <li>
+                                    <NavLink className="dropdown-item" to="/search/player">
+                                        Graczy
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className="dropdown-item" to="/search/vehicle">
+                                        Pojazdów
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        </li>
                         <li className="nav-item d-flex m-1">
                             <NavLink
                                 exact
@@ -127,6 +136,6 @@ function Navbar() {
             </div>
         </nav>
     );
-}
+};
 
 export default Navbar;

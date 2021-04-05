@@ -7,7 +7,6 @@ import IndexView from './Views/IndexView';
 import ShopView from './Views/ShopView';
 import VehiclesView from './Views/VehiclesView';
 import LoginView from './Views/LoginView';
-import RulesView from './Views/RulesView';
 import NotFoundView from './Views/404View';
 
 import PaymentErrorView from './Views/PaymentErrorView';
@@ -35,7 +34,6 @@ const App = () => {
                 <Route path="/organizations" component={ShowOrganizations} />
                 <Route path="/shop" component={ShopView} />
                 <Route path="/exchange" component={VehiclesView} />
-                <Route path="/regulamin" component={RulesView} />
                 <Route path="/payment-success" component={PaymentSuccessView} />
                 <Route path="/payment-error" component={PaymentErrorView} />
                 <Route path="/login" component={LoginView} />

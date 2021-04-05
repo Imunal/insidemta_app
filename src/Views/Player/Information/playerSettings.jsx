@@ -8,34 +8,47 @@ function PlayerSettings() {
     const playerData = useSelector((state) => state.player);
     const [playerRolePlayName, setPlayerRolePlayName] = useState('');
     const [playerName, setPlayerName] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const updatePlayerRolePlayName = () => {
         if (!playerRolePlayName) return;
+        setIsLoading(true);
         axiosConfig
             .put('/player/setPlayerRPName', {
-                personalToken: playerData.personalToken,
-                targetedRPName: playerRolePlayName,
+                playerToken: playerData.personalToken,
+                playerNewRPName: playerRolePlayName,
             })
             .then(() => {
                 addToast('Twój nick RP został zmieniony pomyślnie', { appearance: 'success' });
             })
-            .catch((error) => {
-                addToast(error.response.data.error, { appearance: 'error' });
+            .catch(() => {
+                addToast('Podany nick jest już zajęty, proszę wybierz inny.', {
+                    appearance: 'error',
+                });
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
     };
 
     const updatePlayerName = () => {
         if (!playerName) return;
+        setIsLoading(true);
         axiosConfig
             .put('/player/setPlayerName', {
-                personalToken: playerData.personalToken,
-                targetedPlayerName: playerName,
+                playerToken: playerData.personalToken,
+                playerNewName: playerName,
             })
             .then(() => {
                 addToast('Twój nick został zmieniony pomyślnie', { appearance: 'success' });
             })
-            .catch((error) => {
-                addToast(error.response.data.error, { appearance: 'error' });
+            .catch(() => {
+                addToast('Podany nick jest już zajęty, proszę wybierz inny.', {
+                    appearance: 'error',
+                });
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
     };
 
@@ -55,14 +68,25 @@ function PlayerSettings() {
                         />
                         <label htmlFor="playerRPUserName">Wprowadź swój nowy nick Role-Play</label>
                     </div>
-                    <p className="text-small text-muted">
+                    <p className="small text-muted">
                         Pamiętaj że swój nick Role-Play możesz zmienić raz na miesiąc!
                     </p>
                     <button
                         className="btn btn__dark btn-lg btn-block"
                         onClick={() => updatePlayerRolePlayName()}
                     >
-                        Zmień swój nick Role-Play
+                        {isLoading ? (
+                            <>
+                                <span
+                                    className="spinner-border spinner-border-sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                ></span>
+                                <span className="visually-hidden">Wczytywanie...</span>
+                            </>
+                        ) : (
+                            'Zmień swój nick Role-Play'
+                        )}
                     </button>
                 </div>
                 <div className="col-md-6">
@@ -76,14 +100,25 @@ function PlayerSettings() {
                         />
                         <label htmlFor="playerName">Wprowadź swój nowy nick</label>
                     </div>
-                    <p className="text-small text-muted">
+                    <p className="small text-muted">
                         Pamiętaj że swój nick możesz zmienić raz na miesiąc!
                     </p>
                     <button
                         className="btn btn__dark btn-lg btn-block"
                         onClick={() => updatePlayerName()}
                     >
-                        Zmień swój nick
+                        {isLoading ? (
+                            <>
+                                <span
+                                    className="spinner-border spinner-border-sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                ></span>
+                                <span className="visually-hidden">Wczytywanie...</span>
+                            </>
+                        ) : (
+                            'Zmień swój nick'
+                        )}
                     </button>
                 </div>
             </div>

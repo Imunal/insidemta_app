@@ -45,8 +45,8 @@ const ShowOrganizations = () => {
                         )}
                         <h3 className="mt-3 text-muted text-break fw-900">{organization.name}</h3>
                         <p className="text-muted">
-                            <span className="detail__name">Właściciel: </span>
-                            {organization.owner}
+                            <span className="detail__name">Lider: </span>
+                            {organization.username}
                             <br />
                             <span className="detail__name">Majątek: </span>$
                             {Math.round(organization.money * 100) / 100}
@@ -58,7 +58,7 @@ const ShowOrganizations = () => {
                             {organization.vehicles * 3}
                             <br />
                             <span className="detail__name">Utworzona: </span>
-                            {organization.created}
+                            {new Date(organization.created).toLocaleDateString('pl-PL')}
                         </p>
                     </div>
                 </div>

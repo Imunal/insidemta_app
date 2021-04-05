@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 function PlayerInformation() {
     const playerData = useSelector((state) => state.player);
-    const playerPenalties = useSelector((state) => state.penalties);
+    const playerPenalties = useSelector((state) => state.player.penalties);
 
     const renderPenalties = () => {
         return playerPenalties.map((penaltie) => (
@@ -60,10 +60,12 @@ function PlayerInformation() {
                         Adres e-mail: <b>{playerData.email}</b>
                     </p>
                     <p className="mb-1">
-                        Utworzono dnia: <b>{playerData.created}</b>
+                        Utworzono dnia:{' '}
+                        <b>{new Date(playerData.created).toLocaleDateString('pl-PL')}</b>
                     </p>
                     <p className="mb-1">
-                        Ostatnio w grze: <b>{playerData.lastOnline}</b>
+                        Ostatnio w grze:{' '}
+                        <b>{new Date(playerData.lastOnline).toLocaleDateString('pl-PL')}</b>
                     </p>
                 </div>
                 <div className="col-md-5 align-self-center">
@@ -93,7 +95,7 @@ function PlayerInformation() {
             <div className="mt-3">
                 <h5 className="fw-900">Twoje kary:</h5>
                 <hr />
-                {playerPenalties.length ? (
+                {playerPenalties && playerPenalties.length ? (
                     <div className="row">{renderPenalties()}</div>
                 ) : (
                     <div className="custom__alert custom__alert__info">

@@ -16,7 +16,7 @@ function Footer() {
                 Copyright &copy; 2021 InsideMTA
             </p>
             <p className="text-muted text-small text-center">
-                <a href="/regulamin">Regulamin serwisu</a>
+                <a href="https://cdn.insidemta.pl/regulamin.a3e18dc4.pdf">Regulamin serwisu</a>
             </p>
         </footer>
     );

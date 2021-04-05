@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import axiosInstance from '../Configs/axios';
-import Loader from 'react-loader-spinner';
 
 import { Link, useHistory } from 'react-router-dom';
 
@@ -25,47 +24,36 @@ function LoginView() {
     const validateForm = (e) => {
         e.preventDefault();
         if (!userName && !userPassword) {
-            return false;
+            return addToast('Uzupełnij wszystkie dane z formularza aby kontynuować.', {
+                appearance: 'warning',
+            });
         }
         authenticate();
     };
 
-    const authenticate = async () => {
+    const authenticate = () => {
         setIsLoading(true);
-        try {
-            const response = await axiosInstance.post('player/authenticate', {
-                userName: userName,
-                userPassword: userPassword,
+        axiosInstance
+            .post('player/authenticate', {
+                playerLogin: userName,
+                playerPassword: userPassword,
+            })
+            .then((response) => {
+                dispatch({ type: 'SET_AUTHENTICATION', payload: response.data });
+                history.push('/account');
+            })
+            .catch(() => {
+                setIsLoading(false);
+                addToast('Wystąpił problem z logowaniem, sprawdź swoje dane.', {
+                    appearance: 'error',
+                });
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
-            dispatch({ type: 'SET_AUTHENTICATION', payload: response.data });
-            history.push('/account');
-        } catch (error) {
-            setIsLoading(false);
-            addToast('Wystąpił problem z logowaniem, sprawdź swoje dane.', { appearance: 'error' });
-        }
-    };
-
-    const handleUserNameChange = (e) => {
-        setUserName(e.target.value);
-    };
-
-    const handleUserPasswordChange = (e) => {
-        setUserPassword(e.target.value);
     };
 
     const renderLoginElements = () => {
-        if (isLoading)
-            return (
-                <div className="block__center w-100 h-100 mt-5 mb-5">
-                    <Loader type="Bars" color="#ccc" height={50} width={50} />
-                    <p className="text-small text-center text-muted m-0 mt-3">
-                        Hej, sprawdzamy czy twoje dane są poprawne
-                        <br />
-                        Poczekaj chwilę...
-                    </p>
-                </div>
-            );
-
         return (
             <div style={{ maxWidth: 500, margin: auto }}>
                 <h3 className="text-center">Zaloguj się</h3>
@@ -78,13 +66,12 @@ function LoginView() {
                         <input
                             type="text"
                             htmlFor="userName"
-                            onChange={(e) => handleUserNameChange(e)}
+                            onChange={(e) => setUserName(e.target.value)}
                             value={userName}
                             className="form-control"
                             id="userName"
                             placeholder="Twój login"
                             autoComplete="username"
-                            required
                         />
                         <label htmlFor="userName">Login</label>
                     </div>
@@ -92,7 +79,7 @@ function LoginView() {
                         <input
                             type="password"
                             htmlFor="userPassword"
-                            onChange={(e) => handleUserPasswordChange(e)}
+                            onChange={(e) => setUserPassword(e.target.value)}
                             value={userPassword}
                             className="form-control"
                             id="userPassword"
@@ -104,7 +91,18 @@ function LoginView() {
                     </div>
                     <div className="d-grid mb-3">
                         <button type="submit" className="btn btn-lg btn__dark btn-block">
-                            Zaloguj się
+                            {isLoading ? (
+                                <>
+                                    <span
+                                        className="spinner-border spinner-border-sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                    ></span>
+                                    <span className="visually-hidden">Wczytywanie...</span>
+                                </>
+                            ) : (
+                                'Zaloguj się'
+                            )}
                         </button>
                     </div>
 
