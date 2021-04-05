@@ -69,9 +69,9 @@ class VehiclesView extends React.Component {
 
     getVehiclePlateText(plate, id) {
         if (!plate || plate === '') {
-            return 'LA ' + this.pad(id, 5);
+            return 'SA ' + this.pad(id, 5);
         }
-        return plate;
+        return 'SA ' + plate;
     }
 
     // Input functioncs
@@ -202,19 +202,14 @@ class VehiclesView extends React.Component {
                 }
             });
         }
-        console.log(vehicles)
-
         this.sortVehicles(vehicles);
-
-        console.log(vehicles)
-
         if (vehicles.length > 0) {
             return (
                 <>
                     {vehicles.map((object, index) => (
                         <VehicleExchange
                             key={index}
-                            ID={object.id}
+                            ID={object.ID}
                             model={object.model}
                             name={this.getVehicleName(object.model)}
                             price={object.exchangePrice}
