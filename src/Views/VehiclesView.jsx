@@ -128,22 +128,18 @@ class VehiclesView extends React.Component {
             c += capacity[index];
         }
 
-        let newCapacity = parseFloat(c);
-        if (capacity.indexOf('Turbo') > 0) newCapacity += 0.5;
-        if (capacity.indexOf('Biturbo') > 0 || capacity.indexOf('Twin Turbo')) newCapacity += 0.5;
-
-        return newCapacity;
+        return parseFloat(c);
     };
 
     // Sorting function
     sortVehicles(vehicles) {
         if (this.state.sortingType === 'expensive')
             vehicles.sort((a, b) => {
-                return parseFloat(a.exchange_price) > parseFloat(b.exchange_price) ? -1 : 1;
+                return parseFloat(a.exchangePrice) > parseFloat(b.exchangePrice) ? -1 : 1;
             });
         if (this.state.sortingType === 'cheap')
             vehicles.sort((a, b) => {
-                return parseFloat(a.exchange_price) > parseFloat(b.exchange_price) ? 1 : -1;
+                return parseFloat(a.exchangePrice) > parseFloat(b.exchangePrice) ? 1 : -1;
             });
         if (this.state.sortingType === 'oldest')
             vehicles.sort((a, b) => {
@@ -155,15 +151,15 @@ class VehiclesView extends React.Component {
             });
         if (this.state.sortingType === 'slowest')
             vehicles.sort((a, b) => {
-                return this.getVehicleEngineCapacity(a.engine_capacity) >
-                    this.getVehicleEngineCapacity(b.engine_capacity)
+                return this.getVehicleEngineCapacity(a.engineCapacity) >
+                    this.getVehicleEngineCapacity(b.engineCapacity)
                     ? 1
                     : -1;
             });
         if (this.state.sortingType === 'fastest')
             vehicles.sort((a, b) => {
-                return this.getVehicleEngineCapacity(a.engine_capacity) >
-                    this.getVehicleEngineCapacity(b.engine_capacity)
+                return this.getVehicleEngineCapacity(a.engineCapacity) >
+                    this.getVehicleEngineCapacity(b.engineCapacity)
                     ? -1
                     : 1;
             });
@@ -206,8 +202,11 @@ class VehiclesView extends React.Component {
                 }
             });
         }
+        console.log(vehicles)
 
         this.sortVehicles(vehicles);
+
+        console.log(vehicles)
 
         if (vehicles.length > 0) {
             return (
