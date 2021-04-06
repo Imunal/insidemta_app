@@ -10,7 +10,7 @@ function PlayerInformation() {
                 <div className="panel__body__element text-center">
                     <span className="text-break">Powód: {penaltie.reason}</span>
                     <br />
-                    <span>Czas: {penaltie.time}</span>
+                    <span>Czas: {new Date(penaltie.time).toLocaleDateString('pl-PL')}</span>
                     <br />
                     <span className="badge bg-danger mx-1">{penaltie.type}</span>{' '}
                     <span className="badge bg-secondary">{penaltie.admin}</span>

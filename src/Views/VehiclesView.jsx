@@ -15,15 +15,7 @@ class VehiclesView extends React.Component {
             sortingType: 'cheap',
             sortingVehicleType: 'all',
             vehicles: [],
-            isVehicleBuyed: null,
         };
-    }
-
-    componentDidUpdate() {
-        if (this.state.isVehicleBuyed) {
-            this.getExchangeVehicles();
-            this.setState({ isVehicleBuyed: null });
-        }
     }
 
     componentDidMount() {
@@ -223,7 +215,6 @@ class VehiclesView extends React.Component {
                             color4={this.getVehicleColor(object.color, 'color4')}
                             colorLights={this.getVehicleColor(object.color, 'colorLights')}
                             upgrades={this.getVehicleUpgrades(object.tuning)}
-                            isVehicleBuyed={this.state.isVehicleBuyed}
                         />
                     ))}
                 </>

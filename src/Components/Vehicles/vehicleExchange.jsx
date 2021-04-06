@@ -1,13 +1,13 @@
-//import { useState } from 'react';
-//import { useSelector } from 'react-redux';
-//import { useToasts } from 'react-toast-notifications';
-//import axios from '../../Configs/axios';
+import {useState} from 'react';
+import { useSelector } from 'react-redux';
+import { useToasts } from 'react-toast-notifications';
+import axios from '../../Configs/axios';
 
 const VehicleExchange = (props) => {
-    //const playerData = useSelector((state) => state.player.personalToken);
-    //const { addToast } = useToasts();
+    const playerData = useSelector((state) => state.player.personalToken);
+    const { addToast } = useToasts();
 
-    //const { isVehicleBuyed, setIsVehicleBuyed } = useState(props.isVehicleBuyed);
+    const [vehiclePrice, setVehiclePrice] = useState(props.price);
 
     const priceFormatter = () => {
         return new Intl.NumberFormat('en-US', {
@@ -18,9 +18,9 @@ const VehicleExchange = (props) => {
         });
     };
 
-    /*const buyVehicle = (vehicleID) => {
-        if (isVehicleBuyed) {
-            return addToast('Wystąpił problem z zakupem pojazdu.', { appearance: 'error' });
+    const buyVehicle = (vehicleID) => {
+        if (!vehiclePrice) {
+            return addToast('Wystąpił nieznany problem.', { appearance: 'error' });
         }
         if (!playerData) {
             return addToast('Aby zakupić pojazd musisz się najpierw zalogować.', {
@@ -33,16 +33,19 @@ const VehicleExchange = (props) => {
                 personalToken: playerData,
             })
             .then(() => {
-                setIsVehicleBuyed(1);
+                setVehiclePrice(null);
                 addToast('Pomyślnie zakupiłeś pojazd z giełdy!', { appearance: 'success' });
             })
             .catch((error) => {
+                console.log(error);
                 addToast('Wystąpił problem z zakupem pojazdu.', { appearance: 'error' });
             });
-    };*/
+    };
 
-    return (
-        <div className="col-lg-3 mb-4">
+
+    const renderVehicle = () => {
+        return (
+            <div className="col-lg-3 mb-4">
             <div className="row flex-row vehicle">
                 <div className="vehicle__img">
                     <img
@@ -104,16 +107,23 @@ const VehicleExchange = (props) => {
                         <span>Sprzedający:</span> {props.seller}
                     </p>
                 </div>
-                {/* <div className="mt-3">
+                <div className="mt-3">
                     <button
                         className="btn btn__insidemta d-block mx-auto"
                         onClick={() => buyVehicle(props.ID)}
                     >
                         Kup pojazd offline
                     </button>
-                </div> */}
+                </div>
             </div>
         </div>
+        );
+    }
+
+    return (
+        <>
+        {vehiclePrice ? renderVehicle() : ''}
+        </>
     );
 };
 
