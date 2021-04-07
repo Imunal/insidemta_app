@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Collapsible from 'react-collapsible';
 
 import HotPayPayment from '../Components/Shop/shopSMSPayment';
 import { loadStripe } from '@stripe/stripe-js';
@@ -41,28 +42,51 @@ const ShopView = () => {
     }
 
     const renderItems = () => {
+        let shops = []
+        let shopNames = []
+        shopItems.forEach((item) => {
+            if (!shops[item.shop_item_category]) {
+                shops[item.shop_item_category] = []
+                shopNames[item.shop_item_category] = item.shop_item_name.substr(0, item.shop_item_name.indexOf('('));
+            }
+            item.shopName = shopNames[item.shop_item_category]
+            shops[item.shop_item_category].push(item)
+        })
         return (
-            <div className="row">
-                {shopItems.map((item) => (
-                    <div className="col-md-6 mt-2" key={item.shop_id}>
-                        <div
-                            className="panel__body__element"
-                            onClick={() => selectItems(item)}
-                            role="button"
-                        >
-                            <h4 className="fw-light text-center text-uppercase">
-                                {item.shop_item_name}
-                            </h4>
-                            <hr />
-                            <p className="small text-muted text-center pb-0 mb-0">
-                                Naciśnij na mnie aby dodać do koszyka!
-                            </p>
-                        </div>
-                    </div>
-                ))}
+            <div>
+                {shops.map((category) => {
+                    return (
+                        <Collapsible trigger={category[0].shopName} transitionTime={200} className={"shopCategory-" + category[0].shop_item_category}>
+                            <div className="row">
+                                {category.map((item) => {
+                                    return (
+                                        <div className="col-md-4 mt-2" key={item.shop_id}>
+                                            <div
+                                                className="panel__body__element"
+                                                onClick={() => selectItems(item)}
+                                                role="button"
+                                            >
+                                                <h4 className="fw-light text-center text-uppercase">
+                                                    {item.shop_item_name.substring(
+                                                        item.shop_item_name.lastIndexOf("(") + 1,
+                                                        item.shop_item_name.lastIndexOf(")")
+                                                    )}
+                                                </h4>
+                                                <hr />
+                                                <p className="small text-muted text-center pb-0 mb-0">
+                                                    Naciśnij aby dodać do koszyka!
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </Collapsible>
+                    )}
+                )}
             </div>
-        );
-    };
+        )
+    }
 
     const handlePayment = async (item, paymentType) => {
         setPaymentMethodSelected(paymentType);

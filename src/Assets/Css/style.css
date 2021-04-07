@@ -142,15 +142,19 @@ a {
 
 .panel__body__element {
     border-radius: 8px;
-    border: 1px solid #242424 !important;
-    background-color: #1f1f1f;
+    border: 1px solid #1e1e1e !important;
+    background-color: #1a1a1a;
     padding: 20px;
 
     transition: 0.3s background-color ease-in;
 }
 
+.panel__body__element > hr {
+    background-color: #646464;
+}
+
 .panel__body__element:hover {
-    background-color: #151515;
+    background-color: #222;
 }
 
 /* WIDGET */
@@ -437,6 +441,59 @@ a {
 .shop__selected {
     background-color: #151515 !important;
 }
+
+
+/* Shop sections */
+.Collapsible {
+    margin-bottom: 10px;
+    background-color: #1a1a1a;
+    border-radius: 4px;
+}
+
+.Collapsible__trigger {
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    background-color: #151515;
+    color: #ccc;
+    font-weight: 600;
+    padding-left: 40px;
+}
+
+.Collapsible__contentInner {
+    padding: 0 10px 10px;
+    background-color: #131313;
+    border-top: 0;
+    border-radius: 4px;
+}
+
+.Collapsible__trigger::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    line-height: 44px;
+}
+
+.Collapsible:nth-of-type(1) > span:after {
+    content: "👑";
+}
+.Collapsible:nth-of-type(2) > span:after {
+    content: "💎";
+}
+.Collapsible:nth-of-type(3) > span:after {
+    content: "🃏";
+}
+.Collapsible:nth-of-type(4) > span:after {
+    content: "🚗";
+}
+.Collapsible:nth-of-type(5) > span:after {
+    content: "🏠";
+}
+
 
 /* .diamond{
     color: #31caff;
