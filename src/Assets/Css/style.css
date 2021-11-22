@@ -81,8 +81,10 @@ a {
 }
 
 .slider__update h1 {
-    font-weight: 800;
-    font-size: 55px;
+    font-weight: 900;
+    font-size: 35px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
 }
 
 .slider__update p {
@@ -442,7 +444,6 @@ a {
     background-color: #151515 !important;
 }
 
-
 /* Shop sections */
 .Collapsible {
     margin-bottom: 10px;
@@ -469,8 +470,8 @@ a {
     border-radius: 4px;
 }
 
-.Collapsible__trigger::after{
-    content: "";
+.Collapsible__trigger::after {
+    content: '';
     display: block;
     position: absolute;
     top: 0;
@@ -479,21 +480,20 @@ a {
 }
 
 .Collapsible:nth-of-type(1) > span:after {
-    content: "👑";
+    content: '👑';
 }
 .Collapsible:nth-of-type(2) > span:after {
-    content: "💎";
+    content: '💎';
 }
 .Collapsible:nth-of-type(3) > span:after {
-    content: "🃏";
+    content: '🃏';
 }
 .Collapsible:nth-of-type(4) > span:after {
-    content: "🚗";
+    content: '🚗';
 }
 .Collapsible:nth-of-type(5) > span:after {
-    content: "🏠";
+    content: '🏠';
 }
-
 
 /* .diamond{
     color: #31caff;

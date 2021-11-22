@@ -15,9 +15,9 @@ function Footer() {
             <p className="text-muted text-small text-center m-0 p-0">
                 Copyright &copy; 2021 InsideMTA
             </p>
-            <p className="text-muted text-small text-center">
+            {/* <p className="text-muted text-small text-center">
                 <a href="https://cdn.insidemta.pl/regulamin.a3e18dc4.pdf">Regulamin serwisu</a>
-            </p>
+            </p> */}
         </footer>
     );
 }

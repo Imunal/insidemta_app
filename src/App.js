@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Navbar from './Components/Navbar';
+//import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 
-import IndexView from './Views/IndexView';
-import ShopView from './Views/ShopView';
+import InformationView from './Views/InformationView';
+
+//import IndexView from './Views/IndexView';
+/*import ShopView from './Views/ShopView';
 import VehiclesView from './Views/VehiclesView';
 import LoginView from './Views/LoginView';
 import NotFoundView from './Views/404View';
@@ -21,15 +23,15 @@ import SearchPlayerView from './Views/SearchView';
 import SearchVehicleView from './Views/VehicleSearchView';
 
 import PlayerView from './Views/PlayerView';
-import VehicleView from './Views/VehicleView';
+import VehicleView from './Views/VehicleView';*/
 
 const App = () => {
     return (
         <Router>
-            <Navbar />
+            {/* <Navbar /> */}
             <Switch>
-                <Route exact path="/" component={IndexView} />
-                <Route path="/player/:playerUID" component={PlayerView} />
+                <Route exact path="/" component={InformationView} />
+                {/* <Route path="/player/:playerUID" component={PlayerView} />
                 <Route path="/vehicle/:vehicleModel" component={VehicleView} />
                 <Route path="/organizations" component={ShowOrganizations} />
                 <Route path="/shop" component={ShopView} />
@@ -41,7 +43,7 @@ const App = () => {
                 <Route path="/reset-password" component={PlayerPasswordRestore} />
                 <Route path="/search/player" component={SearchPlayerView} />
                 <Route path="/search/vehicle" component={SearchVehicleView} />
-                <Route path="*" component={NotFoundView} />
+                <Route path="*" component={NotFoundView} /> */}
             </Switch>
             <Footer />
         </Router>
