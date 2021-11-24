@@ -7,13 +7,13 @@ import Logo from '../Assets/Images/Logo/logo_insidemta.png';
 import LogoWebP from '../Assets/Images/Logo/logo_insidemta.webp';*/
 
 import LogoOld from '../Assets/Images/Logo/logo_insidemta_old.png';
-import Bussines from '../Assets/Images/Landing/1.png';
-import Econommy from '../Assets/Images/Landing/2.png';
-import VoiceChat from '../Assets/Images/Landing/3.png';
-import Proposition from '../Assets/Images/Landing/4.png';
-import Administration from '../Assets/Images/Landing/5.png';
-import Criminal from '../Assets/Images/Landing/6.png';
-import Ending from '../Assets/Images/Landing/7.png';
+import Bussines from '../Assets/Images/Landing/1.jpg';
+import Econommy from '../Assets/Images/Landing/2.jpg';
+import VoiceChat from '../Assets/Images/Landing/3.jpg';
+import Proposition from '../Assets/Images/Landing/4.jpg';
+import Administration from '../Assets/Images/Landing/5.jpg';
+import Criminal from '../Assets/Images/Landing/6.jpg';
+import Ending from '../Assets/Images/Landing/7.jpg';
 const InformationView = () => {
     return (
         <>
