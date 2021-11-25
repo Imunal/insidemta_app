@@ -1,8 +1,23 @@
-import { createStore, compose } from 'redux';
-import rootReducer from '../Reducers';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { createReduxHistoryContext } from 'redux-first-history';
+import { createBrowserHistory } from 'history';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+import { reducer as notificationsReducer } from 'reapop';
+import thunk from 'redux-thunk';
+import rootReducer from './Reducers';
 
-let store = createStore(rootReducer, composeEnhancers());
+const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
+  history: createBrowserHistory(),
+});
 
-export { store };
+export const store = createStore(
+  combineReducers({
+    router: routerReducer,
+    notifications: notificationsReducer(),
+    rootReducer,
+  }),
+  composeWithDevTools(applyMiddleware(routerMiddleware, thunk))
+);
+
+export const history = createReduxHistory(store);
