@@ -57,7 +57,7 @@ const InformationView = () => {
                                 serwerowych również powodował duże rozbieżności. W tej edycji
                                 skupimy się głównie na przebudowę gospodarki, re-balansie prac
                                 dorywczych jak i poprawieniu wszystkich znanych nam błędów
-                                pieniężnych, jakie znamy.
+                                pieniężnych.
                             </p>
                         </div>
                     </div>
@@ -67,13 +67,13 @@ const InformationView = () => {
                         <div className="col-md-6 align-self-center">
                             <h3>Restrukturyzacja administracji</h3>
                             <p className="mt-3">
-                                Nie da się ująć, że administracja poprzedniej edycji była
-                                niekompetentna, brakowało osoby, która zajmowała się ekipą na
-                                Poważnie. Ekipa była głównym powodem kryzysu poprzedniej edycji. W
+                                Nie da się ukryć, że administracja poprzedniej edycji była
+                                niekompetentna, brakowało osoby która zajmowała się ekipą na
+                                poważnie. Ekipa była głównym powodem kryzysu poprzedniej edycji. W
                                 tej edycji skupimy się na mniejszej, bardziej ogarniętej i zgranej
-                                Ekipy. Przywróciliśmy na rangę Administratora kilka znanych wam
-                                pewnie osób z poprzedniej edycji, do której mamy zaufanie i wieje od
-                                Nich profesjonalizmem. Nie wykluczamy jednak powiewu nowych osób w
+                                ekipie. Przywróciliśmy na posadę Administratora kilka znanych wam
+                                pewnie osób z poprzedniej edycji do których mamy zaufanie i wieje od
+                                nich profesjonalizmem. Nie wykluczamy jednak powiewu nowych osób w
                                 naszym elitarnym gronie, dlatego polecamy wyczekiwać informacji o
                                 najbliższych rekrutacjach.
                             </p>
@@ -96,15 +96,14 @@ const InformationView = () => {
                         <div className="col-md-6 align-self-center">
                             <h3>Voice Chat</h3>
                             <p className="mt-3">
-                                Nie da się ująć, że administracja poprzedniej edycji była
-                                niekompetentna, brakowało osoby która zajmowała się ekipą na
-                                poważnie. Ekipa była głównym powodem kryzysu poprzedniej edycji. W
-                                tej edycji skupimy się na mniejszej, bardziej ogarniętej i zgranej
-                                ekipy. Przywróciliśmy na rangę Administratora kilka znanych wam
-                                pewnie osób z poprzednij edycji do której mamy zaufanie i wieje od
-                                nich profesjonalizmem. Nie wykluczamy jednak powiewu nowych osób w
-                                naszym elitarnym gronie, dlatego polecamy wyczekiwać informacji o
-                                najbliższych rekrutacjach.
+                                Wraz z nadejściem nowej odsłony projektu postanowiliśmy wprowadzić
+                                dobrze znany i lubiany, voice chat, który to zdecydowanie wpłynie na
+                                jakość i wygląd rozgrywki. Dzięki niemu komunikacja zostanie
+                                przeniesiona na inny level. Jako, iż na serwerze posiadamy telefony
+                                jak i krótkofalówki czy megafony, będzie to znaczące urozmaicenie i
+                                ułatwienie ich używania. Voice chat otrzyma również regulamin jego
+                                korzystania, który będzie miał na celu wyeliminowanie osób
+                                uprzykrzających życie i niszczących ten sposób komunikacji.
                             </p>
                         </div>
                     </div>
@@ -115,15 +114,13 @@ const InformationView = () => {
                         <div className="col-md-6 align-self-center">
                             <h3>Organizacje przestępcze</h3>
                             <p className="mt-3">
-                                Nie da się ująć, że administracja poprzedniej edycji była
-                                niekompetentna, brakowało osoby która zajmowała się ekipą na
-                                poważnie. Ekipa była głównym powodem kryzysu poprzedniej edycji. W
-                                tej edycji skupimy się na mniejszej, bardziej ogarniętej i zgranej
-                                ekipy. Przywróciliśmy na rangę Administratora kilka znanych wam
-                                pewnie osób z poprzednij edycji do której mamy zaufanie i wieje od
-                                nich profesjonalizmem. Nie wykluczamy jednak powiewu nowych osób w
-                                naszym elitarnym gronie, dlatego polecamy wyczekiwać informacji o
-                                najbliższych rekrutacjach.
+                                Na poprzedniej edycji mogliście ujrzeć gangi pod niepełną odsłoną,
+                                zabrakło wielu elementów, które dopiero miały zostać wprowadzone.
+                                Między innymi nie mieliście okazji doświadczyć napadów oraz
+                                zorganizowanych wydarzeń z frakcjami. Razem z członkami organizacji
+                                przestępczych postawiliśmy na elementy RolePlayu w rozgrywce. Teraz
+                                całkowicie odbijemy piłeczkę, dodamy wiele elementów umożliwiające
+                                wam dynamiczną i czasochłonną rozgrywkę, tak byście się nie nudzili.
                             </p>
                         </div>
                         <div className="col-md-6">
@@ -152,8 +149,8 @@ const InformationView = () => {
                                 pomysłów
                             </h3>
                             <p className="mt-3">
-                                W poprzedniej edycji dostaliśmy od was masę fajnych propozycji
-                                nanowe systemy / rozwiązania / modyfikacje które moglibyśmy
+                                W poprzedniej edycji dostaliśmy od was masę fajnych propozycji na
+                                nowe systemy / rozwiązania / modyfikacje które moglibyśmy
                                 wprowadzić. Zapisaliśmy je i stale przeglądamy analizując je
                                 dokładnie w naszym gronie administracyjnym wybierające te które
                                 naszym zdanie są najciekawsze i które zasługują na realizacje, a na
@@ -169,10 +166,10 @@ const InformationView = () => {
                             <h3>I... To wszystko?</h3>
                             <p className="mt-3">
                                 Oczywiście, że nie! Pomimo głównych poprawek będzie również sporo
-                                mały usprawnień w kodzie, który przejdzie całkowity re-factoring,
+                                małych usprawnień w kodzie, który przejdzie całkowity re-factoring,
                                 jak i modyfikacji, które uprzyjemnią wam rozgrywkę których zabrakło
-                                w poprzedniej edycji, jak i kilka dużych systemów których nie
-                                chcemy, póki co zdradzać.
+                                w poprzedniej edycji, oraz kilka dużych systemów których nie chcemy,
+                                póki co zdradzać.
                                 <br />
                                 Więcej informacji będziecie otrzymywać w najbliższych ogłoszeniach
                                 tak więc wyczekujcie.
