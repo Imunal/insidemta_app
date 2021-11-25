@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Collapsible from 'react-collapsible';
 
 import HotPayPayment from '../../Components/Shop/shopSMSPayment';
@@ -10,9 +10,9 @@ import axios from '../../Configs/axios';
 
 const ShopView = () => {
   const playerData = useSelector((state) => state.player);
-  const history = useHistory();
+  const navigate = useNavigate();
   if (!playerData.personalToken) {
-    history.push('/login');
+    navigate('/login');
   }
 
   const [shopItems, setShopItems] = useState([]);
@@ -57,12 +57,13 @@ const ShopView = () => {
     });
     return (
       <div>
-        {shops.map((category) => {
+        {shops.map((category, index) => {
           return (
             <Collapsible
               trigger={category[0].shopName}
               transitionTime={200}
               className={'shopCategory-' + category[0].shop_item_category}
+              key={index}
             >
               <div className="row">
                 {category.map((item) => {

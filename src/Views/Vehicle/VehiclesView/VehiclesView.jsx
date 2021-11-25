@@ -1,9 +1,9 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
-import axiosInstance from '../../../Configs/axios';
-import VehicleExchange from '../../../Components/Vehicles/vehicleExchange';
-import VehicleData from '../Assets/Json/vehicleData.json';
-import Sadface from '../Assets/Images/Player/no-found.png';
+import axiosInstance from 'Configs/axios';
+import VehicleExchange from 'Components/Vehicles/vehicleExchange/vehicleExchange.main';
+import VehicleData from 'Assets/Json/vehicleData.json';
+import Sadface from 'Assets/Images/Player/no-found.png';
 
 class VehiclesView extends React.Component {
   constructor(props) {

@@ -7,33 +7,30 @@ import { setUpNotifications } from 'reapop';
 import { Provider } from 'react-redux';
 import { store, history } from 'Store';
 
-//import Navbar from './Components/Navbar';
-import Footer from './Components/Footer';
+import Navbar from 'Components/Navbar/Navbar.container';
+import Footer from 'Components/Footer';
 
 //Toast
 import Toasts from './Components/NotificationsSystem';
 
-import InformationView from './Views/InformationView';
-
-//import IndexView from './Views/IndexView';
-/*import ShopView from './Views/ShopView';
-import VehiclesView from './Views/VehiclesView';
-import LoginView from './Views/LoginView';
-import NotFoundView from './Views/404View';
-
-import PaymentErrorView from './Views/PaymentErrorView';
-import PaymentSuccessView from './Views/PaymentSuccessView';
-
-import PlayerAccount from './Views/Player/playerAccount';
-import PlayerPasswordRestore from './Views/Player/playerPasswordRestore';
-
-import ShowOrganizations from './Views/Organization/showOrganizations';
-
-import SearchPlayerView from './Views/SearchView';
-import SearchVehicleView from './Views/VehicleSearchView';
-
-import PlayerView from './Views/PlayerView';
-import VehicleView from './Views/VehicleView';*/
+// Views
+import {
+  //InformationView,
+  IndexView,
+  ShopView,
+  VehiclesView,
+  LoginView,
+  NotFoundView,
+  PaymentErrorView,
+  PaymentSuccessView,
+  PlayerAccount,
+  PlayerPasswordRestore,
+  ShowOrganizations,
+  SearchPlayerView,
+  SearchVehicleView,
+  PlayerView,
+  VehicleView,
+} from './Views';
 
 const App = () => {
   setUpNotifications({
@@ -48,9 +45,10 @@ const App = () => {
     <Provider store={store}>
       <Toasts />
       <Router history={history}>
+        <Navbar />
         <Routes>
           <Route path="/">
-            <Route index element={<InformationView />} />
+            <Route index element={<IndexView />} />
             {/* PLAYER */}
             <Route path="player">
               <Route path=":playerUID" element={<PlayerView />} />
