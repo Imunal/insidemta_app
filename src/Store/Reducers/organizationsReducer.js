@@ -1,5 +1,5 @@
 const initialState = {
-  organizations: null,
+  organizations: [],
 };
 
 const organizationReducer = (state = initialState, action) => {

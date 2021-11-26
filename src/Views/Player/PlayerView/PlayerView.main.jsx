@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Loader from 'react-loader-spinner';
 
+import Loader from 'Components/Loader/Loader';
 import PlayerVehicles from 'Components/Player/playerVehicles/playerVehicles';
 import PlayerRealEstate from 'Components/Player/playerRealEstate/playerRealEstate';
 import PlayerOrganizations from 'Components/Player/playerOrganizations/playerOrganizations';
@@ -132,20 +132,7 @@ const PlayerView = ({ searchedPlayer, fetchPlayer }) => {
           <div className="panel__header">
             <h1 className="mb-0">Podgląd gracza</h1>
           </div>
-          <div className="panel__body">
-            {searchedPlayer ? (
-              renderplayer()
-            ) : (
-              <div className="block__center w-100 h-100 mt-5 mb-5">
-                <Loader type="Bars" color="#ccc" height={50} width={50} />
-                <p className="text-small text-center text-muted m-0 mt-3">
-                  Trwa pobieranie danych z serwera
-                  <br />
-                  Poczekaj chwilę...
-                </p>
-              </div>
-            )}
-          </div>
+          <div className="panel__body">{searchedPlayer ? renderplayer() : <Loader />}</div>
         </div>
       </div>
     </>

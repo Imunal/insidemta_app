@@ -20,13 +20,13 @@ const Navbar = ({ user }) => {
 
   const authView = () => {
     return user ? (
-      <NavLink className="btn btn__navbar btn__dark btn-block align-self-center m-1" to="/user">
+      <NavLink className="btn btn__navbar btn__dark btn-block align-self-center m-1" to="/player">
         Moje konto
       </NavLink>
     ) : (
       <NavLink
         className="btn btn__navbar btn__dark btn-block align-self-center m-1"
-        to="/user/login"
+        to="/player/login"
       >
         Zaloguj się
       </NavLink>
@@ -64,7 +64,7 @@ const Navbar = ({ user }) => {
               </a>
             </li>
             <li className="nav-item d-flex m-1">
-              <NavLink className="nav-link" activeClassName="selected" to="/exchange">
+              <NavLink className="nav-link" activeClassName="selected" to="/vehicle/exchange">
                 Giełda
               </NavLink>
             </li>

@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import { searchPlayer } from 'Store/Actions/player';
+import { fetchSearch } from 'Store/Actions/player';
 
 import { getSearchedPlayer } from 'Store/Selectors/playerSelector';
 import PlayerView from './PlayerView.main';
 
 const mapDispatchToProps = {
-  searchPlayer: (playerUID) => searchPlayer(playerUID),
+  fetchSearch: (playerUID) => fetchSearch(playerUID),
 };
 
 const mapStateToProps = (state) => ({

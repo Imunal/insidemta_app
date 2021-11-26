@@ -7,13 +7,11 @@ const Toasts = () => {
   const notifications = useSelector((state) => state.notifications);
 
   return (
-    <div>
-      <NotificationsSystem
-        notifications={notifications}
-        dismissNotification={(id) => dispatch(dismissNotification(id))}
-        theme={atalhoTheme}
-      />
-    </div>
+    <NotificationsSystem
+      notifications={notifications}
+      dismissNotification={(id) => dispatch(dismissNotification(id))}
+      theme={atalhoTheme}
+    />
   );
 };
 

@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import axios from '../../Configs/axios';
+
+import axios from 'Configs/axios';
 
 const HotPayPayment = ({ shopData, playerUID }) => {
   const playerData = useSelector((state) => state.player.UID);
   const navigate = useNavigate();
-  if (!playerData) {
-    navigate('/login');
-  }
+
+  useEffect(() => {
+    if (!playerData) {
+      navigate('/player/login');
+    }
+  }, []);
 
   const [isLoading, setIsLoading] = useState(false);
   const [codeState, setCodeState] = useState('');

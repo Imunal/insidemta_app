@@ -9,11 +9,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import axios from '../../Configs/axios';
 
 const ShopView = () => {
-  const playerData = useSelector((state) => state.player);
+  const playerData = useSelector((state) => state.rootReducer.authenication.player);
   const navigate = useNavigate();
-  if (!playerData.personalToken) {
-    navigate('/login');
-  }
 
   const [shopItems, setShopItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
@@ -25,6 +22,9 @@ const ShopView = () => {
   );
 
   useEffect(() => {
+    if (!playerData) {
+      navigate('/player/login');
+    }
     const loadShopItems = async () => {
       try {
         const response = await axios.get('/shop');

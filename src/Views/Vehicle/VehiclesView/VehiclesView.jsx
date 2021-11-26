@@ -195,7 +195,7 @@ class VehiclesView extends React.Component {
       });
     }
     this.sortVehicles(vehicles);
-    if (vehicles.length > 0) {
+    if (vehicles.length) {
       return (
         <>
           {vehicles.map((object, index) => (

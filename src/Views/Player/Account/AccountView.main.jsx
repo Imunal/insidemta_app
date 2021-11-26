@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -20,9 +20,11 @@ const AccountView = ({
   const navigate = useNavigate();
   const [selectedPaginate, setPaginate] = useState(1);
 
-  if (!playerPersonalToken) {
-    navigate('/login');
-  }
+  useEffect(() => {
+    if (!playerPersonalToken) {
+      navigate('/player/login');
+    }
+  });
 
   const renderPagination = (selectedPaginate) => {
     switch (selectedPaginate) {
@@ -36,7 +38,7 @@ const AccountView = ({
         return <PlayerOrganizations playerOrganizations={playerOrganizations} />;
       case 5:
         dispatch({ type: 'REMOVE_AUTHENTICATION' });
-        navigate('/login');
+        navigate('/player/login');
         break;
       case 6:
         return <PlayerSettings />;

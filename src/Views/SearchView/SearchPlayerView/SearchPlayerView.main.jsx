@@ -51,6 +51,8 @@ const SearchView = ({ search, fetchSearch, isAppLoading }) => {
                 inputOnChange={(e) => setSearchName(e.target.value)}
                 inputPlaceHolder="Wprowadź nazwę gracza"
                 inputDisabled={isAppLoading}
+                inputLabel="Wprowadź nazwę gracza"
+                inputRequired={true}
               />
             </div>
             <p className="text-small text-muted">Nick gracza nie musi być dokładny.</p>

@@ -55,19 +55,19 @@ const App = () => {
             </Route>
             {/* VEHICLE */}
             <Route path="vehicle">
+              <Route path="exchange" element={<VehiclesView />} />
               <Route path=":vehicleModel" element={<VehicleView />} />
             </Route>
-            <Route path="/organizations" element={<ShowOrganizations />} />
-            <Route path="/shop" element={<ShopView />} />
-            <Route path="/exchange" element={<VehiclesView />} />
+            <Route path="organizations" element={<ShowOrganizations />} />
+            <Route path="shop" element={<ShopView />} />
             {/* PAYMENT */}
             <Route path="payment">
               <Route path="success" element={<PaymentSuccessView />} />
               <Route path="error" element={<PaymentErrorView />} />
             </Route>
 
-            {/* USER */}
-            <Route path="user">
+            {/* PLAYER */}
+            <Route path="player">
               <Route path="login" element={<LoginView />} />
               <Route path="reset-password" element={<PlayerPasswordRestore />} />
               <Route index element={<PlayerAccount />} />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,9 +7,11 @@ import Input from 'Components/Input/Input';
 
 const PlayerPasswordRestore = ({ player, isAppLoading, tryPasswordReset }) => {
   const navigate = useNavigate();
-  if (player.personalToken) {
-    navigate('/account');
-  }
+  useEffect(() => {
+    if (player) {
+      navigate('/player/login');
+    }
+  });
 
   const [playerEmail, setPlayerEmail] = useState('');
 
@@ -32,7 +34,9 @@ const PlayerPasswordRestore = ({ player, isAppLoading, tryPasswordReset }) => {
                 inputOnChange={(e) => setPlayerEmail(e.target.value)}
                 inputValue={playerEmail}
                 inputName="playerEmail"
+                inputLabel="Adres e-mail"
                 inputPlaceHolder="Wprowadź swój adres e-mail"
+                inputRequired={true}
               />
             </div>
             <div className="d-grid">

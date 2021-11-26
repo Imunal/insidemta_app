@@ -9,6 +9,7 @@ const Input = ({
   inputPlaceHolder,
   inputDisabled,
   inputLabel,
+  inputRequired,
 }) => {
   return (
     <div className="form-floating">
@@ -20,6 +21,7 @@ const Input = ({
         onChange={inputOnChange}
         placeholder={inputPlaceHolder}
         disabled={inputDisabled}
+        required={inputRequired}
       />
       <label htmlFor={inputName}>{inputLabel}</label>
     </div>
@@ -36,4 +38,5 @@ Input.propTypes = {
   inputPlaceHolder: PropTypes.string,
   inputDisabled: PropTypes.bool,
   inputLabel: PropTypes.string,
+  inputRequired: PropTypes.bool,
 };

@@ -12,7 +12,7 @@ import PaymentSuccessView from './Payment/PaymentSuccessView';
 import PlayerAccount from './Player/Account/AccountView.container';
 import PlayerPasswordRestore from './Player/PasswordRestoreView/PasswordRestoreView.container';
 
-import ShowOrganizations from './Organization/OrganizationsView';
+import ShowOrganizations from './Organization/OrganizationsView.container';
 
 import SearchPlayerView from './SearchView/SearchPlayerView/SearchPlayerView.container';
 import SearchVehicleView from './SearchView/SearchVehicleView/SearchVehicleView.main';

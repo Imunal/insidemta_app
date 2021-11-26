@@ -6,7 +6,6 @@ import vehicleJson from 'Assets/Json/vehicle.json';
 const VehicleSearch = () => {
   const renderVehicles = () => (
     <div className="row">
-      <hr className="mt-3 mb-3" />
       {vehicleJson.map((vehicle) => (
         <div className="col-md-3 mb-3" key={vehicle.vehicleModel}>
           <div className="panel__body__element text-center h-100">

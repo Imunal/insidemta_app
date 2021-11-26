@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 import { auto } from '@popperjs/core';
@@ -6,13 +6,15 @@ import Input from 'Components/Input/Input';
 import Button from 'Components/Button/Button';
 
 function LoginView({ player, isAppLoading, tryAuthenticate }) {
+  const navigate = useNavigate();
   const [playerLogin, setPlayerLogin] = useState('');
   const [playerPassword, setPlayerPassword] = useState('');
 
-  const navigate = useNavigate();
-  if (player.personalToken) {
-    navigate('/account');
-  }
+  useEffect(() => {
+    if (player) {
+      navigate('/player');
+    }
+  }, []);
 
   const validateForm = (e) => {
     e.preventDefault();
@@ -39,6 +41,7 @@ function LoginView({ player, isAppLoading, tryAuthenticate }) {
               inputPlaceHolder="Wprowadź swój login"
               inputLabel="Login"
               inputOnChange={(e) => setPlayerLogin(e.target.value)}
+              inputRequired={true}
             />
           </div>
           <div className="mb-3">
@@ -49,11 +52,14 @@ function LoginView({ player, isAppLoading, tryAuthenticate }) {
               inputPlaceHolder="Wprowadź swoje hasło"
               inputLabel="Hasło"
               inputOnChange={(e) => setPlayerPassword(e.target.value)}
+              inputRequired={true}
             />
           </div>
-          <Button isLoading={isAppLoading}>Zaloguj się</Button>
+          <div className="d-grid">
+            <Button isLoading={isAppLoading}>Zaloguj się</Button>
+          </div>
           <Link
-            to="/reset-password"
+            to="/player/reset-password"
             className="text-muted mt-4 d-block text-center text-decoration-none text-uppercase font-weight-bold"
             style={{ fontSize: 14 }}
           >

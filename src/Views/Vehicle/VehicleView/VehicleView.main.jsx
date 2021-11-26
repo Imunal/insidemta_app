@@ -8,13 +8,12 @@ const VehicleView = ({ vehicles, fetchVehiclesByModel }) => {
   const navigate = useNavigate();
 
   const { vehicleModel } = useParams();
-  if (!vehicleModel || isNaN(vehicleModel)) {
-    navigate('/search/vehicle');
-  }
 
   useEffect(() => {
+    if (!vehicleModel || isNaN(vehicleModel)) {
+      navigate('/search/vehicle');
+    }
     fetchVehiclesByModel(vehicleModel);
-    // eslint-disable-next-line
   }, []);
 
   const renderVehicles = () => {

@@ -45,8 +45,8 @@ export const tryPasswordReset =
     }
   };
 
-export const searchPlayer = () => {
-  return;
+export const fetchSearch = (searchName) => {
+  return console.log(searchName);
 };
 
 export const removeAuthentication = () => {
