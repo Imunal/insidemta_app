@@ -1,7 +1,7 @@
 import InformationView from './InformationView';
 
 import IndexView from './IndexView/IndexView';
-import ShopView from './ShopView/shopView';
+import ShopView from './ShopView/ShopView';
 import VehiclesView from './Vehicle/VehiclesView/VehiclesView';
 import LoginView from './LoginView/LoginView.container';
 import NotFoundView from './404View/404View';

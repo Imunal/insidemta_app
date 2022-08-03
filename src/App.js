@@ -15,8 +15,8 @@ import Toasts from './Components/NotificationsSystem';
 
 // Views
 import {
-  //InformationView,
-  IndexView,
+  InformationView,
+  /*IndexView,
   ShopView,
   VehiclesView,
   LoginView,
@@ -29,7 +29,7 @@ import {
   SearchPlayerView,
   SearchVehicleView,
   PlayerView,
-  VehicleView,
+  VehicleView,*/
 } from './Views';
 
 const App = () => {
@@ -41,44 +41,42 @@ const App = () => {
       dismissAfter: 6000,
     },
   });
-  return (
-    <Provider store={store}>
-      <Toasts />
-      <Router history={history}>
-        <Navbar />
-        <Routes>
-          <Route path="/">
-            <Route index element={<IndexView />} />
-            {/* PLAYER */}
+
+  /*
             <Route path="player">
               <Route path=":playerUID" element={<PlayerView />} />
             </Route>
-            {/* VEHICLE */}
             <Route path="vehicle">
               <Route path="exchange" element={<VehiclesView />} />
               <Route path=":vehicleModel" element={<VehicleView />} />
             </Route>
             <Route path="organizations" element={<ShowOrganizations />} />
             <Route path="shop" element={<ShopView />} />
-            {/* PAYMENT */}
+
             <Route path="payment">
               <Route path="success" element={<PaymentSuccessView />} />
               <Route path="error" element={<PaymentErrorView />} />
             </Route>
 
-            {/* PLAYER */}
             <Route path="player">
               <Route path="login" element={<LoginView />} />
               <Route path="reset-password" element={<PlayerPasswordRestore />} />
               <Route index element={<PlayerAccount />} />
             </Route>
 
-            {/* SEARCH */}
             <Route path="search">
               <Route path="player" element={<SearchPlayerView />} />
               <Route path="vehicle" element={<SearchVehicleView />} />
             </Route>
-            <Route path="*" element={<NotFoundView />} />
+            <Route path="*" element={<NotFoundView />} /> */
+  return (
+    <Provider store={store}>
+      <Toasts />
+      <Router history={history}>
+        {/* <Navbar /> */}
+        <Routes>
+          <Route path="/">
+            <Route index element={<InformationView />} />
           </Route>
         </Routes>
       </Router>
