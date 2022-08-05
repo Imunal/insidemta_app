@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoOld from 'Assets/Images/Logo/logo_insidemta_old.png';
+import LogoOld from 'Assets/Images/Logo/logo_new.png';
 import Bussines from 'Assets/Images/Landing/1.jpg';
 import Econommy from 'Assets/Images/Landing/2.jpg';
 import VoiceChat from 'Assets/Images/Landing/3.jpg';
@@ -7,6 +7,9 @@ import Proposition from 'Assets/Images/Landing/4.jpg';
 import Administration from 'Assets/Images/Landing/5.jpg';
 import Criminal from 'Assets/Images/Landing/6.jpg';
 import Ending from 'Assets/Images/Landing/7.jpg';
+
+import { BsDiscord, BsFacebook } from 'react-icons/bs';
+
 const InformationView = () => {
   return (
     <>
@@ -166,6 +169,20 @@ const InformationView = () => {
             prowadzenia serwera. Dołożymy wszelkich starań, żeby poprowadzić druga edycję serwera
             profesjonalne. Wracamy ze zdwojoną siłą. <br /> <b>Do zobaczenia niedługo!</b>
           </p>
+        </div>
+        <div className="intro block__center mt-5">
+          <ul>
+            <li>
+              <a href="https://discord.gg/rTq79VmZ" target="_blank" rel="noreferrer">
+                <BsDiscord size={70} />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/InsideMTA" target="_blank" rel="noreferrer">
+                <BsFacebook size={70} />
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </>

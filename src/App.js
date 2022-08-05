@@ -1,17 +1,16 @@
 import React from 'react';
 import { HistoryRouter as Router } from 'redux-first-history/rr6';
 import { Routes, Route } from 'react-router-dom';
-import { setUpNotifications } from 'reapop';
 
 //Redux
 import { Provider } from 'react-redux';
 import { store, history } from 'Store';
 
-import Navbar from 'Components/Navbar/Navbar.container';
+//import Navbar from 'Components/Navbar/Navbar.container';
 import Footer from 'Components/Footer';
 
 //Toast
-import Toasts from './Components/NotificationsSystem';
+//import Toasts from './Components/NotificationsSystem';
 
 // Views
 import {
@@ -33,15 +32,6 @@ import {
 } from './Views';
 
 const App = () => {
-  setUpNotifications({
-    defaultProps: {
-      position: 'top-right',
-      dismissible: true,
-      showDismissButton: true,
-      dismissAfter: 6000,
-    },
-  });
-
   /*
             <Route path="player">
               <Route path=":playerUID" element={<PlayerView />} />
@@ -71,7 +61,6 @@ const App = () => {
             <Route path="*" element={<NotFoundView />} /> */
   return (
     <Provider store={store}>
-      <Toasts />
       <Router history={history}>
         {/* <Navbar /> */}
         <Routes>

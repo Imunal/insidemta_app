@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Collapsible from 'react-collapsible';
 
 import HotPayPayment from '../../Components/Shop/shopSMSPayment';
-import { loadStripe } from '@stripe/stripe-js';
+//import { loadStripe } from '@stripe/stripe-js';
 
 import axios from '../../Configs/axios';
 
@@ -17,9 +17,9 @@ const ShopView = () => {
   const [paymentMethodSelected, setPaymentMethodSelected] = useState(null);
   const [isStripeLoading, setIsStripeLoading] = useState(false);
 
-  const stripePromise = loadStripe(
+  /*const stripePromise = loadStripe(
     'pk_live_51HrJxODB7vD9Db3SmMk5R5crpT53hAeo8NzouOE9p2PGJnfAkbt7Bk315LitFiay9hnfchy15fFVbSLgtCe0oWqG00PRkVHgZn'
-  );
+  );*/
 
   useEffect(() => {
     if (!playerData) {
@@ -101,12 +101,12 @@ const ShopView = () => {
     if (paymentType === 1) {
       try {
         setIsStripeLoading(true);
-        const response = await axios.post('/payment/stripe/create-checkout-session', {
+        /*const response = await axios.post('/payment/stripe/create-checkout-session', {
           shopID: item.shop_id,
           playerUID: playerData.UID,
-        });
-        const stripe = await stripePromise;
-        stripe.redirectToCheckout({ sessionId: response.data.id });
+        });*/
+        //const stripe = await stripePromise;
+        //stripe.redirectToCheckout({ sessionId: response.data.id });
       } catch (error) {
         console.log(error);
       } finally {

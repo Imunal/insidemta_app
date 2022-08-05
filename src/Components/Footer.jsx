@@ -1,19 +1,16 @@
 import React from 'react';
-import Image from 'react-image-webp';
 
-import Logo from '../Assets/Images/Logo/logo_insidemta.png';
-import LogoWebP from '../Assets/Images/Logo/logo_insidemta.webp';
+import Logo from '../Assets/Images/Logo/logo_sideways.png';
 
 const Footer = () => (
   <footer className="p-5">
-    <Image
+    <img
       src={Logo}
-      webp={LogoWebP}
       className="img-fluid object-cover d-block mx-auto footer__logo mb-2"
       alt="InsideMTA"
     />
     <p className="text-muted text-small text-center m-0 p-0">
-      Copyright &copy; 2021 InsideMTA
+      Copyright &copy; 2022 InsideMTA
       <br />
       <b>Verticum Games FILIP GIECEWICZ</b>
       <br />
