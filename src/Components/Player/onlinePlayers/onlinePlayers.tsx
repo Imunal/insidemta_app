@@ -13,7 +13,7 @@ const OnlinePlayers = () => {
   useEffect(() => {
     handleFetchOnlinePlayers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onlinePlayers]);
+  }, []);
 
   const renderOnlinePlayers = () => (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
