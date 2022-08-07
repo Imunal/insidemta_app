@@ -55,7 +55,7 @@ const Navbar = () => {
             </a>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
-            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <Popover.Button className="focus:ring-inside-bg-light-500 inline-flex items-center justify-center rounded-md bg-inside-bg-light p-2 text-gray-400 hover:bg-inside-bg-light hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset">
               <span className="sr-only">Open menu</span>
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
@@ -63,25 +63,25 @@ const Navbar = () => {
           <Popover.Group as="nav" className="hidden space-x-10 md:flex">
             <a
               href="#"
-              className="text-base font-medium text-inside-text-light hover:text-gray-900"
+              className="text-base font-medium text-inside-text-light hover:text-white"
             >
               Strona główna
             </a>
             <a
               href="#"
-              className="text-base font-medium text-inside-text-light hover:text-gray-900"
+              className="text-base font-medium text-inside-text-light hover:text-white"
             >
               Forum
             </a>
             <a
               href="#"
-              className="text-base font-medium text-inside-text-light hover:text-gray-900"
+              className="text-base font-medium text-inside-text-light hover:text-white"
             >
               Giełda
             </a>
             <a
               href="#"
-              className="text-base font-medium text-inside-text-light hover:text-gray-900"
+              className="text-base font-medium text-inside-text-light hover:text-white"
             >
               Sklep
             </a>
@@ -91,8 +91,8 @@ const Navbar = () => {
                 <>
                   <Popover.Button
                     className={classNames(
-                      open ? "text-gray-900" : "text-inside-text-light",
-                      "group inline-flex items-center rounded-md text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      open ? "text-white" : "text-inside-text-light",
+                      "focus:ring-white-500 group inline-flex items-center rounded-md text-base font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
                     )}
                   >
                     <span>Wyszukaj</span>
@@ -121,11 +121,11 @@ const Navbar = () => {
                         <div className="relative grid gap-6 bg-inside-bg-dark px-5 py-6 sm:gap-8 sm:p-8">
                           <a
                             href="/search/player"
-                            className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
+                            className="-m-3 flex items-start rounded-lg p-3 text-inside-text-light hover:bg-inside-bg-light hover:text-white"
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
-                              className="h-6 w-6 flex-shrink-0 text-inside-red-dark"
+                              className="h-6 w-6 flex-shrink-0 text-inside-red-light"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -138,21 +138,21 @@ const Navbar = () => {
                               />
                             </svg>
                             <div className="ml-4">
-                              <p className="text-base font-medium text-gray-900">
+                              <p className="text-base font-medium">
                                 Wyszukaj gracza
                               </p>
-                              <p className="mt-1 text-sm text-gray-500">
+                              <p className="mt-1 text-sm">
                                 Szukasz kogoś konkretnego?
                               </p>
                             </div>
                           </a>
                           <a
                             href="/search/vehicle"
-                            className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
+                            className="-m-3 flex items-start rounded-lg p-3 text-inside-text-light hover:bg-inside-bg-light hover:text-white"
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
-                              className="h-6 w-6 flex-shrink-0 text-inside-red-dark"
+                              className="h-6 w-6 flex-shrink-0 text-inside-red-light"
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
@@ -165,10 +165,10 @@ const Navbar = () => {
                               />
                             </svg>
                             <div className="ml-4">
-                              <p className="text-base font-medium text-inside-text-light">
+                              <p className="text-base font-medium">
                                 Wyszukaj pojazd
                               </p>
-                              <p className="mt-1 text-sm text-inside-text-light">
+                              <p className="mt-1 text-sm">
                                 Szukasz kogoś konkretnego?
                               </p>
                             </div>
@@ -200,7 +200,7 @@ const Navbar = () => {
           focus
           className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
         >
-          <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+          <div className="divide-y-2 divide-gray-700 rounded-lg bg-inside-bg-light shadow-lg ring-1 ring-black ring-opacity-5">
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -211,7 +211,7 @@ const Navbar = () => {
                   />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <Popover.Button className="focus:ring-inside-bg-light-500 inline-flex items-center justify-center rounded-md bg-inside-bg-light p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -222,16 +222,27 @@ const Navbar = () => {
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 <a
                   href="#"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  className="text-base font-medium text-inside-text-light hover:text-white"
                 >
                   Strona główna
                 </a>
-
                 <a
                   href="#"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  className="text-base font-medium text-inside-text-light hover:text-white"
+                >
+                  Forum
+                </a>
+                <a
+                  href="#"
+                  className="text-base font-medium text-inside-text-light hover:text-white"
                 >
                   Giełda
+                </a>
+                <a
+                  href="#"
+                  className="text-base font-medium text-inside-text-light hover:text-white"
+                >
+                  Sklep
                 </a>
               </div>
               <div>{authView()}</div>
