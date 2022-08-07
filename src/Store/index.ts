@@ -3,6 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 // Slice
 import { organizationSlice } from "./Slice/organizationSlice";
 import { playerSlice } from "./Slice/playerSlice";
+import { serverSlice } from "./Slice/serverSlice";
 import { vehicleSlice } from "./Slice/vehicleSlice";
 import { weatherSlice } from "./Slice/weatherSlice";
 
@@ -16,5 +17,6 @@ export const store = configureStore({
     organization: organizationSlice.reducer,
     vehicle: vehicleSlice.reducer,
     weather: weatherSlice.reducer,
+    server: serverSlice.reducer,
   },
 });

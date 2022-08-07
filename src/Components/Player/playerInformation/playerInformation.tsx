@@ -31,7 +31,7 @@ const PlayerInformation = ({ player, penalties }: PlayerInformationType) => {
         <div className="col-md-2 align-self-center">
           <img
             className="panel__body__image img-fluid"
-            src={`https://cdn.insidemta.pl/skins/${player.skin}.png`}
+            src={`https://cdn.inside-mta.pl/skins/${player.skin}.png`}
             alt="Skin"
             loading="lazy"
           />

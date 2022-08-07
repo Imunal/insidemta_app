@@ -5,12 +5,12 @@ const instance = axios.create({
 });
 instance.interceptors.request.use(
   (config) => {
-    const player = JSON.parse(localStorage.getItem("player"));
-    if (player && player.user_token) {
+    /*const player = JSON.parse(localStorage.getItem("player"));
+    if (player && player !== undefined && player.personalToken) {
       config.params = {
-        authToken: player.user_token,
+        authToken: player.personalToken,
       };
-    }
+    }*/
     return config;
   },
   (error) => {

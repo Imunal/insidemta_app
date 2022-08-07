@@ -45,14 +45,14 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex items-center justify-between border-b-2 border-inside-bg-light py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#">
+            <NavLink to="/">
               <span className="sr-only">InsideMTA</span>
               <img
                 className="h-8 w-auto sm:h-10"
                 src="https://forum.inside-mta.pl/uploads/monthly_2022_08/logo_sideways_email.png.71542aea3fe9be49f6a10d4efdfdbd97.png"
-                alt=""
+                alt="InsideMTA"
               />
-            </a>
+            </NavLink>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
             <Popover.Button className="focus:ring-inside-bg-light-500 inline-flex items-center justify-center rounded-md bg-inside-bg-light p-2 text-gray-400 hover:bg-inside-bg-light hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset">
@@ -208,7 +208,7 @@ const Navbar = () => {
                   <img
                     className="h-8 w-auto"
                     src="https://forum.inside-mta.pl/uploads/monthly_2022_08/logo_sideways_email.png.71542aea3fe9be49f6a10d4efdfdbd97.png"
-                    alt="Workflow"
+                    alt="InsideMTA"
                   />
                 </div>
                 <div className="-mr-2">

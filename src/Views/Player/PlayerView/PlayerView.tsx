@@ -42,7 +42,7 @@ const PlayerView = () => {
         <div className="col-md-2 align-self-center">
           <img
             className="panel__body__image img-fluid"
-            src={`https://cdn.insidemta.pl/skins/${searchedPlayer.skin}.png`}
+            src={`https://cdn.inside-mta.pl/skins/${searchedPlayer.skin}.png`}
             alt="Skin"
             loading="lazy"
           />

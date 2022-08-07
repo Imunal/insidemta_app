@@ -33,30 +33,28 @@ const SearchView = () => {
   };
 
   const renderResponse = () => (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+    <>
       <hr className="mt-3 mb-3" />
-      {searchedPlayers.map((player: Player) => (
-        <div className="mb-3" key={player.UID}>
-          <div className="panel__body__element text-center">
-            <img
-              className="panel__body__image img-fluid skin__image__width"
-              src={`https://cdn.insidemta.pl/skins/${player.skin}.png`}
-              alt="Skin"
-              loading="lazy"
-            />
-            <h5 className="text-muted text-break fw-600 mt-3">
-              {player.username}
-            </h5>
-            <Link
-              to={`/player/${player.UID}`}
-              className="btn btn__dark btn-lg btn-block"
-            >
-              Sprawdź profil gracza
+      <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-4">
+        {searchedPlayers.map((player: Player) => (
+          <div className="mb-3" key={player.UID}>
+            <Link to={`/player/${player.UID}`}>
+              <div className="rounded-md bg-inside-bg-light p-5 text-center">
+                <img
+                  className="mx-auto block w-64"
+                  src={`https://cdn.inside-mta.pl/skins/${player.skin}.png`}
+                  alt="Skin"
+                  loading="lazy"
+                />
+                <h5 className="mt-3 break-words font-bold text-inside-text-light">
+                  {player.username}
+                </h5>
+              </div>
             </Link>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 
   return (

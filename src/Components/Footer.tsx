@@ -11,7 +11,7 @@ const Footer = () => (
       NIP: 6482803610 REGON: 388547700
     </p>
     <p className="text-small text-center text-inside-text-light">
-      <a href="https://cdn.insidemta.pl/regulamin.a3e18dc4.pdf">
+      <a href="https://cdn.inside-mta.pl/regulamin.a3e18dc4.pdf">
         Regulamin serwisu
       </a>
     </p>

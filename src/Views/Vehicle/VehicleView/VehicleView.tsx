@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import PlayerVehicles from "Components/Player/playerVehicles/playerVehicles";
+import Layout from "Components/Layout/Layout";
+import Panel from "Components/Panel";
 
 //Hooks
 import { useVehicle } from "Hooks/useVehicle";
@@ -25,13 +27,10 @@ const VehicleView = () => {
   };
 
   return (
-    <>
+    <Layout>
       <div className="container">
-        <div className="panel mt-5">
-          <div className="panel__header">
-            <h1 className="mb-0">Podgląd pojazdów</h1>
-          </div>
-          <div className="panel__body">
+        <Panel title="Podgląd pojazdów">
+          <div className="p-10">
             {vehicles.length ? (
               renderVehicles()
             ) : (
@@ -43,9 +42,9 @@ const VehicleView = () => {
               </div>
             )}
           </div>
-        </div>
+        </Panel>
       </div>
-    </>
+    </Layout>
   );
 };
 

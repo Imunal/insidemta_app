@@ -8,6 +8,8 @@ import Input from "Components/Input/Input";
 
 //Hooks
 import { usePlayer } from "Hooks/usePlayer";
+import Layout from "Components/Layout/Layout";
+import Panel from "Components/Panel";
 
 const PlayerPasswordRestore = () => {
   const navigate = useNavigate();
@@ -16,10 +18,10 @@ const PlayerPasswordRestore = () => {
   const { player, isLoading, handlePasswordReset } = usePlayer();
 
   useEffect(() => {
-    if (player.personalToken) {
+    if (player && player.personalToken) {
       navigate("/player/login");
     }
-  });
+  }, [player, navigate]);
 
   const handleFormValidation = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -42,13 +44,10 @@ const PlayerPasswordRestore = () => {
   };
 
   return (
-    <div className="container">
-      <div className="panel mt-5">
-        <div className="panel__header">
-          <h1>Resetowanie hasła</h1>
-        </div>
-        <div className="panel__body">
-          <form className="w-50 d-block m-auto" onSubmit={handleFormValidation}>
+    <Layout>
+      <Panel title="Resetowanie hasła">
+        <div className="p-10">
+          <form className="m-auto w-96" onSubmit={handleFormValidation}>
             <div className="mb-3">
               <Input
                 type="email"
@@ -65,8 +64,8 @@ const PlayerPasswordRestore = () => {
             </div>
           </form>
         </div>
-      </div>
-    </div>
+      </Panel>
+    </Layout>
   );
 };
 

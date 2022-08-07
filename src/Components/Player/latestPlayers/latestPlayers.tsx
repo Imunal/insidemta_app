@@ -1,27 +1,38 @@
 import { Link } from "react-router-dom";
 
-type LatestPlayersType = {
-  latestPlayers: any;
-};
+//Hooks
+import { useServer } from "Hooks/useServer";
+import { useEffect } from "react";
 
-const LatestPlayers = ({ latestPlayers }: LatestPlayersType) => {
-  const renderLatestPlayers = () =>
-    latestPlayers.map((player: any) => (
-      <div className="col-6 col-md-3" key={player.UID}>
+const LatestPlayers = () => {
+  const { isLoading, latestPlayers, handleFetchLatestPlayers } = useServer();
+
+  useEffect(() => {
+    handleFetchLatestPlayers();
+  }, [latestPlayers, handleFetchLatestPlayers]);
+
+  const renderLatestPlayers = () => (
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+      {latestPlayers.map((player: any) => (
         <Link to={`/player/${player.UID}`}>
-          <div className="panel__body__element text-center">
-            <img
-              className="panel__body__image img-fluid"
-              src={`https://cdn.insidemta.pl/skins/${player.skin}.png`}
-              alt="Skin"
-              loading="lazy"
-            />
-            <h6 className="text-muted text-break mt-3">{player.username}</h6>
+          <div key={player.UID}>
+            <div className="rounded-md bg-inside-bg-light p-5 text-center">
+              <img
+                className="w-64"
+                src={`https://cdn.inside-mta.pl/skins/${player.skin}.png`}
+                alt="Skin"
+                loading="lazy"
+              />
+              <h6 className="mt-3 break-words font-bold text-inside-text-light">
+                {player.username}
+              </h6>
+            </div>
           </div>
         </Link>
-      </div>
-    ));
-  return latestPlayers.length ? (
+      ))}
+    </div>
+  );
+  return !isLoading && latestPlayers.length ? (
     renderLatestPlayers()
   ) : (
     <div className="block__center w-100 h-100 mt-5 mb-5">

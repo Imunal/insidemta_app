@@ -93,7 +93,7 @@ const initialState: PlayerSliceTypes = {
 
 //Slice
 export const playerSlice = createSlice({
-  name: "user",
+  name: "player",
   initialState,
   reducers: {},
   extraReducers: (builder) => {

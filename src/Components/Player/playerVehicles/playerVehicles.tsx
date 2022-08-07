@@ -15,7 +15,7 @@ const PlayerVehicles = ({ vehicles }: PlayerVehiclesType) => {
         <div className="panel__body__element text-center">
           <img
             className="panel__body__image img-fluid"
-            src={`https://cdn.insidemta.pl/vehicles/${vehicle.model}.png`}
+            src={`https://cdn.inside-mta.pl/vehicles/${vehicle.model}.png`}
             alt="Skin"
             loading="lazy"
           />

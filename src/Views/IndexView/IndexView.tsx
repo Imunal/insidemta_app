@@ -15,6 +15,8 @@ import Layout from "Components/Layout/Layout";
 
 import Panel from "Components/Panel";
 import Widget from "Components/Widget";
+import OnlinePlayers from "Components/Player/onlinePlayers/onlinePlayers";
+import LatestPlayers from "Components/Player/latestPlayers/latestPlayers";
 
 const IndexView = () => {
   //const [playerCount, setPlayerCount] = useState(0);
@@ -32,12 +34,16 @@ const IndexView = () => {
           <div className="item h-auto w-5/6">
             {/* LASTES CHARACTER */}
             <Panel title="Najnowsi gracze">
-              <p className="mx-1 p-5 text-inside-text-light">Gracze</p>
+              <div className="p-10">
+                <LatestPlayers />
+              </div>
             </Panel>
 
             {/* ONLINE CHARACTERS */}
             <Panel title="Aktualna Ilość graczy">
-              <p className="mx-1 p-5 text-inside-text-light">Gracze</p>
+              <div className="p-10">
+                <OnlinePlayers />
+              </div>
             </Panel>
           </div>
 

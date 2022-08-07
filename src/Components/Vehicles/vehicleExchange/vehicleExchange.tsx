@@ -79,7 +79,7 @@ const VehicleExchange = ({
         <div className="row vehicle flex-row">
           <div className="vehicle__img">
             <img
-              src={`https://cdn.insidemta.pl/vehicles/${vehicleModel}.png`}
+              src={`https://cdn.inside-mta.pl/vehicles/${vehicleModel}.png`}
               className="img-fluid"
               alt="Vehicle"
               loading="lazy"

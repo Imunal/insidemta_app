@@ -37,7 +37,7 @@ const LoginView = () => {
       });
   };
 
-  const playerLoginChange = (e: React.FormEvent<HTMLInputElement>) => {
+  const handlePlayerLoginChange = (e: React.FormEvent<HTMLInputElement>) => {
     setPlayerLogin(e.currentTarget.value);
   };
 
@@ -47,53 +47,42 @@ const LoginView = () => {
 
   return (
     <Layout>
-      <div className="container">
-        <Panel title="Panel gracza">
-          <div className="p-10">
-            <h3 className="text-center text-xl font-bold text-white">
-              Zaloguj się
-            </h3>
-            <form
-              className="d-block m-auto mt-4"
-              onSubmit={validateForm}
-              style={{ alignSelf: "center", maxWidth: 400 }}
-            >
-              <div className="mb-3">
-                <Input
-                  type="text"
-                  value={playerLogin}
-                  name="playerLogin"
-                  placeholder="Wprowadź swój login"
-                  label="Login"
-                  onChange={playerLoginChange}
-                  required={true}
-                />
-              </div>
-              <div className="mb-3">
-                <Input
-                  type="password"
-                  value={playerLogin}
-                  name="playerPassword"
-                  placeholder="Wprowadź swoje hasło"
-                  label="Hasło"
-                  onChange={handlePlayerPasswordChange}
-                  required={true}
-                />
-              </div>
-              <div className="mb-3">
-                <Button isLoading={isLoading}>Zaloguj się</Button>
-              </div>
-              <Link
-                to="/player/reset-password"
-                className="text-left text-inside-text-light underline"
-                style={{ fontSize: 14 }}
-              >
+      <Panel title="Panel gracza">
+        <div className="p-10">
+          <form className="m-auto w-96" onSubmit={validateForm}>
+            <div className="mb-3">
+              <Input
+                type="text"
+                value={playerLogin}
+                name="playerLogin"
+                placeholder="Wprowadź swój login"
+                label="Login"
+                onChange={handlePlayerLoginChange}
+                required={true}
+              />
+            </div>
+            <div className="mb-3">
+              <Input
+                type="password"
+                value={playerPassword}
+                name="playerPassword"
+                placeholder="Wprowadź swoje hasło"
+                label="Hasło"
+                onChange={handlePlayerPasswordChange}
+                required={true}
+              />
+            </div>
+            <div className="mb-3">
+              <Button isLoading={isLoading}>Zaloguj się</Button>
+            </div>
+            <Link to="/player/reset-password">
+              <span className="text-center text-inside-text-light underline">
                 Nie możesz się zalogować?
-              </Link>
-            </form>
-          </div>
-        </Panel>
-      </div>
+              </span>
+            </Link>
+          </form>
+        </div>
+      </Panel>
     </Layout>
   );
 };
