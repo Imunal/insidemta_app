@@ -8,7 +8,7 @@ import { Organization } from "Types/Organization";
 export const fetchOrganizations = createAsyncThunk(
   "organization/fetchOrganizations",
   async () => {
-    const response = await axios.get("organization/get");
+    const response = await axios.get("/organization");
     return response.data;
   }
 );

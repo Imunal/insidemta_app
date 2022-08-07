@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 //Components
 import Input from "Components/Input/Input";
 import Button from "Components/Button/Button";
+import Layout from "Components/Layout/Layout";
+import Panel from "Components/Panel";
 
 //Hooks
 import { usePlayer } from "Hooks/usePlayer";
 
 //Types
 import { Player } from "Types/Player";
+import toast from "react-hot-toast";
 
 const SearchView = () => {
   const [searchName, setSearchName] = useState("");
@@ -18,7 +21,11 @@ const SearchView = () => {
 
   const handleFormSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    handleFetchPlayer(searchName);
+    handleFetchPlayer(searchName)
+      .unwrap()
+      .catch(() => {
+        toast.error("Nie znaleziono takiego gracza");
+      });
   };
 
   const handleSearchNameChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -26,11 +33,11 @@ const SearchView = () => {
   };
 
   const renderResponse = () => (
-    <div className="row">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
       <hr className="mt-3 mb-3" />
       {searchedPlayers.map((player: Player) => (
-        <div className="col-md-3 mb-3" key={player.UID}>
-          <div className="panel__body__element h-100 text-center">
+        <div className="mb-3" key={player.UID}>
+          <div className="panel__body__element text-center">
             <img
               className="panel__body__image img-fluid skin__image__width"
               src={`https://cdn.insidemta.pl/skins/${player.skin}.png`}
@@ -53,14 +60,11 @@ const SearchView = () => {
   );
 
   return (
-    <div className="container">
-      <div className="panel mt-5 ml-auto mr-auto">
-        <div className="panel__header">
-          <h1 className="mb-0">Wyszukiwarka graczy</h1>
-        </div>
-        <div className="panel__body">
+    <Layout>
+      <Panel title="Wyszukiwarka graczy">
+        <div className="p-10">
           <form onSubmit={handleFormSubmit}>
-            <div className="mb-3">
+            <div className="mb-2">
               <Input
                 type="text"
                 name="searchName"
@@ -72,15 +76,15 @@ const SearchView = () => {
                 required={true}
               />
             </div>
-            <p className="text-small text-muted">
+            <p className="mb-3 text-sm text-inside-text-light">
               Nick gracza nie musi być dokładny.
             </p>
             <Button isLoading={isLoading}>Wyszukaj gracza</Button>
           </form>
           {searchedPlayers.length ? renderResponse() : ""}
         </div>
-      </div>
-    </div>
+      </Panel>
+    </Layout>
   );
 };
 

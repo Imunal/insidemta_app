@@ -16,7 +16,7 @@ export const fetchVehicles = createAsyncThunk(
 export const fetchVehiclesByModel = createAsyncThunk(
   "vehicles/fetchVehiclesByModel",
   async (vehicleModel: string) => {
-    const response = await axios.get(`vehicles/${vehicleModel}`);
+    const response = await axios.get(`/search/vehicle/${vehicleModel}`);
     return response.data;
   }
 );

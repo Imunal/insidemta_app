@@ -6,7 +6,7 @@ type LayoutTypes = {
 };
 
 const Layout = ({ children }: LayoutTypes) => (
-  <div className="bg-inside-bg-light">
+  <div className="h-full w-full bg-inside-bg-light">
     <header>
       <Navbar />
     </header>

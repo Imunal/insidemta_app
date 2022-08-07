@@ -18,10 +18,10 @@ import {
 export const authenticate = createAsyncThunk(
   "player/authenticate",
   async (playerData: any) => {
-    const { userEmail, userPassword } = playerData;
-    const response = await axios.post("/user/authenticate", {
-      userEmail: userEmail,
-      userPassword: userPassword,
+    const { playerLogin, playerPassword } = playerData;
+    const response = await axios.post("/player/authenticate", {
+      playerLogin: playerLogin,
+      playerPassword: playerPassword,
     });
     return response.data;
   }
@@ -34,7 +34,7 @@ export const logout = createAsyncThunk("player/logout", async () => {
 export const resetPassword = createAsyncThunk(
   "player/resetPassword",
   async (playerEmail: string) => {
-    const response = await axios.post("/player/authenticate", {
+    const response = await axios.post("/player/resetPassword", {
       playerEmail: playerEmail,
     });
     return response.data;
@@ -44,7 +44,7 @@ export const resetPassword = createAsyncThunk(
 export const fetchPlayer = createAsyncThunk(
   "player/fetchPlayer",
   async (playerName: string) => {
-    const response = await axios.get(`/player/authenticate/${playerName}`);
+    const response = await axios.get(`/search/player/${playerName}`);
     return response.data;
   }
 );
@@ -52,7 +52,7 @@ export const fetchPlayer = createAsyncThunk(
 export const updatePlayerRolePlayName = createAsyncThunk(
   "player/updatePlayerRolePlayName",
   async (playerRPName: string) => {
-    const response = await axios.post("/player/authenticate", {
+    const response = await axios.put("/player/setPlayerRPName", {
       playerNewRPName: playerRPName,
     });
     return response.data;
@@ -62,7 +62,7 @@ export const updatePlayerRolePlayName = createAsyncThunk(
 export const updatePlayerName = createAsyncThunk(
   "player/updatePlayerName",
   async (playerNewName: string) => {
-    const response = await axios.post("/player/authenticate", {
+    const response = await axios.put("/player/setPlayerName", {
       playerNewName: playerNewName,
     });
     return response.data;
@@ -110,6 +110,18 @@ export const playerSlice = createSlice({
       state.realestates = action.payload.realestates;
     });
     builder.addCase(authenticate.rejected, (state) => {
+      state.status = "rejected";
+    });
+
+    //player/fetchPlayer
+    builder.addCase(fetchPlayer.pending, (state) => {
+      state.status = "pending";
+    });
+    builder.addCase(fetchPlayer.fulfilled, (state, action) => {
+      state.status = "fulfilled";
+      state.searchedPlayers = action.payload;
+    });
+    builder.addCase(fetchPlayer.rejected, (state) => {
       state.status = "rejected";
     });
   },

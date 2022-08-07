@@ -14,8 +14,8 @@ const Button = ({
 }: ButtonTypes) => (
   <button
     type="submit"
-    className="w-full transform rounded-md bg-inside-red-light px-3 py-4 leading-5 text-white transition-colors duration-200 focus:bg-inside-red-dark
-    focus:outline-none"
+    className="w-full transform rounded-md bg-inside-red-light px-3 py-4 leading-5 text-white transition-colors duration-200 focus:bg-inside-red-dark focus:outline-none
+    disabled:bg-inside-red-dark"
     disabled={isLoading}
     onClick={onClick}
     {...props}
@@ -23,7 +23,7 @@ const Button = ({
     {isLoading ? (
       <svg
         role="status"
-        className="mr-3 inline h-4 w-4 animate-spin text-white dark:text-gray-200"
+        className="mr-3 inline h-4 w-4 animate-spin text-white"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

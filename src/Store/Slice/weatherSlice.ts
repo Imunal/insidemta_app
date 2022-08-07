@@ -8,7 +8,7 @@ import { Weather } from "Types/Weather";
 export const fetchWeather = createAsyncThunk(
   "weather/fetchWeather",
   async () => {
-    const response = await axios.get("weather");
+    const response = await axios.get("/server/weather");
     return response.data;
   }
 );

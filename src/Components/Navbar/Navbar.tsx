@@ -9,29 +9,29 @@ import Logo from "Assets/Images/Logo/logo_insidemta.png";
 
 import { usePlayer } from "Hooks/usePlayer";
 
-import Button from "Components/Button/Button";
-
 const Navbar = () => {
   const { player } = usePlayer();
 
   const authView = () => {
     return player && player.personalToken ? (
       <div className="w-40">
-        <a
+        <NavLink
+          to="/player"
           className="transform rounded-md bg-inside-red-light px-8 py-3 leading-5 text-white transition-colors duration-200 focus:bg-inside-red-dark
     focus:outline-none"
         >
           Moje konto
-        </a>
+        </NavLink>
       </div>
     ) : (
       <div className="w-40">
-        <a
+        <NavLink
+          to="/player/login"
           className="transform rounded-md bg-inside-red-light px-8 py-3 leading-5 text-white transition-colors duration-200 focus:bg-inside-red-dark
     focus:outline-none"
         >
           Zaloguj się
-        </a>
+        </NavLink>
       </div>
     );
   };
@@ -61,24 +61,25 @@ const Navbar = () => {
             </Popover.Button>
           </div>
           <Popover.Group as="nav" className="hidden space-x-10 md:flex">
-            <a
-              href="#"
+            <NavLink
+              to="/"
               className="text-base font-medium text-inside-text-light hover:text-white"
             >
               Strona główna
-            </a>
+            </NavLink>
             <a
-              href="#"
+              href="https://forum.inside-mta.pl"
+              target="_blank"
               className="text-base font-medium text-inside-text-light hover:text-white"
             >
               Forum
             </a>
-            <a
-              href="#"
+            <NavLink
+              to="/vehicle/exchange"
               className="text-base font-medium text-inside-text-light hover:text-white"
             >
               Giełda
-            </a>
+            </NavLink>
             <a
               href="#"
               className="text-base font-medium text-inside-text-light hover:text-white"
@@ -220,24 +221,25 @@ const Navbar = () => {
             </div>
             <div className="space-y-6 py-6 px-5">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                <a
-                  href="#"
+                <NavLink
+                  to="/"
                   className="text-base font-medium text-inside-text-light hover:text-white"
                 >
                   Strona główna
-                </a>
+                </NavLink>
                 <a
-                  href="#"
+                  href="https://forum.inside-mta.pl"
+                  target="_blank"
                   className="text-base font-medium text-inside-text-light hover:text-white"
                 >
                   Forum
                 </a>
-                <a
-                  href="#"
+                <NavLink
+                  to="/vehicle/exchange"
                   className="text-base font-medium text-inside-text-light hover:text-white"
                 >
                   Giełda
-                </a>
+                </NavLink>
                 <a
                   href="#"
                   className="text-base font-medium text-inside-text-light hover:text-white"
