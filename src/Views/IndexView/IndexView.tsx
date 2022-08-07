@@ -32,18 +32,18 @@ const IndexView = () => {
           <div className="item h-auto w-5/6">
             {/* LASTES CHARACTER */}
             <Panel title="Najnowsi gracze">
-              <p className="mx-2 p-5">Gracze</p>
+              <p className="mx-1 p-5 text-inside-text-light">Gracze</p>
             </Panel>
 
             {/* ONLINE CHARACTERS */}
             <Panel title="Aktualna Ilość graczy">
-              <p className="mx-2 p-5">Gracze</p>
+              <p className="mx-1 p-5 text-inside-text-light">Gracze</p>
             </Panel>
           </div>
 
           <div className="item h-auto w-1/2">
             <Widget title="Pogoda">
-              <p className="mx-2 p-5">Pogoda</p>
+              <p className="mx-1 p-5 text-inside-text-light">Pogoda</p>
             </Widget>
 
             <Widget title="Dołącz do gry">
