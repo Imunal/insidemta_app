@@ -23,7 +23,7 @@ const LatestPlayers = () => {
                 alt="Skin"
                 loading="lazy"
               />
-              <h6 className="mt-3 break-words font-bold text-inside-text-light">
+              <h6 className="mt-3 break-words text-sm font-bold text-inside-text-light">
                 {player.username}
               </h6>
             </div>
