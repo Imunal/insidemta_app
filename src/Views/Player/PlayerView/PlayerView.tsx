@@ -8,6 +8,9 @@ import PlayerRealEstate from "Components/Player/playerRealEstate/playerRealEstat
 import PlayerOrganizations from "Components/Player/playerOrganizations/playerOrganizations";
 import { usePlayer } from "Hooks/usePlayer";
 import { Penaltie } from "Types/Penaltie";
+import Layout from "Components/Layout/Layout";
+import Panel from "Components/Panel";
+import Spacer from "Components/Spacer";
 
 const PlayerView = () => {
   const { playerUID } = useParams();
@@ -15,8 +18,9 @@ const PlayerView = () => {
   const { searchedPlayer, handleFetchPlayer } = usePlayer();
 
   useEffect(() => {
-    handleFetchPlayer(playerUID);
-  }, [handleFetchPlayer, playerUID]);
+    handleFetchPlayer(parseInt(playerUID));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderPenalties = () =>
     searchedPlayer.penalties.map((penaltie: Penaltie) => (
@@ -34,78 +38,86 @@ const PlayerView = () => {
       </div>
     ));
 
-  const renderplayer = () => (
+  const renderPlayer = () => (
     <>
-      <h5 className="fw-900">Podstawowe informacje o koncie gracza:</h5>
-      <hr />
-      <div className="row">
-        <div className="col-md-2 align-self-center">
+      <h5 className="text-xl font-medium text-white">
+        Podstawowe informacje o koncie gracza:
+      </h5>
+      <Spacer />
+      <div className="grid grid-cols-1 gap-4 text-gray-400 md:grid-cols-3">
+        <div className="self-center">
           <img
-            className="panel__body__image img-fluid"
-            src={`https://cdn.inside-mta.pl/skins/${searchedPlayer.skin}.png`}
+            className="w-48"
+            src={`https://cdn.inside-mta.pl/webp/skins/${searchedPlayer.player.skin}.webp`}
             alt="Skin"
             loading="lazy"
           />
         </div>
-        <div className="col-md-5 align-self-center">
+        <div className="self-center">
           <p className="mb-1">
-            UID: <b>{searchedPlayer.UID}</b>
+            UID: <b>{searchedPlayer.player.UID}</b>
           </p>
           <p className="mb-1">
             Typ konta:
-            {searchedPlayer.gold ? (
+            {searchedPlayer.player.gold ? (
               <span className="badge bg-warning text-dark mx-1">Gold</span>
             ) : (
               ""
             )}
-            {searchedPlayer.diamond ? (
+            {searchedPlayer.player.diamond ? (
               <span className="badge bg-info text-dark">Diament</span>
             ) : (
               ""
             )}
-            {!searchedPlayer.gold || !searchedPlayer.diamond ? (
+            {!searchedPlayer.player.gold || !searchedPlayer.player.diamond ? (
               <span className="badge bg-secondary">Zwykłe</span>
             ) : (
               ""
             )}
           </p>
           <p className="mb-1">
-            Nazwa: <b>{searchedPlayer.username}</b>
+            Nazwa: <b>{searchedPlayer.player.username}</b>
           </p>
           <p className="mb-1">
             Utworzono dnia:{" "}
             <b>
-              {new Date(searchedPlayer.created).toLocaleDateString("pl-PL")}
+              {new Date(searchedPlayer.player.created).toLocaleDateString(
+                "pl-PL"
+              )}
             </b>
           </p>
           <p className="mb-1">
             Ostatnio w grze:{" "}
             <b>
-              {new Date(searchedPlayer.created).toLocaleDateString("pl-PL")}
+              {new Date(searchedPlayer.player.created).toLocaleDateString(
+                "pl-PL"
+              )}
             </b>
           </p>
         </div>
-        <div className="col-md-5 align-self-center">
+        <div className="self-center">
           <div className="d-flex align-items-center mb-1">
             Życie:
             <div className="progress w-100 ms-1"></div>
           </div>
           <p className="mb-1">
-            Gotówka: <b>${searchedPlayer.money}</b>
+            Gotówka: <b>${searchedPlayer.player.money}</b>
           </p>
           <p className="mb-1">
-            Saldo konta bankowego: <b>${searchedPlayer.bankmoney}</b>
+            Saldo konta bankowego: <b>${searchedPlayer.player.bankmoney}</b>
           </p>
         </div>
       </div>
-      <div className="mt-3">
+      <div className="mt-5">
         {searchedPlayer.penalties.length ? (
-          <div className="row">{renderPenalties()}</div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {renderPenalties()}
+          </div>
         ) : (
           ""
         )}
       </div>
-      <div className="mt-3">
+      <div className="mt-5">
         {searchedPlayer.vehicles.length ? (
           <div className="row">
             {<PlayerVehicles vehicles={searchedPlayer.vehicles} />}
@@ -114,7 +126,7 @@ const PlayerView = () => {
           ""
         )}
       </div>
-      <div className="mt-3">
+      <div className="mt-5">
         {searchedPlayer.realestates.length ? (
           <div className="row">
             {<PlayerRealEstate realEstates={searchedPlayer.realestates} />}
@@ -123,7 +135,7 @@ const PlayerView = () => {
           ""
         )}
       </div>
-      <div className="mt-3">
+      <div className="mt-5">
         {searchedPlayer.organizations.length ? (
           <div className="row">
             {
@@ -140,18 +152,13 @@ const PlayerView = () => {
   );
 
   return (
-    <>
-      <div className="container">
-        <div className="panel mt-5">
-          <div className="panel__header">
-            <h1 className="mb-0">Podgląd gracza</h1>
-          </div>
-          <div className="panel__body">
-            {searchedPlayer ? renderplayer() : <Loader />}
-          </div>
+    <Layout>
+      <Panel title="Podgląd gracza">
+        <div className="p-5">
+          {searchedPlayer ? renderPlayer() : <Loader />}
         </div>
-      </div>
-    </>
+      </Panel>
+    </Layout>
   );
 };
 

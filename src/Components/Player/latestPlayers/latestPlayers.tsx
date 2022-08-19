@@ -20,7 +20,7 @@ const LatestPlayers = () => {
             <div className="rounded-md bg-inside-bg-light p-5 text-center">
               <img
                 className="w-64"
-                src={`https://cdn.inside-mta.pl/skins/${player.skin}.png`}
+                src={`https://cdn.inside-mta.pl/webp/skins/${player.skin}.webp`}
                 alt="Skin"
                 loading="lazy"
               />

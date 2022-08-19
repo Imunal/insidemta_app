@@ -41,10 +41,18 @@ export const resetPassword = createAsyncThunk(
   }
 );
 
-export const fetchPlayer = createAsyncThunk(
-  "player/fetchPlayer",
+export const searchPlayer = createAsyncThunk(
+  "player/searchPlayer",
   async (playerName: string) => {
     const response = await axios.get(`/search/player/${playerName}`);
+    return response.data;
+  }
+);
+
+export const fetchPlayer = createAsyncThunk(
+  "player/fetchPlayer",
+  async (playerUID: number) => {
+    const response = await axios.get(`/player/${playerUID}`);
     return response.data;
   }
 );
@@ -119,9 +127,21 @@ export const playerSlice = createSlice({
     });
     builder.addCase(fetchPlayer.fulfilled, (state, action) => {
       state.status = "fulfilled";
-      state.searchedPlayers = action.payload;
+      state.searchedPlayer = action.payload;
     });
     builder.addCase(fetchPlayer.rejected, (state) => {
+      state.status = "rejected";
+    });
+
+    //player/searchPlayer
+    builder.addCase(searchPlayer.pending, (state) => {
+      state.status = "pending";
+    });
+    builder.addCase(searchPlayer.fulfilled, (state, action) => {
+      state.status = "fulfilled";
+      state.searchedPlayers = action.payload;
+    });
+    builder.addCase(searchPlayer.rejected, (state) => {
       state.status = "rejected";
     });
   },

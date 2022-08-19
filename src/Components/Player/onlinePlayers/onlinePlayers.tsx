@@ -16,21 +16,21 @@ const OnlinePlayers = () => {
   }, []);
 
   const renderOnlinePlayers = () => (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-5">
       {onlinePlayers.map((player: any) => (
         <div key={player.UID}>
           <Link to={`/player/${player.UID}`}>
             <div className="player">
               <div className="player__circle block__center">
                 <img
-                  src={`https://cdn.inside-mta.pl/skins/${player.skin}.png`}
-                  className="img-fluid"
+                  src={`https://cdn.inside-mta.pl/webp/skins/${player.skin}.webp`}
+                  className="mx-auto block w-24"
                   alt="Skin"
                   loading="lazy"
                 />
                 <span className="player__cricle__online"></span>
               </div>
-              <h6 className="mt-3 break-words font-bold text-inside-text-light">
+              <h6 className="mt-3 break-words text-center font-bold text-inside-text-light">
                 {player.username}
               </h6>
             </div>

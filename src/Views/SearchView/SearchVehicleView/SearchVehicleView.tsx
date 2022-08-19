@@ -20,14 +20,14 @@ const VehicleSearch = () => {
   };
 
   const renderVehicles = () => (
-    <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
+    <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-4">
       {vehicleJson.map((vehicle: VehicleJSON) => (
         <div className="mb-3" key={vehicle.vehicleModel}>
           <Link to={`/vehicle/${vehicle.vehicleModel}`}>
             <div className="rounded-md bg-inside-bg-light p-5 text-center">
               <img
-                className="panel__body__image img-fluid skin__image__width"
-                src={`https://cdn.inside-mta.pl/vehicles/${vehicle.vehicleModel}.png`}
+                className="mx-auto block w-64"
+                src={`https://cdn.inside-mta.pl/webp/vehicles/${vehicle.vehicleModel}.webp`}
                 alt="Vehicle"
                 loading="lazy"
               />

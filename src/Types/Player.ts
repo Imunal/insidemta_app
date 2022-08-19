@@ -25,6 +25,7 @@ export type Player = {
   vehicleLimit: number;
   houseLimit: number;
 
+  player?: Player;
   vehicles?: Vehicle[];
   penalties?: Penaltie[];
   organizations?: Organization[];

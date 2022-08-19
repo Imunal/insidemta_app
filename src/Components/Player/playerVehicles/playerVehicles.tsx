@@ -1,6 +1,8 @@
 import { getVehicleName } from "Utils/getVehicleName";
 import { getVehicleUpgrades } from "Utils/getVehicleUpgrades";
 
+import Spacer from "Components/Spacer";
+
 //Types
 import { Vehicle } from "Types/Vehicle";
 
@@ -11,31 +13,31 @@ type PlayerVehiclesType = {
 const PlayerVehicles = ({ vehicles }: PlayerVehiclesType) => {
   const rednerVehicles = () =>
     vehicles.map((vehicle) => (
-      <div className="col-md-4 mb-3" key={vehicle.ID}>
-        <div className="panel__body__element text-center">
+      <div className="mb-3" key={vehicle.ID}>
+        <div className="mt-5 rounded-md bg-inside-bg-medium text-center">
           <img
-            className="panel__body__image img-fluid"
-            src={`https://cdn.inside-mta.pl/vehicles/${vehicle.model}.png`}
+            className="img-fluid mx-auto block w-48"
+            src={`https://cdn.inside-mta.pl/webp/vehicles/${vehicle.model}.webp`}
             alt="Skin"
             loading="lazy"
           />
-          <h6 className="text-muted text-break mt-3">
+          <h6 className="text-break mt-3 text-gray-400">
             {getVehicleName(vehicle.model)} ({vehicle.ID})
           </h6>
           <br />
-          <span className="text-muted text-break">
+          <span className="text-break text-gray-400">
             Właściciel: {vehicle.username}
           </span>
           <br />
-          <span className="text-muted text-break">
+          <span className="text-break text-gray-400">
             Poj. silnika: {vehicle.engineCapacity}
           </span>
           <br />
-          <span className="text-muted text-break">
+          <span className="text-break text-gray-400">
             Przebieg: {Math.floor(vehicle.mileage * 100) / 100}km
           </span>
           <br />
-          <span className="text-muted text-break">
+          <span className="text-break text-gray-400">
             Ulepszenia: {getVehicleUpgrades(vehicle.tuning)}
           </span>
         </div>
@@ -43,10 +45,12 @@ const PlayerVehicles = ({ vehicles }: PlayerVehiclesType) => {
     ));
   return (
     <>
-      <h5 className="fw-900">Pojazdy:</h5>
-      <hr />
+      <h5 className="text-xl font-medium text-white">Pojazdy:</h5>
+      <Spacer />
       {vehicles.length ? (
-        <div className="row">{rednerVehicles()}</div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+          {rednerVehicles()}
+        </div>
       ) : (
         <div className="custom__alert custom__alert__info">
           <h1> Nie posiadasz żadnych pojazdów 🏎️</h1>

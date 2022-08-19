@@ -17,11 +17,11 @@ import toast from "react-hot-toast";
 const SearchView = () => {
   const [searchName, setSearchName] = useState("");
 
-  const { isLoading, searchedPlayers, handleFetchPlayer } = usePlayer();
+  const { isLoading, searchedPlayers, handleSearchPlayer } = usePlayer();
 
   const handleFormSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    handleFetchPlayer(searchName)
+    handleSearchPlayer(searchName)
       .unwrap()
       .catch(() => {
         toast.error("Nie znaleziono takiego gracza");
@@ -39,10 +39,10 @@ const SearchView = () => {
         {searchedPlayers.map((player: Player) => (
           <div className="mb-3" key={player.UID}>
             <Link to={`/player/${player.UID}`}>
-              <div className="rounded-md bg-inside-bg-light p-5 text-center">
+              <div className="rounded-md bg-inside-bg-light p-3 text-center">
                 <img
-                  className="mx-auto block w-64"
-                  src={`https://cdn.inside-mta.pl/skins/${player.skin}.png`}
+                  className="mx-auto block w-32"
+                  src={`https://cdn.inside-mta.pl/webp/skins/${player.skin}.webp`}
                   alt="Skin"
                   loading="lazy"
                 />

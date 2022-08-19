@@ -1,4 +1,5 @@
 import NoImage from "Assets/Images/Player/no-found.png";
+import Spacer from "Components/Spacer";
 
 //Types
 import { Organization } from "Types/Organization";
@@ -10,44 +11,44 @@ type PlayerOrganizationTypes = {
 const PlayerOrganizations = ({ organizations }: PlayerOrganizationTypes) => {
   const renderOrganizations = () =>
     organizations.map((organization) => (
-      <div className="col-md-4 mb-3" key={organization.ID}>
-        <div className="panel__body__element text-center">
+      <div className="mb-3" key={organization.ID}>
+        <div className="mt-5 rounded-md bg-inside-bg-medium p-5 text-center">
           {organization.img ? (
             <img
               src={organization.img}
-              className="img-fluid w-50 mx-auto"
+              className="mx-auto block w-48"
               loading="lazy"
               alt="Logo Organizacji"
             ></img>
           ) : (
             <img
               src={NoImage}
-              className="img-fluid mx-auto w-10"
+              className="mx-auto block w-10"
               loading="lazy"
               alt="Logo Organizacji"
             ></img>
           )}
-          <h5 className="text-muted text-break fw-900 mt-3">
+          <h5 className="text-break fw-900 mt-3 text-gray-400">
             {organization.name} ({organization.ID})
           </h5>
-          <span className="text-muted text-break">
+          <span className="text-break text-gray-400">
             Utworzono:{" "}
             {new Date(organization.created).toLocaleDateString("pl-PL")}
           </span>
           <br />
-          <span className="text-muted text-break">
+          <span className="text-break text-gray-400">
             Lider: {organization.owner}
           </span>
           <br />
-          <span className="text-muted text-break">
+          <span className="text-break text-gray-400">
             Majątek: ${Math.round(+organization.money * 100) / 100}
           </span>
           <br />
-          <span className="text-muted text-break">
+          <span className="text-break text-gray-400">
             Ilość członków: {organization.players * 5}
           </span>
           <br />
-          <span className="text-muted text-break">
+          <span className="text-break text-gray-400">
             Ilość pojazdów: {organization.vehicles * 3}
           </span>
           <br />
@@ -57,10 +58,12 @@ const PlayerOrganizations = ({ organizations }: PlayerOrganizationTypes) => {
 
   return (
     <>
-      <h5 className="fw-900">Organizacje:</h5>
-      <hr />
+      <h5 className="text-xl font-medium text-white">Organizacje:</h5>
+      <Spacer />
       {organizations.length ? (
-        <div className="row">{renderOrganizations()}</div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+          {renderOrganizations()}
+        </div>
       ) : (
         <div className="custom__alert custom__alert__info">
           <h1> Nie należysz do żadnej organizacji 😔</h1>

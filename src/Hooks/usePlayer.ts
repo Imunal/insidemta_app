@@ -3,6 +3,7 @@ import {
   authenticate,
   logout,
   fetchPlayer,
+  searchPlayer,
   resetPassword,
   updatePlayerRolePlayName,
   updatePlayerName,
@@ -25,8 +26,10 @@ export const usePlayer = () => {
   const handleAuthentication = (playerData: any) =>
     dispatch(authenticate(playerData));
   const handleLogout = () => dispatch(logout());
-  const handleFetchPlayer = (playerName: string) =>
-    dispatch(fetchPlayer(playerName));
+  const handleFetchPlayer = (playerUID: number) =>
+    dispatch(fetchPlayer(playerUID));
+  const handleSearchPlayer = (playerName: string) =>
+    dispatch(searchPlayer(playerName));
   const handlePasswordReset = (playerEmail: string) =>
     dispatch(resetPassword(playerEmail));
 
@@ -52,6 +55,7 @@ export const usePlayer = () => {
     handleAuthentication,
     handleLogout,
     handleFetchPlayer,
+    handleSearchPlayer,
     handlePasswordReset,
     handlePlayerRolePlayNameChange,
     handleUpdatePlayerNameChange,
