@@ -24,6 +24,7 @@ export type Player = {
   cardPlays: number;
   vehicleLimit: number;
   houseLimit: number;
+  premiumPoints: number;
 
   player?: Player;
   vehicles?: Vehicle[];

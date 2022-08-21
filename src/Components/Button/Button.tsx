@@ -14,9 +14,9 @@ const Button = ({
 }: ButtonTypes) => (
   <button
     type="submit"
-    className="w-full transform rounded-md bg-inside-red-light px-3 py-4 leading-5 text-white transition-colors duration-200 focus:bg-inside-red-dark focus:outline-none
+    className="w-full transform rounded-md bg-inside-red-light px-3 py-4 leading-5 text-white transition-colors duration-200 hover:bg-inside-red-dark focus:bg-inside-red-dark focus:outline-none
     disabled:bg-inside-red-dark"
-    disabled={isLoading}
+    disabled={isLoading && disabled}
     onClick={onClick}
     {...props}
   >

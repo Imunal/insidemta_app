@@ -22,7 +22,8 @@ const LoginView = () => {
     if (player && player.personal_token) {
       navigate("/player");
     }
-  }, [navigate, player]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const validateForm = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -34,6 +35,7 @@ const LoginView = () => {
       .unwrap()
       .then(() => {
         toast.success("Zostałeś zalogowany pomyślnie");
+        navigate("/player");
       })
       .catch(() => {
         toast.error("Wystąpił problem z logowaniem, sprawdź wprowadzone dane.");

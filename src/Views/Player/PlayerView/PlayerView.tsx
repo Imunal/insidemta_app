@@ -97,8 +97,19 @@ const PlayerView = () => {
         </div>
         <div className="self-center">
           <div className="d-flex align-items-center mb-1">
-            Życie:
-            <div className="progress w-100 ms-1"></div>
+            <div className="align-items-center mb-1 w-full">
+              <div className="inline-flex w-full">
+                <div className="mr-2 self-center">Życie:</div>
+                <div className="w-full self-center">
+                  <div className="h-2 w-full rounded bg-slate-100">
+                    <div
+                      className="h-2 rounded bg-red-400"
+                      style={{ width: searchedPlayer.player.health }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <p className="mb-1">
             Gotówka: <b>${searchedPlayer.player.money}</b>

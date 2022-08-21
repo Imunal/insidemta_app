@@ -3,6 +3,10 @@ import { useState } from "react";
 //Hooks
 import { usePlayer } from "Hooks/usePlayer";
 
+import Spacer from "Components/Spacer";
+import Button from "Components/Button/Button";
+import Input from "Components/Input/Input";
+
 const PlayerSettings = () => {
   const {
     isLoading,
@@ -72,74 +76,42 @@ const PlayerSettings = () => {
 
   return (
     <>
-      <h5 className="fw-900">Ustawienia twojego konta:</h5>
-      <hr />
-      <div className="row">
-        <div className="col-md-6">
-          <div className="form-floating mb-3">
-            <input
+      <h5 className="text-xl font-medium text-white">Ustawienia konta:</h5>
+      <Spacer />
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div>
+          <form onSubmit={handleUpdateRolePlayNameForm}>
+            <Input
+              name="playerRPUserName"
+              label="Wprowadź swój nowy Role-Play"
               type="text"
-              className="form-control"
               id="playerRPUserName"
-              placeholder="Wprowadź swój nick Role-Play"
+              placeholder="Wprowadź swój nowy Role-Play"
               onChange={handleSetPlayerRolePlayNameChange}
+              required
             />
-            <label htmlFor="playerRPUserName">
-              Wprowadź swój nowy nick Role-Play
-            </label>
-          </div>
-          <p className="small text-muted">
-            Pamiętaj że swój nick Role-Play możesz zmienić raz na miesiąc!
-          </p>
-          <button
-            className="btn btn__dark btn-lg btn-block"
-            onClick={handleUpdateRolePlayNameForm}
-          >
-            {isLoading ? (
-              <>
-                <span
-                  className="spinner-border spinner-border-sm"
-                  role="status"
-                  aria-hidden="true"
-                ></span>
-                <span className="visually-hidden">Wczytywanie...</span>
-              </>
-            ) : (
-              "Zmień swój nick Role-Play"
-            )}
-          </button>
+            <p className="mt-2 mb-2 text-sm text-gray-600">
+              Pamiętaj że swój nick Role-Play możesz zmienić raz na miesiąc!
+            </p>
+            <Button>Zmień swój nick Role-Play</Button>
+          </form>
         </div>
-        <div className="col-md-6">
-          <div className="form-floating mb-3">
-            <input
+        <div>
+          <form onSubmit={handleUpdatePlayerNameForm}>
+            <Input
+              name="playerName"
+              label="Wprowadź swój nowy nick"
               type="text"
-              className="form-control"
               id="playerName"
               placeholder="Wprowadź swój nowy nick"
               onChange={handleSetPlayerNameChange}
+              required
             />
-            <label htmlFor="playerName">Wprowadź swój nowy nick</label>
-          </div>
-          <p className="small text-muted">
-            Pamiętaj że swój nick możesz zmienić raz na miesiąc!
-          </p>
-          <button
-            className="btn btn__dark btn-lg btn-block"
-            onClick={handleUpdatePlayerNameForm}
-          >
-            {isLoading ? (
-              <>
-                <span
-                  className="spinner-border spinner-border-sm"
-                  role="status"
-                  aria-hidden="true"
-                ></span>
-                <span className="visually-hidden">Wczytywanie...</span>
-              </>
-            ) : (
-              "Zmień swój nick"
-            )}
-          </button>
+            <p className="mt-2 mb-2 text-sm text-gray-600">
+              Pamiętaj że swój nick możesz zmienić raz na miesiąc!
+            </p>
+            <Button>Zmień swój nick</Button>
+          </form>
         </div>
       </div>
     </>

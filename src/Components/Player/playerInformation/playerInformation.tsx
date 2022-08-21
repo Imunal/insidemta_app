@@ -10,16 +10,19 @@ type PlayerInformationType = {
 const PlayerInformation = ({ player, penalties }: PlayerInformationType) => {
   const renderPenalties = () =>
     penalties.map((penaltie) => (
-      <div className="col-md-4 mb-2" key={penaltie.ID}>
-        <div className="panel__body__element text-center">
-          <span className="text-break">Powód: {penaltie.reason}</span>
+      <div className="mb-2 text-gray-400" key={penaltie.ID}>
+        <div className="bg-inside-bg-light p-5 text-center">
+          <span className="text-break">
+            Powód: {penaltie.reason} ({penaltie.ID})
+          </span>
           <br />
           <span>
             Czas: {new Date(penaltie.time).toLocaleDateString("pl-PL")}
           </span>
           <br />
-          <span className="badge bg-danger mx-1">{penaltie.type}</span>{" "}
-          <span className="badge bg-secondary">{penaltie.admin}</span>
+          <span className="rounded bg-gray-700 px-2.5 py-0.5 text-xs font-semibold text-gray-300">
+            {penaltie.admin}
+          </span>
         </div>
       </div>
     ));
@@ -44,19 +47,25 @@ const PlayerInformation = ({ player, penalties }: PlayerInformationType) => {
             UID: <b>{player.UID}</b>
           </p>
           <p className="mb-1">
-            Typ konta:
+            Typ konta:{" "}
             {player.gold ? (
-              <span className="badge bg-warning text-dark mx-1">Gold</span>
+              <span className="mr-2 rounded bg-yellow-700 px-2.5 py-0.5 text-xs font-semibold text-gray-300">
+                Gold
+              </span>
             ) : (
               ""
             )}
             {player.diamond ? (
-              <span className="badge bg-info text-dark">Diament</span>
+              <span className="mr-2 rounded bg-blue-700 px-2.5 py-0.5 text-xs font-semibold text-gray-300">
+                Diament
+              </span>
             ) : (
               ""
             )}
             {!player.gold || !player.diamond ? (
-              <span className="badge bg-secondary">Zwykłe</span>
+              <span className="mr-2 rounded bg-gray-700 px-2.5 py-0.5 text-xs font-semibold text-gray-300">
+                Zwykłe
+              </span>
             ) : (
               ""
             )}
@@ -77,9 +86,18 @@ const PlayerInformation = ({ player, penalties }: PlayerInformationType) => {
           </p>
         </div>
         <div className="self-center">
-          <div className="align-items-center mb-1 flex">
-            Życie:
-            <div className="progress w-100 ms-1"></div>
+          <div className="align-items-center mb-1 w-full">
+            <div className="inline-flex w-full">
+              <div className="mr-2 self-center">Życie:</div>
+              <div className="w-full self-center">
+                <div className="h-2 w-full rounded bg-slate-100">
+                  <div
+                    className="h-2 rounded bg-red-400"
+                    style={{ width: player.health }}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <p className="mb-1">
             Gotówka: <b>${player.money}</b>
@@ -93,7 +111,9 @@ const PlayerInformation = ({ player, penalties }: PlayerInformationType) => {
         <h5 className="text-xl font-medium text-white">Twoje kary:</h5>
         <Spacer />
         {penalties && penalties.length ? (
-          <div className="row">{renderPenalties()}</div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {renderPenalties()}
+          </div>
         ) : (
           <div className="custom__alert custom__alert__info text-white">
             <h1> Nie posiadasz żadnych kar 🥰</h1>

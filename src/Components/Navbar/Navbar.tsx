@@ -16,8 +16,9 @@ const Navbar = () => {
     return player && player.personal_token ? (
       <div className="w-40">
         <NavLink
+          role="button"
           to="/player"
-          className="transform rounded-md bg-inside-red-light px-8 py-3 leading-5 text-white transition-colors duration-200 focus:bg-inside-red-dark
+          className="transform rounded-md bg-inside-red-light px-8 py-3 leading-5 text-white transition-colors duration-200 hover:bg-inside-red-dark focus:bg-inside-red-dark
     focus:outline-none"
         >
           Moje konto
@@ -26,8 +27,9 @@ const Navbar = () => {
     ) : (
       <div className="w-40">
         <NavLink
+          role="button"
           to="/player/login"
-          className="transform rounded-md bg-inside-red-light px-8 py-3 leading-5 text-white transition-colors duration-200 focus:bg-inside-red-dark
+          className="transform rounded-md bg-inside-red-light px-8 py-3 leading-5 text-white transition-colors duration-200 hover:bg-inside-red-dark focus:bg-inside-red-dark
     focus:outline-none"
         >
           Zaloguj się
@@ -76,12 +78,12 @@ const Navbar = () => {
             >
               Giełda
             </NavLink>
-            <a
-              href="#"
+            <NavLink
+              to="/shop"
               className="text-base font-medium text-inside-text-light hover:text-white"
             >
               Sklep
-            </a>
+            </NavLink>
 
             <Popover className="relative">
               {({ open }) => (
@@ -236,12 +238,12 @@ const Navbar = () => {
                 >
                   Giełda
                 </NavLink>
-                <a
-                  href="#"
+                <NavLink
+                  to="/shop"
                   className="text-base font-medium text-inside-text-light hover:text-white"
                 >
                   Sklep
-                </a>
+                </NavLink>
               </div>
               <div>{authView()}</div>
             </div>

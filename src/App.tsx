@@ -9,7 +9,7 @@ import { store } from "Store";
 import {
   //InformationView,
   IndexView,
-  //ShopView,
+  ShopView,
   VehiclesView,
   LoginView,
   NotFoundView,
@@ -23,6 +23,7 @@ import {
   PlayerView,
   VehicleView,
 } from "./Views";
+import ShopChargeView from "Views/ShopChargeView/ShopChargeView";
 
 const App = () => {
   return (
@@ -32,9 +33,10 @@ const App = () => {
         toastOptions={{
           className: "",
           style: {
-            border: "1px solid #713200",
+            //border: "1px solid #713200",
             padding: "16px",
-            color: "#713200",
+            color: "#fff",
+            background: "#111217",
           },
         }}
         reverseOrder={false}
@@ -51,7 +53,8 @@ const App = () => {
               <Route path=":vehicleModel" element={<VehicleView />} />
             </Route>
             <Route path="organizations" element={<ShowOrganizations />} />
-            {/* <Route path="shop" element={<ShopView />} /> */}
+            <Route path="shop" element={<ShopView />} />
+            <Route path="shop/charge" element={<ShopChargeView />} />
 
             <Route path="payment">
               <Route path="success" element={<PaymentSuccessView />} />

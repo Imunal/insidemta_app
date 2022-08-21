@@ -69,26 +69,27 @@ const AccountView = () => {
   } = usePlayer();
 
   useEffect(() => {
-    if (!player.personal_token) {
+    if (!player && !player.personal_token) {
       navigate("/player/login");
     }
-  }, [player.personal_token, navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderNavigation = () =>
     accountTabs.map((accountTab) => (
       <li
         role="button"
         className={
-          "mb-3 rounded bg-inside-bg-medium p-5 text-gray-400 hover:bg-inside-bg-light " +
+          "mb-3 rounded p-5 text-gray-400 hover:bg-inside-bg-light " +
           (selectedPaginate === accountTab.tabID
-            ? "account__switch__active"
-            : "")
+            ? "bg-inside-bg-light"
+            : "bg-inside-bg-medium")
         }
         onClick={() => setPaginate(accountTab.tabID)}
       >
         <div className="inline-flex">
-          {accountTab.tabIcon}
-          {accountTab.tabTitle}
+          <div className="self-center">{accountTab.tabIcon}</div>
+          <div className="self-center">{accountTab.tabTitle}</div>
         </div>
       </li>
     ));
@@ -104,11 +105,11 @@ const AccountView = () => {
       case 4:
         return <PlayerOrganizations organizations={organizations} />;
       case 5:
-        handleLogout();
-        navigate("/player/login");
-        break;
-      case 6:
         return <PlayerSettings />;
+      case 6:
+        handleLogout();
+        navigate("/");
+        break;
       default:
         return null;
     }

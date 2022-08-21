@@ -1,7 +1,7 @@
 import InformationView from "./InformationView";
 
 import IndexView from "./IndexView/IndexView";
-//import ShopView from "./ShopView/ShopView";
+import ShopView from "./ShopView/ShopView";
 import VehiclesView from "./Vehicle/VehiclesView/VehiclesView";
 import LoginView from "./LoginView/LoginView";
 import NotFoundView from "./404View/404View";
@@ -23,7 +23,7 @@ import VehicleView from "./Vehicle/VehicleView/VehicleView";
 export {
   InformationView,
   IndexView,
-  //ShopView,
+  ShopView,
   VehiclesView,
   LoginView,
   NotFoundView,

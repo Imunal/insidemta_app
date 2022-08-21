@@ -28,7 +28,7 @@ export const authenticate = createAsyncThunk(
 );
 
 export const logout = createAsyncThunk("player/logout", async () => {
-  playerLogout();
+  await playerLogout();
 });
 
 export const resetPassword = createAsyncThunk(
@@ -119,6 +119,16 @@ export const playerSlice = createSlice({
     });
     builder.addCase(authenticate.rejected, (state) => {
       state.status = "rejected";
+    });
+
+    //logout
+    builder.addCase(logout.fulfilled, (state) => {
+      state.status = "fulfilled";
+      state.player = null;
+      state.vehicles = null;
+      state.penalties = null;
+      state.organizations = null;
+      state.realestates = null;
     });
 
     //player/fetchPlayer

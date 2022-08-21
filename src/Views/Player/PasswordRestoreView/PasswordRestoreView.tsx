@@ -21,7 +21,8 @@ const PlayerPasswordRestore = () => {
     if (player && player.personal_token) {
       navigate("/player/login");
     }
-  }, [player, navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleFormValidation = (e: React.SyntheticEvent) => {
     e.preventDefault();

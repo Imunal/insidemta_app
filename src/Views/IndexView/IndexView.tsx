@@ -73,7 +73,7 @@ const IndexView = () => {
                 />
               </a>
             </Widget>
-            <Widget title="Śledź rozwój projektu">
+            {/* <Widget title="Śledź rozwój projektu">
               <a href="https://trello.com/b/ULCXr3uR/insidemta">
                 <img
                   src="https://i.imgur.com/xlYItyc.png"
@@ -81,7 +81,7 @@ const IndexView = () => {
                   alt="Discord"
                 />
               </a>
-            </Widget>
+            </Widget> */}
           </div>
         </div>
       </div>

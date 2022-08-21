@@ -20,7 +20,8 @@ const VehicleView = () => {
       navigate("/search/vehicle");
     }
     handleFetchVehiclesByModel(vehicleModel);
-  }, [vehicleModel, navigate, handleFetchVehiclesByModel]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderVehicles = () => {
     return <div className="row">{<PlayerVehicles vehicles={vehicles} />}</div>;

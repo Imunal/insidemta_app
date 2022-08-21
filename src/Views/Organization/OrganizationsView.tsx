@@ -13,7 +13,8 @@ const OrganizationsView = () => {
 
   useEffect(() => {
     handleFetchOrganization();
-  }, [handleFetchOrganization]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderOrganizations = () =>
     organizations.map((organization: Organization) => {
