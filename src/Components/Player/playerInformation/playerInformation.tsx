@@ -1,3 +1,4 @@
+import Spacer from "Components/Spacer";
 import { Penaltie } from "Types/Penaltie";
 import { Player } from "Types/Player";
 
@@ -25,18 +26,20 @@ const PlayerInformation = ({ player, penalties }: PlayerInformationType) => {
 
   return (
     <>
-      <h5 className="fw-900">Podstawowe informacje o twoim koncie:</h5>
-      <hr />
-      <div className="row">
-        <div className="col-md-2 align-self-center">
+      <h5 className="text-xl font-medium text-white">
+        Podstawowe informacje o twoim koncie:
+      </h5>
+      <Spacer />
+      <div className="grid grid-cols-1 gap-4 text-gray-400 md:grid-cols-3">
+        <div className="self-center">
           <img
-            className="panel__body__image img-fluid"
+            className="mx-auto block w-64"
             src={`https://cdn.inside-mta.pl/webp/skins/${player.skin}.webp`}
             alt="Skin"
             loading="lazy"
           />
         </div>
-        <div className="col-md-5 align-self-center">
+        <div className="self-center">
           <p className="mb-1">
             UID: <b>{player.UID}</b>
           </p>
@@ -73,8 +76,8 @@ const PlayerInformation = ({ player, penalties }: PlayerInformationType) => {
             <b>{new Date(player.lastOnline).toLocaleDateString("pl-PL")}</b>
           </p>
         </div>
-        <div className="col-md-5 align-self-center">
-          <div className="d-flex align-items-center mb-1">
+        <div className="self-center">
+          <div className="align-items-center mb-1 flex">
             Życie:
             <div className="progress w-100 ms-1"></div>
           </div>
@@ -87,12 +90,12 @@ const PlayerInformation = ({ player, penalties }: PlayerInformationType) => {
         </div>
       </div>
       <div className="mt-3">
-        <h5 className="fw-900">Twoje kary:</h5>
-        <hr />
+        <h5 className="text-xl font-medium text-white">Twoje kary:</h5>
+        <Spacer />
         {penalties && penalties.length ? (
           <div className="row">{renderPenalties()}</div>
         ) : (
-          <div className="custom__alert custom__alert__info">
+          <div className="custom__alert custom__alert__info text-white">
             <h1> Nie posiadasz żadnych kar 🥰</h1>
             <p className="m-0">
               Aktualnie w systemie nie posiadasz żadnych kar. Tak trzymaj!

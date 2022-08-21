@@ -10,8 +10,8 @@ import { Vehicle } from "Types/Vehicle";
 
 //Services
 import {
-  userAuthenticate,
-  userLogout,
+  playerAuthenticate,
+  playerLogout,
 } from "Utils/Services/authenticationService";
 
 //Action
@@ -28,7 +28,7 @@ export const authenticate = createAsyncThunk(
 );
 
 export const logout = createAsyncThunk("player/logout", async () => {
-  userLogout();
+  playerLogout();
 });
 
 export const resetPassword = createAsyncThunk(
@@ -109,7 +109,7 @@ export const playerSlice = createSlice({
       state.status = "pending";
     });
     builder.addCase(authenticate.fulfilled, (state, action) => {
-      userAuthenticate(action.payload.user);
+      playerAuthenticate(action.payload.player);
       state.status = "fulfilled";
       state.player = action.payload.player;
       state.vehicles = action.payload.vehicles;

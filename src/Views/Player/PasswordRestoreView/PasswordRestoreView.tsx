@@ -18,7 +18,7 @@ const PlayerPasswordRestore = () => {
   const { player, isLoading, handlePasswordReset } = usePlayer();
 
   useEffect(() => {
-    if (player && player.personalToken) {
+    if (player && player.personal_token) {
       navigate("/player/login");
     }
   }, [player, navigate]);

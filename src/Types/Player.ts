@@ -18,7 +18,7 @@ export type Player = {
   bankmoney: string;
   online: string;
   lastOnline: Date;
-  personalToken: string;
+  personal_token: string;
   lastNameChange: Date;
   lastRPNameChange: Date;
   cardPlays: number;

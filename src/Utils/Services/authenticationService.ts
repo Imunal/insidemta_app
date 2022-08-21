@@ -1,7 +1,7 @@
-export const userAuthenticate = (payload: any) => {
+export const playerAuthenticate = (payload: any) => {
   localStorage.setItem("player", JSON.stringify(payload));
 };
 
-export const userLogout = () => {
+export const playerLogout = () => {
   localStorage.removeItem("player");
 };

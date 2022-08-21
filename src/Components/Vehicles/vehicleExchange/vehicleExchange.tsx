@@ -55,13 +55,13 @@ const VehicleExchange = ({
     if (!vehiclePrice) {
       return toast.error("Wystąpił nieznany problem.");
     }
-    if (!player.personalToken) {
+    if (!player.personal_token) {
       return toast.error("Aby zakupić pojazd musisz się najpierw zalogować.");
     }
     axios
       .put("vehicle/buy", {
         vehicleID: vehicleID,
-        personalToken: player.personalToken,
+        personalToken: player.personal_token,
       })
       .then(() => {
         //setVehiclePrice(null);

@@ -5,7 +5,7 @@ import { ChevronDownIcon } from "@heroicons/react/solid";
 import { NavLink } from "react-router-dom";
 
 //Assets
-import Logo from "Assets/Images/Logo/logo_insidemta.png";
+import Logo from "Assets/Images/Logo/logo.webp";
 
 import { usePlayer } from "Hooks/usePlayer";
 
@@ -13,7 +13,7 @@ const Navbar = () => {
   const { player } = usePlayer();
 
   const authView = () => {
-    return player && player.personalToken ? (
+    return player && player.personal_token ? (
       <div className="w-40">
         <NavLink
           to="/player"
@@ -47,11 +47,7 @@ const Navbar = () => {
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <NavLink to="/">
               <span className="sr-only">InsideMTA</span>
-              <img
-                className="h-8 w-auto sm:h-10"
-                src="https://forum.inside-mta.pl/uploads/monthly_2022_08/logo_sideways_email.png.71542aea3fe9be49f6a10d4efdfdbd97.png"
-                alt="InsideMTA"
-              />
+              <img className="h-8 w-auto sm:h-10" src={Logo} alt="InsideMTA" />
             </NavLink>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
@@ -120,8 +116,8 @@ const Navbar = () => {
                     <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0">
                       <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                         <div className="relative grid gap-6 bg-inside-bg-dark px-5 py-6 sm:gap-8 sm:p-8">
-                          <a
-                            href="/search/player"
+                          <NavLink
+                            to="/search/player"
                             className="-m-3 flex items-start rounded-lg p-3 text-inside-text-light hover:bg-inside-bg-light hover:text-white"
                           >
                             <svg
@@ -146,9 +142,9 @@ const Navbar = () => {
                                 Szukasz kogoś konkretnego?
                               </p>
                             </div>
-                          </a>
-                          <a
-                            href="/search/vehicle"
+                          </NavLink>
+                          <NavLink
+                            to="/search/vehicle"
                             className="-m-3 flex items-start rounded-lg p-3 text-inside-text-light hover:bg-inside-bg-light hover:text-white"
                           >
                             <svg
@@ -173,7 +169,7 @@ const Navbar = () => {
                                 Szukasz kogoś konkretnego?
                               </p>
                             </div>
-                          </a>
+                          </NavLink>
                         </div>
                       </div>
                     </Popover.Panel>

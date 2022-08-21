@@ -19,7 +19,7 @@ const LoginView = () => {
   const { player, isLoading, handleAuthentication } = usePlayer();
 
   useEffect(() => {
-    if (player && player.personalToken) {
+    if (player && player.personal_token) {
       navigate("/player");
     }
   }, [navigate, player]);
@@ -32,6 +32,9 @@ const LoginView = () => {
     const playerData = { playerLogin, playerPassword };
     handleAuthentication(playerData)
       .unwrap()
+      .then(() => {
+        toast.success("Zostałeś zalogowany pomyślnie");
+      })
       .catch(() => {
         toast.error("Wystąpił problem z logowaniem, sprawdź wprowadzone dane.");
       });

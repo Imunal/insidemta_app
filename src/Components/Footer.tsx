@@ -1,4 +1,4 @@
-import Logo from "Assets/Images/Logo/logo_sideways.png";
+import Logo from "Assets/Images/Logo/logo.webp";
 
 const Footer = () => (
   <div className="p-5">
