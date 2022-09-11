@@ -5,9 +5,7 @@ export const useShop = () => {
   const dispatch = useAppDispatch();
 
   const status = useAppSelector((state) => state.vehicle.status);
-  const shopChargeOptions = useAppSelector(
-    (state) => state.shop.shopChargeOptions
-  );
+  const shopCharge = useAppSelector((state) => state.shop.shopCharge);
   const shops = useAppSelector((state) => state.shop.shops);
 
   const handleFetchShopChargeOptions = () => dispatch(fetchShopChargeOptions());
@@ -19,7 +17,7 @@ export const useShop = () => {
   const isSuccess = status === "fulfilled";
 
   return {
-    shopChargeOptions,
+    shopCharge,
     shops,
     handleFetchShops,
     handleFetchShopChargeOptions,

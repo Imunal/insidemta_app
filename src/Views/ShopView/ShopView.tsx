@@ -10,24 +10,23 @@ import Button from "Components/Button/Button";
 import Layout from "Components/Layout/Layout";
 import Panel from "Components/Panel";
 import Spacer from "Components/Spacer";
-import Modal from "Components/Modal/Modal";
 
 //Types
 import { Shop } from "Types/Shop";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ShopView = () => {
-  const {
-    isLoading,
-    shops,
-    handleFetchShops,
-    shopChargeOptions,
-    handleFetchShopChargeOptions,
-  } = useShop();
+  const navigate = useNavigate();
+  const { isLoading, shops, handleFetchShops, handleFetchShopChargeOptions } =
+    useShop();
 
   const { player } = usePlayer();
 
   useEffect(() => {
+    if (!player) {
+      toast.error("Zaloguj się aby skorzystać ze sklepu");
+      return navigate("/player/login");
+    }
     handleFetchShopChargeOptions();
     handleFetchShops();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,13 +39,6 @@ const ShopView = () => {
 
     toast.success("Usługa została zakupiona pomyślnie");
   };
-
-  const renderChargeOptions = () =>
-    shopChargeOptions.map((shopChargeOption) => (
-      <div className="text-gray-400" key={shopChargeOption.shop_charge_id}>
-        {shopChargeOption.shop_charge_name}
-      </div>
-    ));
 
   const renderShops = () =>
     shops.map((shop) => (
@@ -76,10 +68,10 @@ const ShopView = () => {
         <div className="p-10">
           <div className="flex justify-between">
             <h1 className="self-center text-xl font-bold text-gray-200">
-              Ilośc punktów premium: <b>{player ? player.premiumPoints : ""}</b>
+              Ilość punktów premium: <b>{player ? player.premiumPoints : ""}</b>
             </h1>
             <div className="w-64 self-center">
-              <Link to="shop/charge">
+              <Link to="charge">
                 <Button>Doładuj punkty premium</Button>
               </Link>
             </div>

@@ -48,50 +48,44 @@ const PlayerView = () => {
         <div className="self-center">
           <img
             className="w-48"
-            src={`https://cdn.inside-mta.pl/webp/skins/${searchedPlayer.player.skin}.webp`}
+            src={`https://cdn.inside-mta.pl/webp/skins/${searchedPlayer.skin}.webp`}
             alt="Skin"
             loading="lazy"
           />
         </div>
         <div className="self-center">
           <p className="mb-1">
-            UID: <b>{searchedPlayer.player.UID}</b>
+            UID: <b>{searchedPlayer.UID}</b>
           </p>
           <p className="mb-1">
             Typ konta:
-            {searchedPlayer.player.gold ? (
+            {searchedPlayer.gold ? (
               <span className="badge bg-warning text-dark mx-1">Gold</span>
             ) : (
               ""
             )}
-            {searchedPlayer.player.diamond ? (
+            {searchedPlayer.diamond ? (
               <span className="badge bg-info text-dark">Diament</span>
             ) : (
               ""
             )}
-            {!searchedPlayer.player.gold || !searchedPlayer.player.diamond ? (
+            {!searchedPlayer.gold || !searchedPlayer.diamond ? (
               <span className="badge bg-secondary">Zwykłe</span>
             ) : (
               ""
             )}
           </p>
           <p className="mb-1">
-            Nazwa: <b>{searchedPlayer.player.username}</b>
+            Nazwa: <b>{searchedPlayer.username}</b>
           </p>
           <p className="mb-1">
             Utworzono dnia:{" "}
-            <b>
-              {new Date(searchedPlayer.player.created).toLocaleDateString(
-                "pl-PL"
-              )}
-            </b>
+            <>{new Date(searchedPlayer.created).toLocaleDateString("pl-PL")}</>
           </p>
           <p className="mb-1">
             Ostatnio w grze:{" "}
             <b>
-              {new Date(searchedPlayer.player.created).toLocaleDateString(
-                "pl-PL"
-              )}
+              {new Date(searchedPlayer.created).toLocaleDateString("pl-PL")}
             </b>
           </p>
         </div>
@@ -104,7 +98,7 @@ const PlayerView = () => {
                   <div className="h-2 w-full rounded bg-slate-100">
                     <div
                       className="h-2 rounded bg-red-400"
-                      style={{ width: searchedPlayer.player.health }}
+                      style={{ width: searchedPlayer.health }}
                     />
                   </div>
                 </div>
@@ -112,15 +106,15 @@ const PlayerView = () => {
             </div>
           </div>
           <p className="mb-1">
-            Gotówka: <b>${searchedPlayer.player.money}</b>
+            Gotówka: <b>${searchedPlayer.money}</b>
           </p>
           <p className="mb-1">
-            Saldo konta bankowego: <b>${searchedPlayer.player.bankmoney}</b>
+            Saldo konta bankowego: <b>${searchedPlayer.bankmoney}</b>
           </p>
         </div>
       </div>
       <div className="mt-5">
-        {searchedPlayer.penalties.length ? (
+        {searchedPlayer.penalties && searchedPlayer.penalties.length ? (
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {renderPenalties()}
           </div>
@@ -129,7 +123,7 @@ const PlayerView = () => {
         )}
       </div>
       <div className="mt-5">
-        {searchedPlayer.vehicles.length ? (
+        {searchedPlayer.vehicles && searchedPlayer.vehicles.length ? (
           <div className="row">
             {<PlayerVehicles vehicles={searchedPlayer.vehicles} />}
           </div>
@@ -138,7 +132,7 @@ const PlayerView = () => {
         )}
       </div>
       <div className="mt-5">
-        {searchedPlayer.realestates.length ? (
+        {searchedPlayer.realestates && searchedPlayer.realestates.length ? (
           <div className="row">
             {<PlayerRealEstate realEstates={searchedPlayer.realestates} />}
           </div>
@@ -147,7 +141,7 @@ const PlayerView = () => {
         )}
       </div>
       <div className="mt-5">
-        {searchedPlayer.organizations.length ? (
+        {searchedPlayer.organizations && searchedPlayer.organizations.length ? (
           <div className="row">
             {
               <PlayerOrganizations

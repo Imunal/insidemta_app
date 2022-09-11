@@ -2,11 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "Configs/axios";
 
 //Types
-import { Organization } from "Types/Organization";
-import { Penaltie } from "Types/Penaltie";
 import { Player } from "Types/Player";
-import { RealEstate } from "Types/RealEstate";
-import { Vehicle } from "Types/Vehicle";
+import { SearchedPlayer } from "Types/SearchedPlayer";
 
 //Services
 import {
@@ -80,20 +77,12 @@ export const updatePlayerName = createAsyncThunk(
 //Types
 interface PlayerSliceTypes {
   player: Player;
-  vehicles: Vehicle[];
-  penalties: Penaltie[];
-  organizations: Organization[];
-  realestates: RealEstate[];
-  searchedPlayer: Player;
-  searchedPlayers: Player[];
+  searchedPlayer: SearchedPlayer;
+  searchedPlayers: SearchedPlayer[];
   status: string;
 }
 const initialState: PlayerSliceTypes = {
   player: null,
-  vehicles: [],
-  penalties: [],
-  organizations: [],
-  realestates: [],
   searchedPlayer: null,
   searchedPlayers: [],
   status: null,
@@ -109,13 +98,9 @@ export const playerSlice = createSlice({
       state.status = "pending";
     });
     builder.addCase(authenticate.fulfilled, (state, action) => {
-      playerAuthenticate(action.payload.player);
+      playerAuthenticate(action.payload);
       state.status = "fulfilled";
-      state.player = action.payload.player;
-      state.vehicles = action.payload.vehicles;
-      state.penalties = action.payload.penalties;
-      state.organizations = action.payload.organizations;
-      state.realestates = action.payload.realestates;
+      state.player = action.payload;
     });
     builder.addCase(authenticate.rejected, (state) => {
       state.status = "rejected";
@@ -125,10 +110,6 @@ export const playerSlice = createSlice({
     builder.addCase(logout.fulfilled, (state) => {
       state.status = "fulfilled";
       state.player = null;
-      state.vehicles = null;
-      state.penalties = null;
-      state.organizations = null;
-      state.realestates = null;
     });
 
     //player/fetchPlayer

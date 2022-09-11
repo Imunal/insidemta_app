@@ -21,12 +21,12 @@ export const fetchShops = createAsyncThunk("shop/fetchShops", async () => {
 
 //Types
 interface ShopSliceTypes {
-  shopChargeOptions: ShopCharge[];
+  shopCharge: ShopCharge[];
   shops: Shop[];
   status: string;
 }
 const initialState: ShopSliceTypes = {
-  shopChargeOptions: [],
+  shopCharge: [],
   shops: [],
   status: null,
 };
@@ -42,7 +42,7 @@ export const shopSlice = createSlice({
     });
     builder.addCase(fetchShopChargeOptions.fulfilled, (state, action) => {
       state.status = "fulfilled";
-      state.shopChargeOptions = action.payload;
+      state.shopCharge = action.payload;
     });
     builder.addCase(fetchShopChargeOptions.rejected, (state) => {
       state.status = "rejected";

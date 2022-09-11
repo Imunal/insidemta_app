@@ -3,10 +3,8 @@ import { Penaltie } from "./Penaltie";
 import { Organization } from "./Organization";
 import { RealEstate } from "./RealEstate";
 
-export type Player = {
+export type SearchedPlayer = {
   UID: number;
-  login: string;
-  email: string;
   username: string;
   usernameRP: string;
   created: Date;

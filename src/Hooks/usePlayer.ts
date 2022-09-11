@@ -14,10 +14,6 @@ export const usePlayer = () => {
 
   const status = useAppSelector((state) => state.player.status);
   const player = useAppSelector((state) => state.player.player);
-  const vehicles = useAppSelector((state) => state.player.vehicles);
-  const penalties = useAppSelector((state) => state.player.penalties);
-  const organizations = useAppSelector((state) => state.player.organizations);
-  const realestates = useAppSelector((state) => state.player.realestates);
   const searchedPlayer = useAppSelector((state) => state.player.searchedPlayer);
   const searchedPlayers = useAppSelector(
     (state) => state.player.searchedPlayers
@@ -46,10 +42,6 @@ export const usePlayer = () => {
 
   return {
     player,
-    vehicles,
-    penalties,
-    organizations,
-    realestates,
     searchedPlayer,
     searchedPlayers,
     handleAuthentication,

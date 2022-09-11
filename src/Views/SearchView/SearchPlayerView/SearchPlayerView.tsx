@@ -13,6 +13,7 @@ import { usePlayer } from "Hooks/usePlayer";
 //Types
 import { Player } from "Types/Player";
 import toast from "react-hot-toast";
+import { SearchedPlayer } from "Types/SearchedPlayer";
 
 const SearchView = () => {
   const [searchName, setSearchName] = useState("");
@@ -36,7 +37,7 @@ const SearchView = () => {
     <>
       <hr className="mt-3 mb-3" />
       <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-4">
-        {searchedPlayers.map((player: Player) => (
+        {searchedPlayers.map((player: SearchedPlayer) => (
           <div className="mb-3" key={player.UID}>
             <Link to={`/player/${player.UID}`}>
               <div className="rounded-md bg-inside-bg-light p-3 text-center">

@@ -59,14 +59,7 @@ const AccountView = () => {
   const navigate = useNavigate();
   const [selectedPaginate, setPaginate] = useState(1);
 
-  const {
-    player,
-    organizations,
-    penalties,
-    vehicles,
-    realestates,
-    handleLogout,
-  } = usePlayer();
+  const { player, handleLogout } = usePlayer();
 
   useEffect(() => {
     if (!player && !player.personal_token) {
@@ -97,13 +90,15 @@ const AccountView = () => {
   const renderPagination = () => {
     switch (selectedPaginate) {
       case 1:
-        return <PlayerInformation player={player} penalties={penalties} />;
+        return (
+          <PlayerInformation player={player} penalties={player.penalties} />
+        );
       case 2:
-        return <PlayerVehicles vehicles={vehicles} />;
+        return <PlayerVehicles vehicles={player.vehicles} />;
       case 3:
-        return <PlayerRealEstate realEstates={realestates} />;
+        return <PlayerRealEstate realEstates={player.realestates} />;
       case 4:
-        return <PlayerOrganizations organizations={organizations} />;
+        return <PlayerOrganizations organizations={player.organizations} />;
       case 5:
         return <PlayerSettings />;
       case 6:
